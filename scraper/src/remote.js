@@ -1,12 +1,23 @@
 const axios = require("axios")
-const HOST = "http://bstodb.staging.it-tf.ch/"
+const HOST = "http://neoflix-dev.staging.it-tf.ch/"
 
 let loggerReady = true
 
 module.exports = {
+    job: () => {
+        return new Promise(async (resolve) => {
+            console.log(HOST + "queue/job");
+
+            axios.get(HOST + "queue/job").then(response => {
+                resolve(response.data)
+            }).catch(err => {
+                console.log(err)
+            })
+        })
+    },
     status: async function() {
         return new Promise(async (resolve) => {
-            axios.post(HOST + "status").then(response => {
+            axios.post(HOST + "queue/status").then(response => {
                 resolve(response.data)
             }).catch(err => {
                 console.log(err)
@@ -14,10 +25,6 @@ module.exports = {
         })
     },
     dispatch: async function(data) {
-
-        console.log("dispathing now:");
-        console.log(data);
-
         return new Promise(resolve => {
             axios.post(HOST + "show", data)
             .then(response => {

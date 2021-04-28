@@ -1,10 +1,10 @@
 const remote = require("./src/remote")
 const scraper = require("./src/scraper")
-//const VPN = require("./src/vpn")
+const VPN = require("./src/vpn")
 const storage = require("./src/localStorage")
 
 async function init() {
-    //await VPN.disconnect()
+    await VPN.disconnect()
     await scraper.init()
 
     const job = await remote.job()
@@ -23,6 +23,7 @@ async function scrapeShow(show) {
             currentEpisodeIndex = 0
             for (episode of season.episodes) {
                 currentEpisodeIndex += 1
+
                 const localEpisode = storage.get(episode.href)
                 if (localEpisode == false) {
                     let redo = true

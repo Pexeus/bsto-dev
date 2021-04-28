@@ -13,15 +13,16 @@ let browser
 module.exports = {
     init: async function() {
         return new Promise( async (resolve) => {
+            await profileManager.init()
             await profileManager.clear()
 
             browser = await puppeteer.launch({ 
                 product: 'firefox',
                 headless: false,
                 defaultViewport: null,
-                userDataDir: "./browserData/browserProfile",
+                //userDataDir: "./browserData/browserProfile",
                 args: [
-                    '--no-sandbox'
+                    '--no-sandbox',
                 ]
             });
 
@@ -319,9 +320,10 @@ async function triggerCaptcha(tab) {
         await tab.click('[class="play"]')
         let loop = true
 
+        remote.log("waiting for captcha...");
+
         while(loop == true) {
             const frames = await tab.frames()
-            remote.log("waiting for captcha...");
             
             frames.forEach(frame => {
                 if (frame._url.includes("https://www.google.com/recaptcha/api2/bframe")) {
@@ -390,10 +392,11 @@ async function skipAds(tab, title) {
 
         try {
             await tab.click('[class="play"]')
+            
+            remote.log("waiting for captcha...");
 
             while(loop == true) {
                 const frames = await tab.frames()
-                remote.log("waiting for captcha...");
                 
                 frames.forEach(frame => {
                     if (frame._url.includes("https://www.google.com/recaptcha/api2/bframe")) {
@@ -423,7 +426,7 @@ async function checkVivoAvailability(tab) {
             const inner = await title.getProperty('innerHTML');
             const text = await inner.jsonValue();
 
-            if (text.includes("vivo")) {
+            if (text.includes("Vivo")) {
                 resolve(true)
             }
             else {

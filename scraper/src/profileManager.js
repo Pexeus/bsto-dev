@@ -1,6 +1,12 @@
 const fs = require('fs');
+const { resolve } = require('path');
 const path = require('path');
 const rimraf = require('rimraf');
+
+const directories = [
+  "browserData",
+  "browserData/browserProfile",
+]
 
 module.exports = {
   clear: async function() {
@@ -10,23 +16,40 @@ module.exports = {
 
       resolve(check)
     })
+  },
+  init: () => {
+    return new Promise(resolve => {
+      console.log("initiating profile manager");
+
+      directories.forEach(dir => {
+        if(!fs.existsSync(dir)) {
+          console.log(`created directory ${dir}`);
+
+          fs.mkdirSync(dir)
+        }
+      })
+
+      resolve(true)
+    })
   }
 }
 
 function clear(directory) {
   return new Promise(resolve => {
-    fs.readdir(directory, (err, files) => {
-      if (err) throw err;
-    
-      for (const file of files) {
-        rimraf(path.join(directory, file), function(err) {
-          if (err) {
-            console.log(err)
-            resolve(false)
-          }
-        })
-      }
-    });
+    if (fs.existsSync(directory)) {
+      fs.readdir(directory, (err, files) => {
+        if (err) throw err;
+      
+        for (const file of files) {
+          rimraf(path.join(directory, file), function(err) {
+            if (err) {
+              console.log(err)
+              resolve(false)
+            }
+          })
+        }
+      });
+    }
   
     console.log("> cleared cache")
 

@@ -4,7 +4,7 @@ const VPN = require("./src/vpn")
 const storage = require("./src/localStorage")
 
 async function init() {
-    await VPN.disconnect()
+    await VPN.reconnect()
     await scraper.init()
 
     const job = await remote.job()

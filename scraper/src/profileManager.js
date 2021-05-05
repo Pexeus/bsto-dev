@@ -1,11 +1,12 @@
-const fs = require('fs');
-const { resolve } = require('path');
+const fs = require('fs-extra');
+const bash = require("shelljs")
 const path = require('path');
 const rimraf = require('rimraf');
 
 const directories = [
   "browserData",
   "browserData/browserProfile",
+  "browserData/browserProfileClean",
 ]
 
 module.exports = {
@@ -19,15 +20,25 @@ module.exports = {
   },
   init: () => {
     return new Promise(resolve => {
-      console.log("initiating profile manager");
+      console.log("[PM] initiating profile manager");
 
       directories.forEach(dir => {
         if(!fs.existsSync(dir)) {
-          console.log(`created directory ${dir}`);
+          console.log(`[PM] created directory ${dir}`);
 
           fs.mkdirSync(dir)
         }
       })
+
+      resolve(true)
+    })
+  },
+  resetProfile: async () => {
+    return new Promise(async resolve => {
+      console.log("[PM] resetting current profile")
+
+      await bash.rm("-rf", "./browserData/browserProfile")
+      await bash.cp("-rf", "./browserData/browserProfileClean", "./browserData/browserProfile");
 
       resolve(true)
     })
@@ -50,8 +61,6 @@ function clear(directory) {
         }
       });
     }
-  
-    console.log("> cleared cache")
 
     resolve(true)
   })

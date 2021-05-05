@@ -4,6 +4,7 @@ const VPN = require("./src/vpn")
 const storage = require("./src/localStorage")
 
 async function init() {
+    console.clear()
     await VPN.disconnect()
     await scraper.init()
 
@@ -67,7 +68,8 @@ async function scrapeEpisode(episode) {
             remote.log("[!] getting new IP...")
             await VPN.reconnect()
             remote.log("[!] rebooting scraper...")
-            await scraper.reboot()
+            await scraper.close()
+            await scraper.init()
 
             resolve(result)
         }
@@ -75,7 +77,8 @@ async function scrapeEpisode(episode) {
             remote.log("[!] getting new IP...")
             await VPN.reconnect()
             remote.log("[!] rebooting scraper...")
-            await scraper.reboot()
+            await scraper.close()
+            await scraper.init()
 
             resolve(result)
         }

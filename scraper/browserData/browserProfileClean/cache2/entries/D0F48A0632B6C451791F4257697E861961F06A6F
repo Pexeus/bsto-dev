@@ -1,0 +1,1234 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; object-src 'none'; script-src resource: chrome:; connect-src https:; img-src https: data: blob:; style-src 'unsafe-inline';">
+    <title data-l10n-id="newtab-page-title"></title>
+    <link rel="icon" type="image/png" href="chrome://branding/content/icon32.png"/>
+    <link rel="localization" href="branding/brand.ftl" />
+    <link rel="localization" href="browser/branding/brandings.ftl" />
+    <link rel="localization" href="browser/newtab/newtab.ftl" />
+    <link rel="stylesheet" href="chrome://browser/content/contentSearchUI.css" />
+    <link rel="stylesheet" href="chrome://activity-stream/content/css/activity-stream.css" />
+  </head>
+  <!-- Cached: Fri, 30 Apr 2021 12:50:32 GMT -->
+  <body class="activity-stream">
+    <div id="header-asrouter-container" role="presentation"></div>
+    <div id="root">
+      <div><span><button class="personalize-button" data-l10n-id="newtab-personalize-button-label"></button><div class="customize-menu"><button class="close-button" data-l10n-id="newtab-custom-close-button"></button><div></div><div></div><div class="home-section"><div id="shortcuts-section" class="section"><label class="switch"><input type="checkbox" id="shortcuts-toggle" checked="" preference="feeds.topsites" aria-labelledby="custom-shortcuts-title" aria-describedby="custom-shortcuts-subtitle" eventSource="TOP_SITES"/><span class="slider" role="presentation"></span></label><div><h2 id="custom-shortcuts-title" class="title"><label for="shortcuts-toggle" data-l10n-id="newtab-custom-shortcuts-title"></label></h2><p id="custom-shortcuts-subtitle" class="subtitle" data-l10n-id="newtab-custom-shortcuts-subtitle"></p><div class="more-info-top-wrapper "><div class="more-information expand"><select id="row-selector" class="selector" name="row-count" preference="topSitesRows" aria-labelledby="custom-shortcuts-title"><option selected="" value="1" data-l10n-id="newtab-custom-row-selector" data-l10n-args="{&quot;num&quot;: 1}"></option><option value="2" data-l10n-id="newtab-custom-row-selector" data-l10n-args="{&quot;num&quot;: 2}"></option><option value="3" data-l10n-id="newtab-custom-row-selector" data-l10n-args="{&quot;num&quot;: 3}"></option><option value="4" data-l10n-id="newtab-custom-row-selector" data-l10n-args="{&quot;num&quot;: 4}"></option></select><div class="check-wrapper" role="presentation"><input type="checkbox" id="sponsored-shortcuts" class="sponsored-checkbox" checked="" preference="showSponsoredTopSites" eventSource="SPONSORED_TOP_SITES"/><label class="sponsored" for="sponsored-shortcuts" data-l10n-id="newtab-custom-sponsored-sites"></label></div></div></div></div></div><div id="pocket-section" class="section"><label class="switch"><input type="checkbox" id="pocket-toggle" checked="" preference="feeds.section.topstories" aria-labelledby="custom-pocket-title" aria-describedby="custom-pocket-subtitle" eventSource="TOP_STORIES"/><span class="slider" role="presentation"></span></label><div><h2 id="custom-pocket-title" class="title"><label for="pocket-toggle" data-l10n-id="newtab-custom-pocket-title"></label></h2><p id="custom-pocket-subtitle" class="subtitle" data-l10n-id="newtab-custom-pocket-subtitle"></p></div></div><div id="recent-section" class="section"><label class="switch"><input type="checkbox" id="highlights-toggle" preference="feeds.section.highlights" eventSource="HIGHLIGHTS" aria-labelledby="custom-recent-title" aria-describedby="custom-recent-subtitle"/><span class="slider" role="presentation"></span></label><div><h2 id="custom-recent-title" class="title"><label for="highlights-toggle" data-l10n-id="newtab-custom-recent-title"></label></h2><p id="custom-recent-subtitle" class="subtitle" data-l10n-id="newtab-custom-recent-subtitle"></p></div></div><div id="snippets-section" class="section"><label class="switch"><input type="checkbox" id="snippets-toggle" checked="" preference="feeds.snippets" aria-labelledby="custom-snippets-title" aria-describedby="custom-snippets-subtitle" eventSource="SNIPPETS"/><span class="slider" role="presentation"></span></label><div><h2 id="custom-snippets-title" class="title"><label for="snippets-toggle" data-l10n-id="newtab-custom-snippets-title"></label></h2><p id="custom-snippets-subtitle" class="subtitle" data-l10n-id="newtab-custom-snippets-subtitle"></p></div></div><span class="divider" role="separator"></span><div><button id="settings-link" class="external-link" data-l10n-id="newtab-custom-settings"></button></div></div></div></span><div class="outer-wrapper ds-outer-wrapper-search-alignment ds-outer-wrapper-breakpoint-override visible-logo newtab-experience"><main><div class="non-collapsible-section"><div class="search-wrapper"><div class="logo-and-wordmark"><div class="logo"></div><div class="wordmark"></div></div><div class="search-inner-wrapper"><button class="search-handoff-button" data-l10n-id="newtab-search-box-handoff-input" data-l10n-args="{&quot;engine&quot;: &quot;Google&quot;}" tabindex="-1"><div class="fake-textbox" data-l10n-id="newtab-search-box-handoff-text" data-l10n-args="{&quot;engine&quot;: &quot;Google&quot;}"></div><input type="search" class="fake-editable" tabindex="-1" aria-hidden="true"/><div class="fake-caret"></div></button></div></div></div><div class="body-wrapper on"><div class="discovery-stream ds-layout"><div class="ds-column ds-column-12"><div class="ds-column-grid"><div><div class="ds-top-sites "><section class="collapsible-section top-sites animation-enabled" aria-expanded="true" data-section-id="topsites"><div class="section-top-bar"><h3 class="section-title" style="visibility:hidden"><span class="click-target-container"><span class="click-target" role="button" tabindex="0"><span data-l10n-id="newtab-section-header-topsites"></span></span><span class="learn-more-link-wrapper"></span></span></h3></div><div class="section-body"><ul class="top-sites-list"><li class="top-site-outer"><div class="top-site-inner"><a class="top-site-button" href="https://bs.to/serie/Die-Simpsons/1/2-Bart-wird-ein-Genie/" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="b"><div class="screenshot active" style="background-image:url(moz-page-thumb://thumbnails/?url=https%3A%2F%2Fbs.to%2Fserie%2FDie-Simpsons%2F1%2F2-Bart-wird-ein-Genie%2F&amp;revision=1737)"></div><div class="top-site-icon default-icon" style="background-image:url(data:image/png;base64,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)"></div></div></div><div class="title"><span dir="auto">bs<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;bs&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer"><div class="top-site-inner"><a class="top-site-button" href="https://apiecelee.com/u282mgam?key=0f22c1fd609f13cb7947c8cabfe1a90d&amp;submetric=15992426" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper letter-fallback" data-fallback="a" style="background-color:#FF4F5F"><div class="" style="background-image:url(moz-page-thumb://thumbnails/?url=https%3A%2F%2Fapiecelee.com%2Fu282mgam%3Fkey%3D0f22c1fd609f13cb7947c8cabfe1a90d%26submetric%3D15992426&amp;revision=4210)"></div></div></div><div class="title"><span dir="auto">apiecelee<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;apiecelee&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer"><div class="top-site-inner"><a class="top-site-button" href="https://www.greatdexchange.com/jump/next.php?r=4419791" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper letter-fallback" data-fallback="g" style="background-color:#FF7139"><div class="" style="background-image:url(moz-page-thumb://thumbnails/?url=https%3A%2F%2Fwww.greatdexchange.com%2Fjump%2Fnext.php%3Fr%3D4419791&amp;revision=4782)"></div></div></div><div class="title"><span dir="auto">greatdexchange<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;greatdexchange&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer"><div class="top-site-inner"><a class="top-site-button" href="https://vivo.sx/c73377d234" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="v"><div class="screenshot active" style="background-image:url(moz-page-thumb://thumbnails/?url=https%3A%2F%2Fvivo.sx%2Fc73377d234&amp;revision=7942)"></div><div class="top-site-icon default-icon" style="background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABSElEQVQ4jaWTvU4CURCFDxXxQYwFoVSfgsbO2EtjYWHpO2woMPE1bI2tBfcWSxDREIOIFsTCRH5kxeWzWHa5i7s2THKSm53ZL3PmzhVQcCWfkgyeLB1ZgqU6MnjyKf2pTw5dirLUZQllIFNR7lIDtlIAdSnKcB0XHvegMYavMFJjHH1zQDfqUlwBLHUZ2G6BPyU37qaw00ogdaAg+ZTitpvOz2EOxJ86dnxKksGL23bjdAhXo2yQY8fTcsKYSbro8BV2e3D0Brdrtswk6aIjWQIZmC3SRQeDCBDrZAgPQZSbLRJAkAuoOIC9Zzgbwv0S8PmTAEa5FioD2O/B+Ts8fadzdmWhnTvEiw94mWdM0B2ipSZZylnXmBdN9xot5c0XiYxVrvYjn8ECRmF0rvb/WWU2fUysP2dLTYZHGeayTGRpy1KTpbxe/wt46jBiAslVMQAAAABJRU5ErkJggg==)"></div></div></div><div class="title"><span dir="auto">vivo<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;vivo&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer"><div class="top-site-inner"><a class="top-site-button" href="https://www.youtube.com/" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="Y"><div class="top-site-icon rich-icon" style="background-image:url(chrome://activity-stream/content/data/content/tippytop/images/youtube-com@2x.png)"></div></div></div><div class="title"><span dir="auto">YouTube<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;YouTube&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer"><div class="top-site-inner"><a class="top-site-button" href="https://www.facebook.com/" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="F"><div class="top-site-icon rich-icon" style="background-image:url(chrome://activity-stream/content/data/content/tippytop/images/facebook-com@2x.png)"></div></div></div><div class="title"><span dir="auto">Facebook<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Facebook&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer hide-for-narrow"><div class="top-site-inner"><a class="top-site-button" href="https://www.wikipedia.org/" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="W"><div class="top-site-icon rich-icon" style="background-image:url(chrome://activity-stream/content/data/content/tippytop/images/wikipedia-org@2x.png)"></div></div></div><div class="title"><span dir="auto">Wikipedia<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Wikipedia&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer hide-for-narrow"><div class="top-site-inner"><a class="top-site-button" href="https://www.reddit.com/" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="R"><div class="top-site-icon rich-icon" style="background-image:url(chrome://activity-stream/content/data/content/tippytop/images/reddit-com@2x.png)"></div></div></div><div class="title"><span dir="auto">Reddit<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Reddit&quot;}" class="context-menu-button icon"></button></div></div></li></ul><div class="edit-topsites-wrapper"></div></div></section></div></div></div></div><style data-styles="[[null]]"></style></div><div class="discovery-stream ds-layout"><div class="ds-column ds-column-12"><div class="ds-column-grid"><div></div></div></div><style data-styles="[[null]]"></style></div><section class="collapsible-section ds-layout animation-enabled" aria-expanded="true" data-section-id="topstories"><div class="section-top-bar"><h3 class="section-title"><span class="click-target-container"><span class="click-target" role="button" tabindex="0"><span data-l10n-args="{&quot;provider&quot;:&quot;Pocket&quot;}" data-l10n-id="newtab-section-header-pocket"></span></span><span class="learn-more-link-wrapper"><span class="learn-more-link"><a href="https://getpocket.com/firefox/new_tab_learn_more" data-l10n-id="newtab-pocket-learn-more"></a></span></span></span></h3></div><div class="section-body"><div class="discovery-stream ds-layout"><div class="ds-column ds-column-12"><div class="ds-column-grid"><div><div><div class="ds-card-grid ds-card-grid-border "><div class="ds-card "><a href="https://time.com/5955632/good-conflict-heres-how-it-works/?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://api.time.com/wp-content/uploads/2021/04/bj-workshop.jpeg?quality=85&amp;w=1200&amp;h=628&amp;crop=1" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fapi.time.com%2Fwp-content%2Fuploads%2F2021%2F04%2Fbj-workshop.jpeg%3Fquality%3D85%26w%3D1200%26h%3D628%26crop%3D1 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fapi.time.com%2Fwp-content%2Fuploads%2F2021%2F04%2Fbj-workshop.jpeg%3Fquality%3D85%26w%3D1200%26h%3D628%26crop%3D1 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fapi.time.com%2Fwp-content%2Fuploads%2F2021%2F04%2Fbj-workshop.jpeg%3Fquality%3D85%26w%3D1200%26h%3D628%26crop%3D1 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fapi.time.com%2Fwp-content%2Fuploads%2F2021%2F04%2Fbj-workshop.jpeg%3Fquality%3D85%26w%3D1200%26h%3D628%26crop%3D1 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fapi.time.com%2Fwp-content%2Fuploads%2F2021%2F04%2Fbj-workshop.jpeg%3Fquality%3D85%26w%3D1200%26h%3D628%26crop%3D1 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fapi.time.com%2Fwp-content%2Fuploads%2F2021%2F04%2Fbj-workshop.jpeg%3Fquality%3D85%26w%3D1200%26h%3D628%26crop%3D1 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">time.com</p><header class="title clamp">We Need More &#x27;Good Conflict&#x27; in Our Lives. Here&#x27;s How It Works</header><p class="excerpt clamp">Good conflict can be stressful and heated, but it doesn’t collapse into caricature.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;We Need More &#x27;Good Conflict&#x27; in Our Lives. Here&#x27;s How It Works&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://getpocket.com/explore/item/slow-cooker-honey-garlic-chicken?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://pocket-image-cache.com/1200x/filters:no_upscale():format(jpg):extract_cover()/https%3A%2F%2Fpocket-syndicated-images.s3.amazonaws.com%2Farticles%2F6261%2F1618955550_607f4bd6e9219.png" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6261%252F1618955550_607f4bd6e9219.png 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6261%252F1618955550_607f4bd6e9219.png 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6261%252F1618955550_607f4bd6e9219.png 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6261%252F1618955550_607f4bd6e9219.png 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6261%252F1618955550_607f4bd6e9219.png 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6261%252F1618955550_607f4bd6e9219.png 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">wellplated.com</p><header class="title clamp">Slow Cooker Honey Garlic Chicken Recipe</header><p class="excerpt clamp">The recipe is only eight ingredients (nine if you are a stickler and count the rice).</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Slow Cooker Honey Garlic Chicken Recipe&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.theguardian.com/news/2021/apr/28/crime-against-humanity-arundhati-roy-india-covid-catastrophe?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://i.guim.co.uk/img/media/2e007841085f5d6440eb854f80c5d0108233858e/165_0_4737_2842/master/4737.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=b61c084ca31771a9fbc83184aadaafd8" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F2e007841085f5d6440eb854f80c5d0108233858e%2F165_0_4737_2842%2Fmaster%2F4737.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Db61c084ca31771a9fbc83184aadaafd8 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F2e007841085f5d6440eb854f80c5d0108233858e%2F165_0_4737_2842%2Fmaster%2F4737.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Db61c084ca31771a9fbc83184aadaafd8 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F2e007841085f5d6440eb854f80c5d0108233858e%2F165_0_4737_2842%2Fmaster%2F4737.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Db61c084ca31771a9fbc83184aadaafd8 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F2e007841085f5d6440eb854f80c5d0108233858e%2F165_0_4737_2842%2Fmaster%2F4737.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Db61c084ca31771a9fbc83184aadaafd8 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F2e007841085f5d6440eb854f80c5d0108233858e%2F165_0_4737_2842%2Fmaster%2F4737.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Db61c084ca31771a9fbc83184aadaafd8 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F2e007841085f5d6440eb854f80c5d0108233858e%2F165_0_4737_2842%2Fmaster%2F4737.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Db61c084ca31771a9fbc83184aadaafd8 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">theguardian.com</p><header class="title clamp">‘We are witnessing a crime against humanity’: Arundhati Roy on India’s Covid catastrophe</header><p class="excerpt clamp">During a particularly polarising election campaign in the state of Uttar Pradesh in 2017, India’s prime minister, Narendra Modi, waded into the fray to stir things up even further.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;‘We are witnessing a crime against humanity’: Arundhati Roy on India’s Covid catastrophe&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.abc.net.au/news/science/2021-04-18/cockroaches-insects-reasons-love-them-environment/100053056?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://live-production.wcms.abc-cdn.net.au/4a3c0562d7553eb1e108c3f90348ff54?impolicy=wcms_crop_resize&amp;cropH=529&amp;cropW=940&amp;xPos=0&amp;yPos=97&amp;width=862&amp;height=485" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">abc.net.au</p><header class="title clamp">Cockroaches can be smart and beautiful — and might even save the planet</header><p class="excerpt clamp">Many people are disgusted by cockroaches — it&#x27;s even thought they&#x27;re the top insect feared by humans. But not all that you&#x27;ve heard about them is true.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Cockroaches can be smart and beautiful — and might even save the planet&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.wired.co.uk/article/nft-memes-2010s?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://wi-images.condecdn.net/image/poYE9Zw7arL/crop/1440/0.5235602094240838/f/wired-meme-nft-brian.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FpoYE9Zw7arL%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-meme-nft-brian.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FpoYE9Zw7arL%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-meme-nft-brian.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FpoYE9Zw7arL%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-meme-nft-brian.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FpoYE9Zw7arL%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-meme-nft-brian.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FpoYE9Zw7arL%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-meme-nft-brian.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FpoYE9Zw7arL%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-meme-nft-brian.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">wired.co.uk</p><header class="title clamp">They were ancient internet memes. Now NFTs are making them rich</header><p class="excerpt clamp">Zoe Roth is 21 and gearing up to graduate from university. Sixteen years ago she was standing in front of a burning building in North Carolina when her dad, an amateur photographer, snapped a picture that would take on a whole life of its own.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;They were ancient internet memes. Now NFTs are making them rich&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.zdnet.com/article/stop-using-your-work-laptop-or-phone-for-personal-stuff-because-i-know-you-are/?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://www.zdnet.com/a/hub/i/r/2021/04/25/18ef131e-515e-4d98-916b-e7a142555c79/thumbnail/770x578/6953198dbc45a63672cd398f72dc0b2f/shutterstock-155087399.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.zdnet.com%2Fa%2Fhub%2Fi%2Fr%2F2021%2F04%2F25%2F18ef131e-515e-4d98-916b-e7a142555c79%2Fthumbnail%2F770x578%2F6953198dbc45a63672cd398f72dc0b2f%2Fshutterstock-155087399.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.zdnet.com%2Fa%2Fhub%2Fi%2Fr%2F2021%2F04%2F25%2F18ef131e-515e-4d98-916b-e7a142555c79%2Fthumbnail%2F770x578%2F6953198dbc45a63672cd398f72dc0b2f%2Fshutterstock-155087399.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.zdnet.com%2Fa%2Fhub%2Fi%2Fr%2F2021%2F04%2F25%2F18ef131e-515e-4d98-916b-e7a142555c79%2Fthumbnail%2F770x578%2F6953198dbc45a63672cd398f72dc0b2f%2Fshutterstock-155087399.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.zdnet.com%2Fa%2Fhub%2Fi%2Fr%2F2021%2F04%2F25%2F18ef131e-515e-4d98-916b-e7a142555c79%2Fthumbnail%2F770x578%2F6953198dbc45a63672cd398f72dc0b2f%2Fshutterstock-155087399.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.zdnet.com%2Fa%2Fhub%2Fi%2Fr%2F2021%2F04%2F25%2F18ef131e-515e-4d98-916b-e7a142555c79%2Fthumbnail%2F770x578%2F6953198dbc45a63672cd398f72dc0b2f%2Fshutterstock-155087399.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.zdnet.com%2Fa%2Fhub%2Fi%2Fr%2F2021%2F04%2F25%2F18ef131e-515e-4d98-916b-e7a142555c79%2Fthumbnail%2F770x578%2F6953198dbc45a63672cd398f72dc0b2f%2Fshutterstock-155087399.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">zdnet.com</p><header class="title clamp">Stop using your work laptop or phone for personal stuff, because I know you are</header><p class="excerpt clamp">A former IT pro turned end user explains why blending your work and personal tech was, is and always will be a bad idea for you and your employer.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Stop using your work laptop or phone for personal stuff, because I know you are&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="http://www.capitaldaily.ca/news/the-man-who-stole-a-hotel?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://assets.website-files.com/5d97efece288d82cde97d5f3/607f2ab45f77614d4997dd52_Durkin-Story-Final.png" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fassets.website-files.com%2F5d97efece288d82cde97d5f3%2F607f2ab45f77614d4997dd52_Durkin-Story-Final.png 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fassets.website-files.com%2F5d97efece288d82cde97d5f3%2F607f2ab45f77614d4997dd52_Durkin-Story-Final.png 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fassets.website-files.com%2F5d97efece288d82cde97d5f3%2F607f2ab45f77614d4997dd52_Durkin-Story-Final.png 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fassets.website-files.com%2F5d97efece288d82cde97d5f3%2F607f2ab45f77614d4997dd52_Durkin-Story-Final.png 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fassets.website-files.com%2F5d97efece288d82cde97d5f3%2F607f2ab45f77614d4997dd52_Durkin-Story-Final.png 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fassets.website-files.com%2F5d97efece288d82cde97d5f3%2F607f2ab45f77614d4997dd52_Durkin-Story-Final.png 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">capitaldaily.ca</p><header class="title clamp">The man who stole a hotel</header><p class="excerpt clamp">A fugitive from the US started fresh on Vancouver Island—then bilked new victims out of millions of dollars while law enforcement refused to act.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;The man who stole a hotel&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://getpocket.com/explore/item/all-companies-should-live-by-the-jeff-bezos-70-percent-rule?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://pocket-image-cache.com/1200x/filters:no_upscale():format(jpg):extract_cover()/https%3A%2F%2Fpocket-syndicated-images.s3.amazonaws.com%2Farticles%2F6260%2F1618955072_GettyImages-1148068754.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6260%252F1618955072_GettyImages-1148068754.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6260%252F1618955072_GettyImages-1148068754.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6260%252F1618955072_GettyImages-1148068754.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6260%252F1618955072_GettyImages-1148068754.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6260%252F1618955072_GettyImages-1148068754.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6260%252F1618955072_GettyImages-1148068754.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">inc.com</p><header class="title clamp">All Companies Should Live by the Jeff Bezos 70 Percent Rule</header><p class="excerpt clamp">A guide to making business decisions—even without all the information—inspired by the Amazon CEO.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;All Companies Should Live by the Jeff Bezos 70 Percent Rule&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.nytimes.com/2021/04/26/technology/mark-zuckerberg-tim-cook-facebook-apple.html?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://static01.nyt.com/images/2021/04/17/business/17facebookapple/17facebookapple-facebookJumbo.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F17%2Fbusiness%2F17facebookapple%2F17facebookapple-facebookJumbo.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F17%2Fbusiness%2F17facebookapple%2F17facebookapple-facebookJumbo.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F17%2Fbusiness%2F17facebookapple%2F17facebookapple-facebookJumbo.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F17%2Fbusiness%2F17facebookapple%2F17facebookapple-facebookJumbo.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F17%2Fbusiness%2F17facebookapple%2F17facebookapple-facebookJumbo.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F17%2Fbusiness%2F17facebookapple%2F17facebookapple-facebookJumbo.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">nytimes.com</p><header class="title clamp">Breaking Point: How Mark Zuckerberg and Tim Cook Became Foes</header><p class="excerpt clamp">The chief executives of Facebook and Apple have opposing visions for the future of the internet. Their differences are set to escalate this week. SAN FRANCISCO — At a confab for tech and media moguls in Sun Valley, Idaho, in July 2019, Timothy D.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Breaking Point: How Mark Zuckerberg and Tim Cook Became Foes&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.newyorker.com/news/daily-comment/why-bitcoin-is-bad-for-the-environment?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://media.newyorker.com/photos/6081c7aaf337d5bd7f4020b9/16:9/w_1280,c_limit/Kolbert-Bitcoin.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6081c7aaf337d5bd7f4020b9%2F16%3A9%2Fw_1280%2Cc_limit%2FKolbert-Bitcoin.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6081c7aaf337d5bd7f4020b9%2F16%3A9%2Fw_1280%2Cc_limit%2FKolbert-Bitcoin.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6081c7aaf337d5bd7f4020b9%2F16%3A9%2Fw_1280%2Cc_limit%2FKolbert-Bitcoin.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6081c7aaf337d5bd7f4020b9%2F16%3A9%2Fw_1280%2Cc_limit%2FKolbert-Bitcoin.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6081c7aaf337d5bd7f4020b9%2F16%3A9%2Fw_1280%2Cc_limit%2FKolbert-Bitcoin.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6081c7aaf337d5bd7f4020b9%2F16%3A9%2Fw_1280%2Cc_limit%2FKolbert-Bitcoin.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">newyorker.com</p><header class="title clamp">Why Bitcoin Is Bad for the Environment</header><p class="excerpt clamp">Money, it’s often said, is a shared fiction. I give you a slip of paper or, more likely these days, a piece of plastic. You hand me eggs or butter or a White Chocolate Mocha Frappuccino, and we both walk away satisfied.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Why Bitcoin Is Bad for the Environment&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.wired.com/story/35-years-later-studies-show-a-silver-lining-from-chernobyl/?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://media.wired.com/photos/6083129fee32045691f62b5b/191:100/w_1280,c_limit/Science_chernobyl_1232301220.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6083129fee32045691f62b5b%2F191%3A100%2Fw_1280%2Cc_limit%2FScience_chernobyl_1232301220.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6083129fee32045691f62b5b%2F191%3A100%2Fw_1280%2Cc_limit%2FScience_chernobyl_1232301220.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6083129fee32045691f62b5b%2F191%3A100%2Fw_1280%2Cc_limit%2FScience_chernobyl_1232301220.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6083129fee32045691f62b5b%2F191%3A100%2Fw_1280%2Cc_limit%2FScience_chernobyl_1232301220.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6083129fee32045691f62b5b%2F191%3A100%2Fw_1280%2Cc_limit%2FScience_chernobyl_1232301220.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6083129fee32045691f62b5b%2F191%3A100%2Fw_1280%2Cc_limit%2FScience_chernobyl_1232301220.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">wired.com</p><header class="title clamp">35 Years Later, Studies Show a Silver Lining From Chernobyl</header><p class="excerpt clamp">One new study found that radiation exposure didn’t genetically harm future generations, while another offers insights into how radiation causes thyroid cancer.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;35 Years Later, Studies Show a Silver Lining From Chernobyl&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.theguardian.com/us-news/2021/apr/28/bidens-speech-to-congress-five-key-takeaways?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://i.guim.co.uk/img/media/14cf9579dcf5705c9f1d6747f809a599b753153e/0_253_3419_2052/master/3419.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=ed054eb4acdac9250410324a8658a21a" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F14cf9579dcf5705c9f1d6747f809a599b753153e%2F0_253_3419_2052%2Fmaster%2F3419.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Ded054eb4acdac9250410324a8658a21a 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F14cf9579dcf5705c9f1d6747f809a599b753153e%2F0_253_3419_2052%2Fmaster%2F3419.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Ded054eb4acdac9250410324a8658a21a 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F14cf9579dcf5705c9f1d6747f809a599b753153e%2F0_253_3419_2052%2Fmaster%2F3419.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Ded054eb4acdac9250410324a8658a21a 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F14cf9579dcf5705c9f1d6747f809a599b753153e%2F0_253_3419_2052%2Fmaster%2F3419.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Ded054eb4acdac9250410324a8658a21a 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F14cf9579dcf5705c9f1d6747f809a599b753153e%2F0_253_3419_2052%2Fmaster%2F3419.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Ded054eb4acdac9250410324a8658a21a 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F14cf9579dcf5705c9f1d6747f809a599b753153e%2F0_253_3419_2052%2Fmaster%2F3419.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Ded054eb4acdac9250410324a8658a21a 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">theguardian.com</p><header class="title clamp">Biden’s speech to Congress: five key takeaways</header><p class="excerpt clamp">As Biden took the podium, he brushed past a sparse, masked crowd. He fist-bumped and elbow-tapped lawmakers and members of his cabinet – greeting a crowd that was physically distanced, and ideologically divided.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Biden’s speech to Congress: five key takeaways&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://aeon.co/essays/a-history-of-authenticity-from-jesus-to-self-help-and-beyond?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://nu.aeon.co/images/16ea1dce-9457-452d-93d7-70b21e43636c/header_essay-final-nn11455462.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fnu.aeon.co%2Fimages%2F16ea1dce-9457-452d-93d7-70b21e43636c%2Fheader_essay-final-nn11455462.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fnu.aeon.co%2Fimages%2F16ea1dce-9457-452d-93d7-70b21e43636c%2Fheader_essay-final-nn11455462.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fnu.aeon.co%2Fimages%2F16ea1dce-9457-452d-93d7-70b21e43636c%2Fheader_essay-final-nn11455462.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fnu.aeon.co%2Fimages%2F16ea1dce-9457-452d-93d7-70b21e43636c%2Fheader_essay-final-nn11455462.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fnu.aeon.co%2Fimages%2F16ea1dce-9457-452d-93d7-70b21e43636c%2Fheader_essay-final-nn11455462.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fnu.aeon.co%2Fimages%2F16ea1dce-9457-452d-93d7-70b21e43636c%2Fheader_essay-final-nn11455462.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">aeon.co</p><header class="title clamp">Authenticity is a sham</header><p class="excerpt clamp">From monks to existentialists and hipsters, the search for a true self has been a centuries-long project. Should we give it up?</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Authenticity is a sham&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://psyche.co/guides/how-to-solve-problems-by-thinking-like-a-detective?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://epsilon.psyche.co/images/254bcec1-3fce-4482-a9b8-5344cc8c321d/1500x1500.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fepsilon.psyche.co%2Fimages%2F254bcec1-3fce-4482-a9b8-5344cc8c321d%2F1500x1500.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fepsilon.psyche.co%2Fimages%2F254bcec1-3fce-4482-a9b8-5344cc8c321d%2F1500x1500.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fepsilon.psyche.co%2Fimages%2F254bcec1-3fce-4482-a9b8-5344cc8c321d%2F1500x1500.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fepsilon.psyche.co%2Fimages%2F254bcec1-3fce-4482-a9b8-5344cc8c321d%2F1500x1500.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fepsilon.psyche.co%2Fimages%2F254bcec1-3fce-4482-a9b8-5344cc8c321d%2F1500x1500.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fepsilon.psyche.co%2Fimages%2F254bcec1-3fce-4482-a9b8-5344cc8c321d%2F1500x1500.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">psyche.co</p><header class="title clamp">How to think like a detective</header><p class="excerpt clamp">The best detectives seem to have almost supernatural insight, but their cognitive toolkit is one that anybody can use</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;How to think like a detective&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.newyorker.com/culture/cultural-comment/tiktok-and-the-vibes-revival?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://media.newyorker.com/photos/6082df3ca9a1e45e0bae1924/16:9/w_1280,c_limit/Chayka-Vibes.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6082df3ca9a1e45e0bae1924%2F16%3A9%2Fw_1280%2Cc_limit%2FChayka-Vibes.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6082df3ca9a1e45e0bae1924%2F16%3A9%2Fw_1280%2Cc_limit%2FChayka-Vibes.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6082df3ca9a1e45e0bae1924%2F16%3A9%2Fw_1280%2Cc_limit%2FChayka-Vibes.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6082df3ca9a1e45e0bae1924%2F16%3A9%2Fw_1280%2Cc_limit%2FChayka-Vibes.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6082df3ca9a1e45e0bae1924%2F16%3A9%2Fw_1280%2Cc_limit%2FChayka-Vibes.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6082df3ca9a1e45e0bae1924%2F16%3A9%2Fw_1280%2Cc_limit%2FChayka-Vibes.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">newyorker.com</p><header class="title clamp">TikTok and the Vibes Revival</header><p class="excerpt clamp">Increasingly, what we’re after on social media is not narrative or personality but moments of audiovisual eloquence.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;TikTok and the Vibes Revival&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://catapult.co/stories/what-home-staging-showed-me-about-housing-in-america-real-estate-show-home-alexis-zanghi?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://catapult-prod.s3.amazonaws.com/production/stories/29464/cover_photos/large/suburbia_site_1619119580.jpg?1619119580" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcatapult-prod.s3.amazonaws.com%2Fproduction%2Fstories%2F29464%2Fcover_photos%2Flarge%2Fsuburbia_site_1619119580.jpg%3F1619119580 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcatapult-prod.s3.amazonaws.com%2Fproduction%2Fstories%2F29464%2Fcover_photos%2Flarge%2Fsuburbia_site_1619119580.jpg%3F1619119580 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcatapult-prod.s3.amazonaws.com%2Fproduction%2Fstories%2F29464%2Fcover_photos%2Flarge%2Fsuburbia_site_1619119580.jpg%3F1619119580 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcatapult-prod.s3.amazonaws.com%2Fproduction%2Fstories%2F29464%2Fcover_photos%2Flarge%2Fsuburbia_site_1619119580.jpg%3F1619119580 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcatapult-prod.s3.amazonaws.com%2Fproduction%2Fstories%2F29464%2Fcover_photos%2Flarge%2Fsuburbia_site_1619119580.jpg%3F1619119580 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcatapult-prod.s3.amazonaws.com%2Fproduction%2Fstories%2F29464%2Fcover_photos%2Flarge%2Fsuburbia_site_1619119580.jpg%3F1619119580 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">catapult.co</p><header class="title clamp">What Home Staging Showed Me About Housing in America</header><p class="excerpt clamp">Home staging is a privileged kind of precariousness.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;What Home Staging Showed Me About Housing in America&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.bloomberg.com/graphics/2021-cities-climate-solutions/?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://www.bloomberg.com/graphics/2021-cities-climate-solutions/img/2021-cities-climate-solutions-facebook.png" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">bloomberg.com</p><header class="title clamp">Cities Are Our Best Hope for Surviving Climate Change</header><p class="excerpt clamp">The hysteria about urban density that arrived with the coronavirus is—like the pandemic itself—already easing. Regardless of how quickly or slowly urbanites return to their cramped apartments, however, the long term trend is clear. Humans will continue to flock to cities.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Cities Are Our Best Hope for Surviving Climate Change&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.theatlantic.com/technology/archive/2021/04/how-yahoo-became-internet-villain/618681/?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://cdn.theatlantic.com/thumbor/vMx5jypzEGWY4OYPM8Q50EMSOBM=/0x43:2000x1085/960x500/media/img/mt/2021/04/YahooVillaincolor3v2/original.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">theatlantic.com</p><header class="title clamp">Yahoo, the Destroyer</header><p class="excerpt clamp">Yahoo Answers is not what most people would call a good source of information.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Yahoo, the Destroyer&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.independent.co.uk/life-style/health-and-families/astrazeneca-blood-clots-contraceptive-pill-b1834001.html?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://static.independent.co.uk/2021/04/19/18/newFile-4.jpg?width=1200&amp;auto=webp&amp;quality=75" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">independent.co.uk</p><header class="title clamp">If we’re concerned about vaccine blood clots, should we be worried about the pill?</header><p class="excerpt clamp">After the AstraZeneca and Johnson &amp; Johnson vaccines were halted over rare blood clot concerns, women asked - what about the clotting risk of the contraceptive pill?</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;If we’re concerned about vaccine blood clots, should we be worried about the pill?&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://getpocket.com/explore/item/6-stops-on-the-hunt-for-the-holy-grail?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://pocket-image-cache.com/1200x/filters:no_upscale():format(jpg):extract_cover()/https%3A%2F%2Fassets.atlasobscura.com%2Fmedia%2FW1siZiIsInVwbG9hZHMvYXNzZXRzL2IyY2Q1YThiODNmNGIyZTZiZV9Ib2x5LWdyYWlsLXJvdW5kLXRhYmxlLWJuZi1tc19mci0xMTZGLWY2MTB2LTE1dGgtZGV0YWlsLmpwZyJdLFsicCIsImNvbnZlcnQiLCIiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgODEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIxMjgweD4iXV0%2FHoly-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fassets.atlasobscura.com%252Fmedia%252FW1siZiIsInVwbG9hZHMvYXNzZXRzL2IyY2Q1YThiODNmNGIyZTZiZV9Ib2x5LWdyYWlsLXJvdW5kLXRhYmxlLWJuZi1tc19mci0xMTZGLWY2MTB2LTE1dGgtZGV0YWlsLmpwZyJdLFsicCIsImNvbnZlcnQiLCIiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgODEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIxMjgweD4iXV0%252FHoly-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fassets.atlasobscura.com%252Fmedia%252FW1siZiIsInVwbG9hZHMvYXNzZXRzL2IyY2Q1YThiODNmNGIyZTZiZV9Ib2x5LWdyYWlsLXJvdW5kLXRhYmxlLWJuZi1tc19mci0xMTZGLWY2MTB2LTE1dGgtZGV0YWlsLmpwZyJdLFsicCIsImNvbnZlcnQiLCIiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgODEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIxMjgweD4iXV0%252FHoly-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fassets.atlasobscura.com%252Fmedia%252FW1siZiIsInVwbG9hZHMvYXNzZXRzL2IyY2Q1YThiODNmNGIyZTZiZV9Ib2x5LWdyYWlsLXJvdW5kLXRhYmxlLWJuZi1tc19mci0xMTZGLWY2MTB2LTE1dGgtZGV0YWlsLmpwZyJdLFsicCIsImNvbnZlcnQiLCIiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgODEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIxMjgweD4iXV0%252FHoly-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fassets.atlasobscura.com%252Fmedia%252FW1siZiIsInVwbG9hZHMvYXNzZXRzL2IyY2Q1YThiODNmNGIyZTZiZV9Ib2x5LWdyYWlsLXJvdW5kLXRhYmxlLWJuZi1tc19mci0xMTZGLWY2MTB2LTE1dGgtZGV0YWlsLmpwZyJdLFsicCIsImNvbnZlcnQiLCIiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgODEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIxMjgweD4iXV0%252FHoly-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fassets.atlasobscura.com%252Fmedia%252FW1siZiIsInVwbG9hZHMvYXNzZXRzL2IyY2Q1YThiODNmNGIyZTZiZV9Ib2x5LWdyYWlsLXJvdW5kLXRhYmxlLWJuZi1tc19mci0xMTZGLWY2MTB2LTE1dGgtZGV0YWlsLmpwZyJdLFsicCIsImNvbnZlcnQiLCIiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgODEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIxMjgweD4iXV0%252FHoly-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fassets.atlasobscura.com%252Fmedia%252FW1siZiIsInVwbG9hZHMvYXNzZXRzL2IyY2Q1YThiODNmNGIyZTZiZV9Ib2x5LWdyYWlsLXJvdW5kLXRhYmxlLWJuZi1tc19mci0xMTZGLWY2MTB2LTE1dGgtZGV0YWlsLmpwZyJdLFsicCIsImNvbnZlcnQiLCIiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgODEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIxMjgweD4iXV0%252FHoly-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">atlasobscura.com</p><header class="title clamp">6 Stops on the Hunt for the Holy Grail</header><p class="excerpt clamp">The first of many myths involving a divine grail was written more than eight centuries ago. People have been fascinated with the potential whereabouts of the holy treasure every since, making it one of history’s most enduring legends.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;6 Stops on the Hunt for the Holy Grail&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.wired.co.uk/article/james-bond-no-time-to-die-netflix?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://wi-images.condecdn.net/image/meE2PEmjEPj/crop/1440/0.5235602094240838/f/wired-hollywood.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FmeE2PEmjEPj%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-hollywood.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FmeE2PEmjEPj%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-hollywood.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FmeE2PEmjEPj%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-hollywood.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FmeE2PEmjEPj%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-hollywood.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FmeE2PEmjEPj%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-hollywood.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FmeE2PEmjEPj%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-hollywood.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">wired.co.uk</p><header class="title clamp">Why a James Bond film will never premiere on Netflix</header><p class="excerpt clamp">In 2011, movie studio Universal Pictures announced that it would be carrying out a test: it would put out its new film, Tower Heist, on video-on-demand just three weeks after releasing it in cinemas. The move was doomed. Cinemas were furious.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Why a James Bond film will never premiere on Netflix&quot;}" class="context-menu-button icon"></button></div></div></div></div></div><div><div class="ds-navigation ds-navigation-left-align"><span class="ds-navigation-header" data-l10n-id="newtab-pocket-read-more"></span><ul><li><a href="https://getpocket.com/explore/self-improvement?utm_source=pocket-newtab">Self Improvement</a></li><li><a href="https://getpocket.com/explore/food?utm_source=pocket-newtab">Food</a></li><li><a href="https://getpocket.com/explore/entertainment?utm_source=pocket-newtab">Entertainment</a></li><li><a href="https://getpocket.com/explore/health?utm_source=pocket-newtab">Health</a></li><li><a href="https://getpocket.com/explore/science?utm_source=pocket-newtab">Science</a></li><li><a href="https://getpocket.com/explore?utm_source=pocket-newtab">More Recommendations ›</a></li></ul><a href="https://www.mozilla.org/privacy/firefox/#suggest-relevant-content"><span class="ds-navigation-privacy" data-l10n-id="newtab-section-menu-privacy-notice"></span></a></div></div></div></div><style data-styles="[[null,{&quot;.ds-navigation&quot;:&quot;margin-top: -10px;&quot;}]]"></style></div></div></section><div class="discovery-stream ds-layout"><div class="ds-column ds-column-12"><div class="ds-column-grid"><div></div></div></div><style data-styles="[[null]]"></style></div></div></main></div></div>
+    </div>
+    <div id="footer-asrouter-container" role="presentation"></div>
+    <script src="about:home?jscache"></script>
+  </body>
+</html>
+window.__FROM_STARTUP_CACHE__ = true;
+window.__STARTUP_STATE__ = {
+	"TopSites": {
+		"initialized": true,
+		"rows": [
+			{
+				"bookmarkGuid": null,
+				"frecency": 1400,
+				"guid": "bztATX1bwszj",
+				"lastVisitDate": 1619787007025,
+				"title": "Bart wird ein Genie - Die Simpsons (1) - Burning Series: Serien online sehen",
+				"url": "https://bs.to/serie/Die-Simpsons/1/2-Bart-wird-ein-Genie/",
+				"type": "history",
+				"favicon": "data:image/png;base64,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",
+				"faviconLength": 2485,
+				"faviconRef": "",
+				"faviconSize": 32,
+				"smallFavicon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAJfElEQVRYhXWX+XMUxxXHX4+cH+KU80/ETvw/WMcK3QiwBeIyt7gRe+teIRCHOYXQDdLqliDGiZEwDgZMGQeMjWIgAZJynMIp4ysQnKBd7and+eSHHh2AM1WvXk/39Pt+3uvumRpJJOIkEiYjf3lAVseHvLjjNEbVaaSiH6PsJFI+jCofQpUNospPIt4hlHcYKRtGyqd8H+IdQMoGkfJTSIWeI+WDqLJBpPIkUjHEiztOk9FxibN3v2VycpJEIo4kEgmq37+pg09N9g4/JS7eQcQ7pK3M8t4B634Q8QxpEM8gyjusRb39GrR8GCmfSuYUUjmAVAxR84dbJOJJ5OzdB1ZmAzpI2aCe5LZE3cOIZwjDM4B4+rW5+1DufpSrx2r3Iq4+pMzqd/fqeJ5BxNNLinsI8fRrMM+wBTzAu3ceIJntlxHvAIZHP2S4hjFcWki5e7Wgqw9x9SCuHkvMr+/dfdpcfYi7B+W02vYexNWN4Rq05g+g3IOIa8DSGkA8Q2S2XUR+WX0KcWkA5RzAf+k2CQBzljHLW9ejHwP8+auH9Fz4nFd9w4ijSwvbe0hx+BF7D8regzj8iGMQcfkx7P2IoxdxDiGuPl6qOoko5wDK3Y84+xFnL10f3iZJAkgCSa1rJp5hmBkzgVA4Tt2pq8j2LlRpF2Lv1uLOLpTdjyrt1iBOy7v7LLBeRBz9iLNLD27vpvvCbTDBNGfknkmepDkDYpLENE2CkSiZe06itp1Atp0gZesJpNSPbO8kpbQH2dapQex9um33I/ZORNl7UKXdqG2dyPZuei7cmsncEu+5cIvOC7foPv8Z/g9ucvHzL2dozJmVeufj26iNHci24xhb25Gtx7VtbtdgW9uRrSe0bfMj27sR2daJlHZOD/g/uMmzl2xqRza3IhvakS0dyMYWSjvOPvWMCdz+6jvURuvZjW0YG9o00KZ21KZWZFMHxuYuZMtxyzoQTaM71OaO5wBMQDY3o9Y3I5takJImpKQF2dCKOXuTkuTi2JfI+gakpAW1rgVjQ4uet6EN2dg2DaY2tSIbT+jEdHbtyMZ21MZ2/OfHnq9ASRNq/THUuiZkfQNqXRNzavunAZMkwISGd64iaxqRdUc1yLqpOY0auqQJtb7VgmrV1ZL1rciGNmug9ScBtrSPUNo6QmnrWUqbR9nZc5FHP05oAFOL3//2MbL6CGrtMWT1UWRtA7LmsIZZ06j7SxqRtc1ISSNqXase02QtemBtM/73bzy9BKYu7/TRNHXGplX2UDjKby/f4RV7G7JyP7LiCGr1IWT1UVJWHEatOoJadYSUVY3I2sPI2gbUqiMzULKmCVl7DFndhKw+Ste5z57JPzldanP6dnIaBpJcvH6Pl7c2o5bvR1YcQt48qP2KQ8iKI8ibR6x+y688jFp1FFnZiKhVVslWNiIrG+h+73mAJObsw09ieu/pdwAmTIQivLq1iZLDp7h4/R53v/iKYDDI3/7xNZdv/JX2M1d5ZUsLalkDsrwBefOwBpKVDcjKBovuCN3nrj8HIMsOIcsOIEv3IUv38eqmRvyj16yqJKdhvv7+MePBJ4wHAwQDTwgGg0xMBJgIBwmFIkSjYU5e+BS1/CBq6QFk+QFELT+oaZYdQJYdwj96bbrkU6U2luzDKN6LLH4LKd6NWrwXKd7D/e/+9dTymGaC8fEgofEATyaChANBgqEJwuEw4YkQ0UiIwQufIosPYCzejyzdi8iS/cjiQ8iS/ciSffhHr88CsN4DxbuR4l2oor3Iwnpk4S5eLjnIw8fjTH0XsI5jMDhOIBBgw/5BfrXuENUtv2Pk8k3i4QjhaIgsVwdSvAcp3odatA9RxQdQxW9hFO9FLdqD/+yn0+s6RdE18gn+M1foHdW+e+QjHj4Ozlol622QMAkEAowHA6Q7mjEW7EKKdmG8sYsMZxttpy+RUlSPFNVhvFGPLNyLyMK9Vma7UYt20zl6lamPjC7B5PSmm/pATa391IacuiKhKIGJIMFgkEePHtN6+gPSHc2oBbXIgp1I0S7U67uQ13cjb9QjRbsQVbTb6tiDWrCbnpFrTx2/6RKbU0syu62zT5Lg1p37BIMhgsFxgqEAE4EQoVCEcDjM2J37HOw9h8z3IfN3IAvqkPk+1PydiLxej8yvRxbs4YUFO+l+98pTeyAxC0ZXIDn9Prj3939y+uIYGdsbUIU1nLk8xsREgHAoSCgUIhKeIByeIBIJEYlFuX3vS9TcnUjhDmRelfYpc+uQ+XUY83YghfVI4Q6MeT5UQbWmLKxF5ddh5Fej8msx8n2owhqkoAqZV4PkV2Hk+5C8clRhDYsr2jhzeYx/Px4nHI0QicSIxWJEonHi0Rid71xC5dci+VWowlpECuqQglrU3B2oAh8ytx5V4NOkBbV6LK8KyatB5dUg+T4kr5IXcmuQvGokrxLJ8/GbZXuQHB+SW4mRo/urmk7xxf1viEajxGIR4vEE3/zwCMmtQfJ8SEENInk+JN+HyvPpzvwabXk+S7AGya3WllP1jFUgOVWonAq+efCIkQ/H+PWSOiSrEpVdheSU86uldcRik0zG4kzG4sQTk1a8Su0lt4aU7BqdSW4NkmtlmmsJ5Fajsqt0wKzKmeDZ5aicCiS7nMpjJwmHw0QiEf7z5L8MvneF4opmUrK81B57m1gsQiwWI5Ew+fbhY1SWF8nWsURl+5DsSozsClROBSqrHJlTgZFVrdtZlaisSmROxSwrm7GsMm7e+YJ4NEYoriHik+iyR+LE41Gi8RiJRJx4PMGJty8gWR5kThmGzYu8NL8aydaiklWFkV2BkVmG5FSSMqfcAtJiRmYZkulF2WZMMr28vGgnw+9dIRqPEYtFmIxEmUzGicfjTE5O6t+weJLzV26gbOXWvHJ+UViN2DwdGJmViK2CFFsFYrOyzLSEnxXM8DxlKsODke7BsLl5paiOzlPn+XjsLg9+eEQikeD7Hx7zyY07bKnv5WfpXsTmQtLdGDYv6fYO5Ny1e0imJjJsbpTNi2FzatJM50+KTglrc+mgGU5UhgPJcCI2B5LuRDLsSLoTleFBbHYkw63bGXrs3SufI5hQ1fk+YpsJLGllOnBaGZLu/v+W6kJSPUi6HUl1YKQ6UGlOJNU1y7uRNO1124GR7qLq+CjRaBhJYmKaJqN/vEOmo4MXc6s0ddpPCKa5ZizVNSP0ml2DpDl0f5oLec2JpNqRtO1IqgNJdfDzXC8Z9kZ+/9GfiEbjxGKT/A8vGUz/LtaEWAAAAABJRU5ErkJggg==",
+				"smallFaviconLength": 2485,
+				"smallFaviconRef": "",
+				"smallFaviconSize": 32,
+				"hostname": "bs",
+				"typedBonus": true,
+				"screenshot": "moz-page-thumb://thumbnails/?url=https%3A%2F%2Fbs.to%2Fserie%2FDie-Simpsons%2F1%2F2-Bart-wird-ein-Genie%2F&revision=1737"
+			},
+			{
+				"bookmarkGuid": null,
+				"frecency": 800,
+				"guid": "SRrMPt4o2XVr",
+				"lastVisitDate": 1619787009810,
+				"title": null,
+				"url": "https://apiecelee.com/u282mgam?key=0f22c1fd609f13cb7947c8cabfe1a90d&submetric=15992426",
+				"type": "history",
+				"hostname": "apiecelee",
+				"typedBonus": true,
+				"screenshot": "moz-page-thumb://thumbnails/?url=https%3A%2F%2Fapiecelee.com%2Fu282mgam%3Fkey%3D0f22c1fd609f13cb7947c8cabfe1a90d%26submetric%3D15992426&revision=4210"
+			},
+			{
+				"bookmarkGuid": null,
+				"frecency": 400,
+				"guid": "PppH9GyJoOBY",
+				"lastVisitDate": 1619707220506,
+				"title": null,
+				"url": "https://www.greatdexchange.com/jump/next.php?r=4419791",
+				"type": "history",
+				"hostname": "greatdexchange",
+				"typedBonus": true,
+				"screenshot": "moz-page-thumb://thumbnails/?url=https%3A%2F%2Fwww.greatdexchange.com%2Fjump%2Fnext.php%3Fr%3D4419791&revision=4782"
+			},
+			{
+				"bookmarkGuid": null,
+				"frecency": 300,
+				"guid": "Tk_ijp2yzfpa",
+				"lastVisitDate": 1619787011936,
+				"title": "vıvo | Watch \"The.Simpsons.s….x264.-Fl0p.mp4\"",
+				"url": "https://vivo.sx/c73377d234",
+				"type": "history",
+				"favicon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABSElEQVQ4jaWTvU4CURCFDxXxQYwFoVSfgsbO2EtjYWHpO2woMPE1bI2tBfcWSxDREIOIFsTCRH5kxeWzWHa5i7s2THKSm53ZL3PmzhVQcCWfkgyeLB1ZgqU6MnjyKf2pTw5dirLUZQllIFNR7lIDtlIAdSnKcB0XHvegMYavMFJjHH1zQDfqUlwBLHUZ2G6BPyU37qaw00ogdaAg+ZTitpvOz2EOxJ86dnxKksGL23bjdAhXo2yQY8fTcsKYSbro8BV2e3D0Brdrtswk6aIjWQIZmC3SRQeDCBDrZAgPQZSbLRJAkAuoOIC9Zzgbwv0S8PmTAEa5FioD2O/B+Ts8fadzdmWhnTvEiw94mWdM0B2ipSZZylnXmBdN9xot5c0XiYxVrvYjn8ECRmF0rvb/WWU2fUysP2dLTYZHGeayTGRpy1KTpbxe/wt46jBiAslVMQAAAABJRU5ErkJggg==",
+				"faviconLength": 385,
+				"faviconRef": "",
+				"faviconSize": 16,
+				"smallFavicon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABSElEQVQ4jaWTvU4CURCFDxXxQYwFoVSfgsbO2EtjYWHpO2woMPE1bI2tBfcWSxDREIOIFsTCRH5kxeWzWHa5i7s2THKSm53ZL3PmzhVQcCWfkgyeLB1ZgqU6MnjyKf2pTw5dirLUZQllIFNR7lIDtlIAdSnKcB0XHvegMYavMFJjHH1zQDfqUlwBLHUZ2G6BPyU37qaw00ogdaAg+ZTitpvOz2EOxJ86dnxKksGL23bjdAhXo2yQY8fTcsKYSbro8BV2e3D0Brdrtswk6aIjWQIZmC3SRQeDCBDrZAgPQZSbLRJAkAuoOIC9Zzgbwv0S8PmTAEa5FioD2O/B+Ts8fadzdmWhnTvEiw94mWdM0B2ipSZZylnXmBdN9xot5c0XiYxVrvYjn8ECRmF0rvb/WWU2fUysP2dLTYZHGeayTGRpy1KTpbxe/wt46jBiAslVMQAAAABJRU5ErkJggg==",
+				"smallFaviconLength": 385,
+				"smallFaviconRef": "",
+				"smallFaviconSize": 16,
+				"hostname": "vivo",
+				"typedBonus": true,
+				"screenshot": "moz-page-thumb://thumbnails/?url=https%3A%2F%2Fvivo.sx%2Fc73377d234&revision=7942"
+			},
+			{
+				"isDefault": true,
+				"url": "https://www.youtube.com/",
+				"hostname": "youtube",
+				"sendAttributionRequest": false,
+				"label": "YouTube",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/youtube-com@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/youtube-com.png",
+				"typedBonus": true
+			},
+			{
+				"isDefault": true,
+				"url": "https://www.facebook.com/",
+				"hostname": "facebook",
+				"sendAttributionRequest": false,
+				"label": "Facebook",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/facebook-com@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/facebook-com.ico",
+				"typedBonus": true
+			},
+			{
+				"isDefault": true,
+				"url": "https://www.wikipedia.org/",
+				"hostname": "wikipedia",
+				"sendAttributionRequest": false,
+				"label": "Wikipedia",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/wikipedia-org@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/wikipedia-org.ico",
+				"typedBonus": true
+			},
+			{
+				"isDefault": true,
+				"url": "https://www.reddit.com/",
+				"hostname": "reddit",
+				"sendAttributionRequest": false,
+				"label": "Reddit",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/reddit-com@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/reddit-com.png",
+				"typedBonus": true
+			}
+		],
+		"editForm": null,
+		"showSearchShortcutsForm": false,
+		"searchShortcuts": [
+			{
+				"keyword": "@google",
+				"shortURL": "google",
+				"url": "https://google.com",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/google-com@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/google-com.ico"
+			},
+			{
+				"keyword": "@amazon",
+				"shortURL": "amazon",
+				"url": "https://amazon.com",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/amazon@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/amazon.ico"
+			},
+			{
+				"keyword": "@bing",
+				"shortURL": "bing",
+				"url": "https://bing.com",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/bing-com@2x.svg",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/bing-com.ico"
+			},
+			{
+				"keyword": "@duckduckgo",
+				"shortURL": "duckduckgo",
+				"url": "https://duckduckgo.com",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/duckduckgo-com@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/duckduckgo-com.ico"
+			},
+			{
+				"keyword": "@ebay",
+				"shortURL": "ebay",
+				"url": "https://ebay.com",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/ebay@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/ebay.ico"
+			},
+			{
+				"keyword": "@wikipedia",
+				"shortURL": "wikipedia",
+				"url": "https://wikipedia.org",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/wikipedia-org@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/wikipedia-org.ico"
+			}
+		],
+		"pref": {
+			"collapsed": false
+		}
+	},
+	"App": {
+		"initialized": true,
+		"locale": "en-US",
+		"isForStartupCache": true
+	},
+	"ASRouter": {
+		"initialized": false
+	},
+	"Snippets": {
+		"initialized": false
+	},
+	"Prefs": {
+		"initialized": true,
+		"values": {
+			"default.sites": "https://www.youtube.com/,https://www.facebook.com/,https://www.wikipedia.org/,https://www.reddit.com/,https://www.amazon.com/,https://twitter.com/",
+			"feeds.section.topstories.options": "{\"api_key_pref\":\"extensions.pocket.oAuthConsumerKey\",\"hidden\":false,\"provider_icon\":\"pocket\",\"provider_name\":\"Pocket\",\"read_more_endpoint\":\"https://getpocket.com/explore/trending?src=fx_new_tab\",\"stories_endpoint\":\"https://getpocket.cdn.mozilla.net/v3/firefox/global-recs?version=3&consumer_key=$apiKey&locale_lang=en-US&feed_variant=default_spocs_off\",\"stories_referrer\":\"https://getpocket.com/recommendations\",\"topics_endpoint\":\"https://getpocket.cdn.mozilla.net/v3/firefox/trending-topics?version=2&consumer_key=$apiKey&locale_lang=en-US\",\"show_spocs\":false}",
+			"feeds.topsites": true,
+			"hideTopSitesTitle": false,
+			"showSponsored": true,
+			"showSponsoredTopSites": true,
+			"pocketCta": "{\"cta_button\":\"\",\"cta_text\":\"\",\"cta_url\":\"\",\"use_cta\":false}",
+			"filterAdult": true,
+			"showSearch": true,
+			"feeds.snippets": true,
+			"topSitesRows": 1,
+			"telemetry": true,
+			"telemetry.ut.events": true,
+			"telemetry.structuredIngestion.endpoint": "https://incoming.telemetry.mozilla.org/submit",
+			"section.highlights.includeVisited": true,
+			"section.highlights.includeBookmarks": true,
+			"section.highlights.includePocket": true,
+			"section.highlights.includeDownloads": true,
+			"section.highlights.rows": 1,
+			"section.topstories.rows": 1,
+			"sectionOrder": "topsites,topstories,highlights",
+			"improvesearch.noDefaultSearchTile": true,
+			"improvesearch.topSiteSearchShortcuts.searchEngines": "google",
+			"improvesearch.topSiteSearchShortcuts.havePinned": "",
+			"asrouter.devtoolsEnabled": false,
+			"asrouter.providers.onboarding": "{\"id\":\"onboarding\",\"type\":\"local\",\"localProvider\":\"OnboardingMessageProvider\",\"enabled\":true,\"exclude\":[]}",
+			"asrouter.providers.cfr-fxa": "{\"id\":\"cfr-fxa\",\"enabled\":true,\"type\":\"remote-settings\",\"bucket\":\"cfr-fxa\",\"updateCycleInMs\":3600000}",
+			"discoverystream.flight.blocks": "{}",
+			"discoverystream.config": "{\"api_key_pref\":\"extensions.pocket.oAuthConsumerKey\",\"collapsible\":true,\"enabled\":true,\"show_spocs\":false,\"hardcoded_layout\":true,\"personalized\":true,\"layout_endpoint\":\"https://getpocket.cdn.mozilla.net/v3/newtab/layout?version=1&consumer_key=$apiKey&layout_variant=basic\"}",
+			"discoverystream.endpoints": "https://getpocket.cdn.mozilla.net/,https://spocs.getpocket.com/",
+			"discoverystream.engagementLabelEnabled": false,
+			"discoverystream.isCollectionDismissible": true,
+			"discoverystream.region-basic-layout": false,
+			"discoverystream.spoc.impressions": "{}",
+			"discoverystream.endpointSpocsClear": "https://spocs.getpocket.com/user",
+			"discoverystream.rec.impressions": "{\"91856\":1619787026854,\"91864\":1619787026862}",
+			"feeds.aboutpreferences": true,
+			"feeds.newtabinit": true,
+			"feeds.places": true,
+			"feeds.prefs": true,
+			"feeds.sections": true,
+			"feeds.section.highlights": false,
+			"feeds.system.topstories": true,
+			"feeds.systemtick": true,
+			"feeds.telemetry": true,
+			"feeds.favicon": true,
+			"feeds.system.topsites": true,
+			"feeds.recommendationproviderswitcher": true,
+			"feeds.discoverystreamfeed": true,
+			"isPrivateBrowsingEnabled": true,
+			"platform": "linux",
+			"region": "CH",
+			"fxa_endpoint": "https://accounts.firefox.com/",
+			"appUpdateChannel": "nightly",
+			"improvesearch.topSiteSearchShortcuts": true,
+			"mayHaveSponsoredTopSites": true,
+			"improvesearch.handoffToAwesomebar": true,
+			"urlbar.placeholderName": "Google",
+			"featureConfig": {
+				"newNewtabExperienceEnabled": true,
+				"customizationMenuEnabled": false
+			},
+			"logowordmark.alwaysVisible": true,
+			"feeds.section.topstories": true,
+			"discoverystream.enabled": true,
+			"discoverystream.hardcoded-basic-layout": false,
+			"discoverystream.recs.personalized": false,
+			"discoverystream.spocs.personalized": true,
+			"discoverystream.personalization.modelKeys": "nb_model_arts_and_entertainment, nb_model_autos_and_vehicles, nb_model_beauty_and_fitness, nb_model_blogging_resources_and_services, nb_model_books_and_literature, nb_model_business_and_industrial, nb_model_computers_and_electronics, nb_model_finance, nb_model_food_and_drink, nb_model_games, nb_model_health, nb_model_hobbies_and_leisure, nb_model_home_and_garden, nb_model_internet_and_telecom, nb_model_jobs_and_education, nb_model_law_and_government, nb_model_online_communities, nb_model_people_and_society, nb_model_pets_and_animals, nb_model_real_estate, nb_model_reference, nb_model_science, nb_model_shopping, nb_model_sports, nb_model_travel",
+			"discoverystream.personalization.version": 2,
+			"discoverystream.personalization.overrideVersion": 0,
+			"discoverystream.spocs-endpoint": "",
+			"discoverystream.spocs-endpoint-query": "",
+			"newNewtabExperience.colors": "#0090ED,#FF4F5F,#2AC3A2,#FF7139,#A172FF,#FFA437,#FF2A8A"
+		}
+	},
+	"Dialog": {
+		"visible": false,
+		"data": {}
+	},
+	"Sections": [
+		{
+			"title": {
+				"id": "newtab-section-header-pocket",
+				"values": {
+					"provider": "Pocket"
+				}
+			},
+			"rows": [],
+			"enabled": true,
+			"id": "topstories",
+			"pref": {
+				"titleString": {
+					"id": "home-prefs-recommended-by-header",
+					"values": {
+						"provider": "Pocket"
+					}
+				},
+				"descString": {
+					"id": "home-prefs-recommended-by-description-new",
+					"values": {
+						"provider": "Pocket"
+					}
+				},
+				"nestedPrefs": [],
+				"learnMore": {
+					"link": {
+						"href": "https://getpocket.com/firefox/new_tab_learn_more",
+						"id": "home-prefs-recommended-by-learn-more"
+					}
+				},
+				"collapsed": false,
+				"feed": "feeds.section.topstories"
+			},
+			"shouldHidePref": false,
+			"eventSource": "TOP_STORIES",
+			"icon": "pocket",
+			"learnMore": {
+				"link": {
+					"href": "https://getpocket.com/firefox/new_tab_learn_more",
+					"message": {
+						"id": "newtab-pocket-learn-more"
+					}
+				}
+			},
+			"compactCards": false,
+			"rowsPref": "section.topstories.rows",
+			"maxRows": 4,
+			"availableLinkMenuOptions": [
+				"CheckBookmarkOrArchive",
+				"CheckSavedToPocket",
+				"Separator",
+				"OpenInNewWindow",
+				"OpenInPrivateWindow",
+				"Separator",
+				"BlockUrl"
+			],
+			"emptyState": {
+				"message": {
+					"id": "newtab-empty-section-topstories",
+					"values": {
+						"provider": "Pocket"
+					}
+				},
+				"icon": "check"
+			},
+			"shouldSendImpressionStats": true,
+			"dedupeFrom": [
+				"highlights"
+			],
+			"options": {
+				"api_key_pref": "extensions.pocket.oAuthConsumerKey",
+				"hidden": false,
+				"provider_icon": "pocket",
+				"provider_name": "Pocket",
+				"read_more_endpoint": "https://getpocket.com/explore/trending?src=fx_new_tab",
+				"stories_endpoint": "https://getpocket.cdn.mozilla.net/v3/firefox/global-recs?version=3&consumer_key=$apiKey&locale_lang=en-US&feed_variant=default_spocs_off",
+				"stories_referrer": "https://getpocket.com/recommendations",
+				"topics_endpoint": "https://getpocket.cdn.mozilla.net/v3/firefox/trending-topics?version=2&consumer_key=$apiKey&locale_lang=en-US",
+				"show_spocs": false
+			},
+			"contextMenuOptions": [
+				"CheckBookmarkOrArchive",
+				"CheckSavedToPocket",
+				"Separator",
+				"OpenInNewWindow",
+				"OpenInPrivateWindow",
+				"Separator",
+				"BlockUrl"
+			],
+			"initialized": false,
+			"dedupeConfigurations": [
+				{
+					"id": "topstories",
+					"dedupeFrom": [
+						"highlights"
+					]
+				}
+			]
+		},
+		{
+			"title": {
+				"id": "newtab-section-header-recent-activity"
+			},
+			"rows": [],
+			"enabled": false,
+			"id": "highlights",
+			"pref": {
+				"titleString": {
+					"id": "home-prefs-recent-activity-header"
+				},
+				"descString": {
+					"id": "home-prefs-recent-activity-description"
+				},
+				"nestedPrefs": [
+					{
+						"name": "section.highlights.includeVisited",
+						"titleString": "home-prefs-highlights-option-visited-pages"
+					},
+					{
+						"name": "section.highlights.includeBookmarks",
+						"titleString": "home-prefs-highlights-options-bookmarks"
+					},
+					{
+						"name": "section.highlights.includeDownloads",
+						"titleString": "home-prefs-highlights-option-most-recent-download"
+					},
+					{
+						"name": "section.highlights.includePocket",
+						"titleString": "home-prefs-highlights-option-saved-to-pocket",
+						"hidden": false
+					}
+				],
+				"collapsed": false,
+				"feed": "feeds.section.highlights"
+			},
+			"shouldHidePref": false,
+			"eventSource": "HIGHLIGHTS",
+			"icon": "highlights",
+			"compactCards": true,
+			"rowsPref": "section.highlights.rows",
+			"maxRows": 4,
+			"emptyState": {
+				"message": {
+					"id": "newtab-empty-section-highlights"
+				},
+				"icon": "highlights"
+			},
+			"shouldSendImpressionStats": false,
+			"options": {},
+			"initialized": false
+		}
+	],
+	"Pocket": {
+		"isUserLoggedIn": null,
+		"pocketCta": {},
+		"waitingForSpoc": true
+	},
+	"Personalization": {
+		"version": 2,
+		"lastUpdated": 1619706525918,
+		"initialized": true
+	},
+	"DiscoveryStream": {
+		"config": {
+			"api_key_pref": "extensions.pocket.oAuthConsumerKey",
+			"collapsible": true,
+			"enabled": true,
+			"show_spocs": false,
+			"hardcoded_layout": true,
+			"personalized": true,
+			"layout_endpoint": "https://getpocket.cdn.mozilla.net/v3/newtab/layout?version=1&consumer_key=40249-e88c401e1b1f2242d9e441c4&layout_variant=basic"
+		},
+		"layout": [
+			{
+				"width": 12,
+				"components": [
+					{
+						"type": "TopSites",
+						"header": {
+							"title": {
+								"id": "newtab-section-header-topsites"
+							}
+						},
+						"properties": {}
+					},
+					{
+						"type": "CollectionCardGrid",
+						"properties": {
+							"items": 3
+						},
+						"header": {
+							"title": ""
+						},
+						"placement": {
+							"name": "sponsored-collection",
+							"ad_types": [
+								3617
+							],
+							"zone_ids": [
+								217759,
+								218031
+							]
+						},
+						"spocs": {
+							"probability": 1,
+							"positions": [
+								{
+									"index": 0
+								},
+								{
+									"index": 1
+								},
+								{
+									"index": 2
+								}
+							]
+						}
+					},
+					{
+						"type": "Message",
+						"header": {
+							"title": {
+								"id": "newtab-section-header-pocket",
+								"values": {
+									"provider": "Pocket"
+								}
+							},
+							"subtitle": "",
+							"link_text": {
+								"id": "newtab-pocket-learn-more"
+							},
+							"link_url": "https://getpocket.com/firefox/new_tab_learn_more",
+							"icon": "chrome://activity-stream/content/data/content/assets/glyph-pocket-16.svg"
+						},
+						"properties": {},
+						"styles": {
+							".ds-message": "margin-bottom: -20px"
+						}
+					},
+					{
+						"type": "CardGrid",
+						"properties": {
+							"items": 21
+						},
+						"cta_variant": "link",
+						"header": {
+							"title": ""
+						},
+						"placement": {
+							"name": "spocs",
+							"ad_types": [
+								3617
+							],
+							"zone_ids": [
+								217758,
+								217995
+							]
+						},
+						"feed": {
+							"embed_reference": null,
+							"url": "https://getpocket.cdn.mozilla.net/v3/firefox/global-recs?version=3&consumer_key=$apiKey&locale_lang=$locale&region=$region&count=30"
+						},
+						"spocs": {
+							"probability": 1,
+							"positions": [
+								{
+									"index": 2
+								},
+								{
+									"index": 4
+								},
+								{
+									"index": 11
+								},
+								{
+									"index": 20
+								}
+							]
+						}
+					},
+					{
+						"type": "Navigation",
+						"properties": {
+							"alignment": "left-align",
+							"links": [
+								{
+									"name": "Self Improvement",
+									"url": "https://getpocket.com/explore/self-improvement?utm_source=pocket-newtab"
+								},
+								{
+									"name": "Food",
+									"url": "https://getpocket.com/explore/food?utm_source=pocket-newtab"
+								},
+								{
+									"name": "Entertainment",
+									"url": "https://getpocket.com/explore/entertainment?utm_source=pocket-newtab"
+								},
+								{
+									"name": "Health",
+									"url": "https://getpocket.com/explore/health?utm_source=pocket-newtab"
+								},
+								{
+									"name": "Science",
+									"url": "https://getpocket.com/explore/science?utm_source=pocket-newtab"
+								},
+								{
+									"name": "More Recommendations ›",
+									"url": "https://getpocket.com/explore?utm_source=pocket-newtab"
+								}
+							],
+							"privacyNoticeURL": {
+								"url": "https://www.mozilla.org/privacy/firefox/#suggest-relevant-content",
+								"title": {
+									"id": "newtab-section-menu-privacy-notice"
+								}
+							}
+						},
+						"header": {
+							"title": {
+								"id": "newtab-pocket-read-more"
+							}
+						},
+						"styles": {
+							".ds-navigation": "margin-top: -10px;"
+						}
+					}
+				]
+			}
+		],
+		"lastUpdated": null,
+		"isPrivacyInfoModalVisible": false,
+		"isCollectionDismissible": true,
+		"feeds": {
+			"data": {
+				"https://getpocket.cdn.mozilla.net/v3/firefox/global-recs?version=3&consumer_key=$apiKey&locale_lang=$locale&region=$region&count=30": {
+					"lastUpdated": 1619787006064,
+					"data": {
+						"settings": {
+							"domainAffinityParameterSets": {
+								"default": {
+									"recencyFactor": 0.5,
+									"frequencyFactor": 0.5,
+									"combinedDomainFactor": 0.5,
+									"perfectFrequencyVisits": 10,
+									"perfectCombinedDomainScore": 2,
+									"multiDomainBoost": 0,
+									"itemScoreFactor": 1
+								},
+								"fully-personalized": {
+									"recencyFactor": 0.5,
+									"frequencyFactor": 0.5,
+									"combinedDomainFactor": 0.5,
+									"perfectFrequencyVisits": 10,
+									"perfectCombinedDomainScore": 2,
+									"itemScoreFactor": 0.01,
+									"multiDomainBoost": 0
+								}
+							},
+							"timeSegments": [
+								{
+									"id": "week",
+									"startTime": 604800,
+									"endTime": 0,
+									"weightPosition": 1
+								},
+								{
+									"id": "month",
+									"startTime": 2592000,
+									"endTime": 604800,
+									"weightPosition": 0.5
+								}
+							],
+							"recsExpireTime": 5400,
+							"spocsPerNewTabs": 0.5,
+							"version": "08a01d854c52b745b16e62e58c1917a96b12597f"
+						},
+						"recommendations": [
+							{
+								"id": 91864,
+								"url": "https://time.com/5955632/good-conflict-heres-how-it-works/?utm_source=pocket-newtab-intl-en",
+								"domain": "time.com",
+								"title": "We Need More 'Good Conflict' in Our Lives. Here's How It Works",
+								"excerpt": "Good conflict can be stressful and heated, but it doesn’t collapse into caricature.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fapi.time.com%2Fwp-content%2Fuploads%2F2021%2F04%2Fbj-workshop.jpeg%3Fquality%3D85%26w%3D1200%26h%3D628%26crop%3D1&resize=w450",
+								"published_timestamp": "1618657200",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 1,
+								"domain_affinities": {},
+								"raw_image_src": "https://api.time.com/wp-content/uploads/2021/04/bj-workshop.jpeg?quality=85&w=1200&h=628&crop=1",
+								"score": 1
+							},
+							{
+								"id": 91856,
+								"url": "https://getpocket.com/explore/item/slow-cooker-honey-garlic-chicken?utm_source=pocket-newtab-intl-en",
+								"domain": "wellplated.com",
+								"title": "Slow Cooker Honey Garlic Chicken Recipe",
+								"excerpt": "The recipe is only eight ingredients (nine if you are a stickler and count the rice).",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale%28%29%3Aformat%28jpg%29%3Aextract_cover%28%29%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6261%252F1618955550_607f4bd6e9219.png&resize=w450",
+								"published_timestamp": "-62169962400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.98333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://pocket-image-cache.com/1200x/filters:no_upscale():format(jpg):extract_cover()/https%3A%2F%2Fpocket-syndicated-images.s3.amazonaws.com%2Farticles%2F6261%2F1618955550_607f4bd6e9219.png",
+								"score": 0.98333333333333
+							},
+							{
+								"id": 91832,
+								"url": "https://www.theguardian.com/news/2021/apr/28/crime-against-humanity-arundhati-roy-india-covid-catastrophe?utm_source=pocket-newtab-intl-en",
+								"domain": "theguardian.com",
+								"title": "‘We are witnessing a crime against humanity’: Arundhati Roy on India’s Covid catastrophe",
+								"excerpt": "During a particularly polarising election campaign in the state of Uttar Pradesh in 2017, India’s prime minister, Narendra Modi, waded into the fray to stir things up even further.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F2e007841085f5d6440eb854f80c5d0108233858e%2F165_0_4737_2842%2Fmaster%2F4737.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Db61c084ca31771a9fbc83184aadaafd8&resize=w450",
+								"published_timestamp": "1619672400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.96666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://i.guim.co.uk/img/media/2e007841085f5d6440eb854f80c5d0108233858e/165_0_4737_2842/master/4737.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=b61c084ca31771a9fbc83184aadaafd8",
+								"score": 0.96666666666667
+							},
+							{
+								"id": 91771,
+								"url": "https://www.abc.net.au/news/science/2021-04-18/cockroaches-insects-reasons-love-them-environment/100053056?utm_source=pocket-newtab-intl-en",
+								"domain": "abc.net.au",
+								"title": "Cockroaches can be smart and beautiful — and might even save the planet",
+								"excerpt": "Many people are disgusted by cockroaches — it's even thought they're the top insect feared by humans. But not all that you've heard about them is true.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485&resize=w450",
+								"published_timestamp": "1618700400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.95,
+								"domain_affinities": {},
+								"raw_image_src": "https://live-production.wcms.abc-cdn.net.au/4a3c0562d7553eb1e108c3f90348ff54?impolicy=wcms_crop_resize&cropH=529&cropW=940&xPos=0&yPos=97&width=862&height=485",
+								"score": 0.95
+							},
+							{
+								"id": 91860,
+								"url": "https://www.wired.co.uk/article/nft-memes-2010s?utm_source=pocket-newtab-intl-en",
+								"domain": "wired.co.uk",
+								"title": "They were ancient internet memes. Now NFTs are making them rich",
+								"excerpt": "Zoe Roth is 21 and gearing up to graduate from university. Sixteen years ago she was standing in front of a burning building in North Carolina when her dad, an amateur photographer, snapped a picture that would take on a whole life of its own.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FpoYE9Zw7arL%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-meme-nft-brian.jpg&resize=w450",
+								"published_timestamp": "-62169962400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.93333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://wi-images.condecdn.net/image/poYE9Zw7arL/crop/1440/0.5235602094240838/f/wired-meme-nft-brian.jpg",
+								"score": 0.93333333333333
+							},
+							{
+								"id": 91808,
+								"url": "https://www.zdnet.com/article/stop-using-your-work-laptop-or-phone-for-personal-stuff-because-i-know-you-are/?utm_source=pocket-newtab-intl-en",
+								"domain": "zdnet.com",
+								"title": "Stop using your work laptop or phone for personal stuff, because I know you are",
+								"excerpt": "A former IT pro turned end user explains why blending your work and personal tech was, is and always will be a bad idea for you and your employer.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fwww.zdnet.com%2Fa%2Fhub%2Fi%2Fr%2F2021%2F04%2F25%2F18ef131e-515e-4d98-916b-e7a142555c79%2Fthumbnail%2F770x578%2F6953198dbc45a63672cd398f72dc0b2f%2Fshutterstock-155087399.jpg&resize=w450",
+								"published_timestamp": "1619326800",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.91666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://www.zdnet.com/a/hub/i/r/2021/04/25/18ef131e-515e-4d98-916b-e7a142555c79/thumbnail/770x578/6953198dbc45a63672cd398f72dc0b2f/shutterstock-155087399.jpg",
+								"score": 0.91666666666667
+							},
+							{
+								"id": 91820,
+								"url": "http://www.capitaldaily.ca/news/the-man-who-stole-a-hotel?utm_source=pocket-newtab-intl-en",
+								"domain": "capitaldaily.ca",
+								"title": "The man who stole a hotel",
+								"excerpt": "A fugitive from the US started fresh on Vancouver Island—then bilked new victims out of millions of dollars while law enforcement refused to act.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fassets.website-files.com%2F5d97efece288d82cde97d5f3%2F607f2ab45f77614d4997dd52_Durkin-Story-Final.png&resize=w450",
+								"published_timestamp": "1619067600",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.9,
+								"domain_affinities": {},
+								"raw_image_src": "https://assets.website-files.com/5d97efece288d82cde97d5f3/607f2ab45f77614d4997dd52_Durkin-Story-Final.png",
+								"score": 0.9
+							},
+							{
+								"id": 91824,
+								"url": "https://getpocket.com/explore/item/all-companies-should-live-by-the-jeff-bezos-70-percent-rule?utm_source=pocket-newtab-intl-en",
+								"domain": "inc.com",
+								"title": "All Companies Should Live by the Jeff Bezos 70 Percent Rule",
+								"excerpt": "A guide to making business decisions—even without all the information—inspired by the Amazon CEO.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale%28%29%3Aformat%28jpg%29%3Aextract_cover%28%29%2Fhttps%253A%252F%252Fpocket-syndicated-images.s3.amazonaws.com%252Farticles%252F6260%252F1618955072_GettyImages-1148068754.jpg&resize=w450",
+								"published_timestamp": "-62169962400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.88333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://pocket-image-cache.com/1200x/filters:no_upscale():format(jpg):extract_cover()/https%3A%2F%2Fpocket-syndicated-images.s3.amazonaws.com%2Farticles%2F6260%2F1618955072_GettyImages-1148068754.jpg",
+								"score": 0.88333333333333
+							},
+							{
+								"id": 91779,
+								"url": "https://www.nytimes.com/2021/04/26/technology/mark-zuckerberg-tim-cook-facebook-apple.html?utm_source=pocket-newtab-intl-en",
+								"domain": "nytimes.com",
+								"title": "Breaking Point: How Mark Zuckerberg and Tim Cook Became Foes",
+								"excerpt": "The chief executives of Facebook and Apple have opposing visions for the future of the internet. Their differences are set to escalate this week. SAN FRANCISCO — At a confab for tech and media moguls in Sun Valley, Idaho, in July 2019, Timothy D.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F17%2Fbusiness%2F17facebookapple%2F17facebookapple-facebookJumbo.jpg&resize=w450",
+								"published_timestamp": "1619427614",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.86666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://static01.nyt.com/images/2021/04/17/business/17facebookapple/17facebookapple-facebookJumbo.jpg",
+								"score": 0.86666666666667
+							},
+							{
+								"id": 91791,
+								"url": "https://www.newyorker.com/news/daily-comment/why-bitcoin-is-bad-for-the-environment?utm_source=pocket-newtab-intl-en",
+								"domain": "newyorker.com",
+								"title": "Why Bitcoin Is Bad for the Environment",
+								"excerpt": "Money, it’s often said, is a shared fiction. I give you a slip of paper or, more likely these days, a piece of plastic. You hand me eggs or butter or a White Chocolate Mocha Frappuccino, and we both walk away satisfied.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6081c7aaf337d5bd7f4020b9%2F16%3A9%2Fw_1280%2Cc_limit%2FKolbert-Bitcoin.jpg&resize=w450",
+								"published_timestamp": "1619067600",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.85,
+								"domain_affinities": {},
+								"raw_image_src": "https://media.newyorker.com/photos/6081c7aaf337d5bd7f4020b9/16:9/w_1280,c_limit/Kolbert-Bitcoin.jpg",
+								"score": 0.85
+							},
+							{
+								"id": 91816,
+								"url": "https://www.wired.com/story/35-years-later-studies-show-a-silver-lining-from-chernobyl/?utm_source=pocket-newtab-intl-en",
+								"domain": "wired.com",
+								"title": "35 Years Later, Studies Show a Silver Lining From Chernobyl",
+								"excerpt": "One new study found that radiation exposure didn’t genetically harm future generations, while another offers insights into how radiation causes thyroid cancer.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6083129fee32045691f62b5b%2F191%3A100%2Fw_1280%2Cc_limit%2FScience_chernobyl_1232301220.jpg&resize=w450",
+								"published_timestamp": "-62169962400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.83333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://media.wired.com/photos/6083129fee32045691f62b5b/191:100/w_1280,c_limit/Science_chernobyl_1232301220.jpg",
+								"score": 0.83333333333333
+							},
+							{
+								"id": 91812,
+								"url": "https://www.theguardian.com/us-news/2021/apr/28/bidens-speech-to-congress-five-key-takeaways?utm_source=pocket-newtab-intl-en",
+								"domain": "theguardian.com",
+								"title": "Biden’s speech to Congress: five key takeaways",
+								"excerpt": "As Biden took the podium, he brushed past a sparse, masked crowd. He fist-bumped and elbow-tapped lawmakers and members of his cabinet – greeting a crowd that was physically distanced, and ideologically divided.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F14cf9579dcf5705c9f1d6747f809a599b753153e%2F0_253_3419_2052%2Fmaster%2F3419.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Ded054eb4acdac9250410324a8658a21a&resize=w450",
+								"published_timestamp": "1619674262",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.81666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://i.guim.co.uk/img/media/14cf9579dcf5705c9f1d6747f809a599b753153e/0_253_3419_2052/master/3419.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=ed054eb4acdac9250410324a8658a21a",
+								"score": 0.81666666666667
+							},
+							{
+								"id": 91783,
+								"url": "https://aeon.co/essays/a-history-of-authenticity-from-jesus-to-self-help-and-beyond?utm_source=pocket-newtab-intl-en",
+								"domain": "aeon.co",
+								"title": "Authenticity is a sham",
+								"excerpt": "From monks to existentialists and hipsters, the search for a true self has been a centuries-long project. Should we give it up?",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fnu.aeon.co%2Fimages%2F16ea1dce-9457-452d-93d7-70b21e43636c%2Fheader_essay-final-nn11455462.jpg&resize=w450",
+								"published_timestamp": "1619499600",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.8,
+								"domain_affinities": {},
+								"raw_image_src": "https://nu.aeon.co/images/16ea1dce-9457-452d-93d7-70b21e43636c/header_essay-final-nn11455462.jpg",
+								"score": 0.8
+							},
+							{
+								"id": 91800,
+								"url": "https://psyche.co/guides/how-to-solve-problems-by-thinking-like-a-detective?utm_source=pocket-newtab-intl-en",
+								"domain": "psyche.co",
+								"title": "How to think like a detective",
+								"excerpt": "The best detectives seem to have almost supernatural insight, but their cognitive toolkit is one that anybody can use",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fepsilon.psyche.co%2Fimages%2F254bcec1-3fce-4482-a9b8-5344cc8c321d%2F1500x1500.jpg&resize=w450",
+								"published_timestamp": "1618981200",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.78333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://epsilon.psyche.co/images/254bcec1-3fce-4482-a9b8-5344cc8c321d/1500x1500.jpg",
+								"score": 0.78333333333333
+							},
+							{
+								"id": 91678,
+								"url": "https://www.newyorker.com/culture/cultural-comment/tiktok-and-the-vibes-revival?utm_source=pocket-newtab-intl-en",
+								"domain": "newyorker.com",
+								"title": "TikTok and the Vibes Revival",
+								"excerpt": "Increasingly, what we’re after on social media is not narrative or personality but moments of audiovisual eloquence.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F6082df3ca9a1e45e0bae1924%2F16%3A9%2Fw_1280%2Cc_limit%2FChayka-Vibes.jpg&resize=w450",
+								"published_timestamp": "1619413200",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.76666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://media.newyorker.com/photos/6082df3ca9a1e45e0bae1924/16:9/w_1280,c_limit/Chayka-Vibes.jpg",
+								"score": 0.76666666666667
+							},
+							{
+								"id": 91735,
+								"url": "https://catapult.co/stories/what-home-staging-showed-me-about-housing-in-america-real-estate-show-home-alexis-zanghi?utm_source=pocket-newtab-intl-en",
+								"domain": "catapult.co",
+								"title": "What Home Staging Showed Me About Housing in America",
+								"excerpt": "Home staging is a privileged kind of precariousness.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fcatapult-prod.s3.amazonaws.com%2Fproduction%2Fstories%2F29464%2Fcover_photos%2Flarge%2Fsuburbia_site_1619119580.jpg%3F1619119580&resize=w450",
+								"published_timestamp": "1619441130",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.75,
+								"domain_affinities": {},
+								"raw_image_src": "https://catapult-prod.s3.amazonaws.com/production/stories/29464/cover_photos/large/suburbia_site_1619119580.jpg?1619119580",
+								"score": 0.75
+							},
+							{
+								"id": 91714,
+								"url": "https://www.bloomberg.com/graphics/2021-cities-climate-solutions/?utm_source=pocket-newtab-intl-en",
+								"domain": "bloomberg.com",
+								"title": "Cities Are Our Best Hope for Surviving Climate Change",
+								"excerpt": "The hysteria about urban density that arrived with the coronavirus is—like the pandemic itself—already easing. Regardless of how quickly or slowly urbanites return to their cramped apartments, however, the long term trend is clear. Humans will continue to flock to cities.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png&resize=w450",
+								"published_timestamp": "1618977600",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.73333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://www.bloomberg.com/graphics/2021-cities-climate-solutions/img/2021-cities-climate-solutions-facebook.png",
+								"score": 0.73333333333333
+							},
+							{
+								"id": 91706,
+								"url": "https://www.theatlantic.com/technology/archive/2021/04/how-yahoo-became-internet-villain/618681/?utm_source=pocket-newtab-intl-en",
+								"domain": "theatlantic.com",
+								"title": "Yahoo, the Destroyer",
+								"excerpt": "Yahoo Answers is not what most people would call a good source of information.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg&resize=w450",
+								"published_timestamp": "1619352000",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.71666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://cdn.theatlantic.com/thumbor/vMx5jypzEGWY4OYPM8Q50EMSOBM=/0x43:2000x1085/960x500/media/img/mt/2021/04/YahooVillaincolor3v2/original.jpg",
+								"score": 0.71666666666667
+							},
+							{
+								"id": 91751,
+								"url": "https://www.independent.co.uk/life-style/health-and-families/astrazeneca-blood-clots-contraceptive-pill-b1834001.html?utm_source=pocket-newtab-intl-en",
+								"domain": "independent.co.uk",
+								"title": "If we’re concerned about vaccine blood clots, should we be worried about the pill?",
+								"excerpt": "After the AstraZeneca and Johnson & Johnson vaccines were halted over rare blood clot concerns, women asked - what about the clotting risk of the contraceptive pill?",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75&resize=w450",
+								"published_timestamp": "1619026980",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.7,
+								"domain_affinities": {},
+								"raw_image_src": "https://static.independent.co.uk/2021/04/19/18/newFile-4.jpg?width=1200&auto=webp&quality=75",
+								"score": 0.7
+							},
+							{
+								"id": 91848,
+								"url": "https://getpocket.com/explore/item/6-stops-on-the-hunt-for-the-holy-grail?utm_source=pocket-newtab-intl-en",
+								"domain": "atlasobscura.com",
+								"title": "6 Stops on the Hunt for the Holy Grail",
+								"excerpt": "The first of many myths involving a divine grail was written more than eight centuries ago. People have been fascinated with the potential whereabouts of the holy treasure every since, making it one of history’s most enduring legends.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale%28%29%3Aformat%28jpg%29%3Aextract_cover%28%29%2Fhttps%253A%252F%252Fassets.atlasobscura.com%252Fmedia%252FW1siZiIsInVwbG9hZHMvYXNzZXRzL2IyY2Q1YThiODNmNGIyZTZiZV9Ib2x5LWdyYWlsLXJvdW5kLXRhYmxlLWJuZi1tc19mci0xMTZGLWY2MTB2LTE1dGgtZGV0YWlsLmpwZyJdLFsicCIsImNvbnZlcnQiLCIiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgODEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIxMjgweD4iXV0%252FHoly-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg&resize=w450",
+								"published_timestamp": "-62169962400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.68333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://pocket-image-cache.com/1200x/filters:no_upscale():format(jpg):extract_cover()/https%3A%2F%2Fassets.atlasobscura.com%2Fmedia%2FW1siZiIsInVwbG9hZHMvYXNzZXRzL2IyY2Q1YThiODNmNGIyZTZiZV9Ib2x5LWdyYWlsLXJvdW5kLXRhYmxlLWJuZi1tc19mci0xMTZGLWY2MTB2LTE1dGgtZGV0YWlsLmpwZyJdLFsicCIsImNvbnZlcnQiLCIiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgODEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIxMjgweD4iXV0%2FHoly-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg",
+								"score": 0.68333333333333
+							},
+							{
+								"id": 91634,
+								"url": "https://www.wired.co.uk/article/james-bond-no-time-to-die-netflix?utm_source=pocket-newtab-intl-en",
+								"domain": "wired.co.uk",
+								"title": "Why a James Bond film will never premiere on Netflix",
+								"excerpt": "In 2011, movie studio Universal Pictures announced that it would be carrying out a test: it would put out its new film, Tower Heist, on video-on-demand just three weeks after releasing it in cinemas. The move was doomed. Cinemas were furious.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fwi-images.condecdn.net%2Fimage%2FmeE2PEmjEPj%2Fcrop%2F1440%2F0.5235602094240838%2Ff%2Fwired-hollywood.jpg&resize=w450",
+								"published_timestamp": "-62169962400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.66666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://wi-images.condecdn.net/image/meE2PEmjEPj/crop/1440/0.5235602094240838/f/wired-hollywood.jpg",
+								"score": 0.66666666666667
+							},
+							{
+								"id": 91698,
+								"url": "https://www.gq.com/story/john-lennon-plastic-ono-band?utm_source=pocket-newtab-intl-en",
+								"domain": "gq.com",
+								"title": "How a Weird Cult Therapy Inspired John Lennon to Make His Greatest Album",
+								"excerpt": "A new deluxe edition of John Lennon/Plastic Ono Band promises an exhaustive document of the former Beatle screaming out his pain with the help of the once- fashionable but now-discredited “primal scream” technique.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmedia.gq.com%2Fphotos%2F60771c10f74872e19957f8a7%2F16%3A9%2Fw_1280%2Cc_limit%2F041421_GQ_Lennon_Janov_1.jpeg&resize=w450",
+								"published_timestamp": "1618462800",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.65,
+								"domain_affinities": {},
+								"raw_image_src": "https://media.gq.com/photos/60771c10f74872e19957f8a7/16:9/w_1280,c_limit/041421_GQ_Lennon_Janov_1.jpeg",
+								"score": 0.65
+							},
+							{
+								"id": 91702,
+								"url": "https://www.bloomberg.com/news/articles/2021-04-24/crypto-holders-say-it-s-hurt-their-personal-relationships?utm_source=pocket-newtab-intl-en",
+								"domain": "bloomberg.com",
+								"title": "Crypto Holders Say It’s Hurt Their Personal Relationships",
+								"excerpt": "Many downsides of cryptocurrencies are well known: There’s volatility, potential for thefts or hacks, and the chance of regulatory changes. Turns out, it may not help your social life, either.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fassets.bwbx.io%2Fimages%2Fusers%2FiqjWHBFdfxIU%2FivLB6eEhFZCI%2Fv0%2F1200x800.jpg&resize=w450",
+								"published_timestamp": "1619233700",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.63333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ivLB6eEhFZCI/v0/1200x800.jpg",
+								"score": 0.63333333333333
+							},
+							{
+								"id": 91686,
+								"url": "https://www.polygon.com/22358945/wii-fit-nintendo-health-ring-fit-adventure?utm_source=pocket-newtab-intl-en",
+								"domain": "polygon.com",
+								"title": "For some, Wii Fit’s legacy is body shame",
+								"excerpt": "Nintendo wants to make exercise easy and fun. At least, that’s the message the company tries to broadcast through health-conscientious developments like step counters and memory games.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FwjtZy0anUlZMNlej2xARRJaeDgM%3D%2F0x215%3A3000x1786%2Ffit-in%2F1200x630%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F22409092%2Fjbareham_210330_ecl1072_wii_fit.jpg&resize=w450",
+								"published_timestamp": "1619269200",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.61666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://cdn.vox-cdn.com/thumbor/wjtZy0anUlZMNlej2xARRJaeDgM=/0x215:3000x1786/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22409092/jbareham_210330_ecl1072_wii_fit.jpg",
+								"score": 0.61666666666667
+							},
+							{
+								"id": 91723,
+								"url": "https://www.wired.com/story/europes-proposed-limits-ai-global-consequences/?utm_source=pocket-newtab-intl-en",
+								"domain": "wired.com",
+								"title": "Europe's Proposed Limits on AI Would Have Global Consequences",
+								"excerpt": "The European Union proposed rules that would restrict or ban some uses of artificial intelligence within its borders, including by tech giants based in the US and China.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmedia.wired.com%2Fphotos%2F60806e8937aa1cabc1105297%2F191%3A100%2Fw_1280%2Cc_limit%2Fbusiness_facial-recognition_75287401.jpg&resize=w450",
+								"published_timestamp": "-62169962400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.6,
+								"domain_affinities": {},
+								"raw_image_src": "https://media.wired.com/photos/60806e8937aa1cabc1105297/191:100/w_1280,c_limit/business_facial-recognition_75287401.jpg",
+								"score": 0.6
+							},
+							{
+								"id": 91674,
+								"url": "https://hbr.org/2021/04/how-one-company-worked-to-root-out-bias-from-performance-reviews?utm_source=pocket-newtab-intl-en",
+								"domain": "hbr.org",
+								"title": "How One Company Worked to Root Out Bias from Performance Reviews",
+								"excerpt": "An audit of bias in performance reviews at a midsized law firm found sobering differences by both race and gender.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fhbr.org%2Fresources%2Fimages%2Farticle_assets%2F2021%2F04%2FApr21_21_206458438.jpg&resize=w450",
+								"published_timestamp": "1619006752",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.58333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://hbr.org/resources/images/article_assets/2021/04/Apr21_21_206458438.jpg",
+								"score": 0.58333333333333
+							},
+							{
+								"id": 91759,
+								"url": "https://www.popsugar.com/node/48273064?utm_source=pocket-newtab-intl-en",
+								"domain": "popsugar.com",
+								"title": "Does This Viral 3-Move Core Routine Actually Work? Just Ask My Shaking Abs",
+								"excerpt": "Six-packs are great and all, but strengthening your core is about so much more than looking good.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FXJBq2xWiSHJLjSOoFRVeG0B26jQ%2Ffit-in%2F1200x630%2Ffilters%3Aformat_auto-%21%21-%3Astrip_icc-%21%21-%3Afill-%21white%21-%2F2021%2F04%2F15%2F886%2Fn%2F1922729%2F42e1411a60789f394a4234.94176192_.png&resize=w450",
+								"published_timestamp": "1618524005",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.56666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://media1.popsugar-assets.com/files/thumbor/XJBq2xWiSHJLjSOoFRVeG0B26jQ/fit-in/1200x630/filters:format_auto-!!-:strip_icc-!!-:fill-!white!-/2021/04/15/886/n/1922729/42e1411a60789f394a4234.94176192_.png",
+								"score": 0.56666666666667
+							},
+							{
+								"id": 91710,
+								"url": "https://www.theguardian.com/lifeandstyle/2021/apr/25/going-vegan-can-switching-to-a-plant-based-diet-really-save-the-planet?utm_source=pocket-newtab-intl-en",
+								"domain": "theguardian.com",
+								"title": "Going vegan: can switching to a plant-based diet really save the planet?",
+								"excerpt": "If politicians are serious about change, they need to incentivise it, say scientists and writers.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F90f91c38cb895cc270a8bfa034f9f8574c200982%2F0_622_2976_1786%2Fmaster%2F2976.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dd1a3bc2207394c9bee14d15da9342055&resize=w450",
+								"published_timestamp": "1619339405",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.55,
+								"domain_affinities": {},
+								"raw_image_src": "https://i.guim.co.uk/img/media/90f91c38cb895cc270a8bfa034f9f8574c200982/0_622_2976_1786/master/2976.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d1a3bc2207394c9bee14d15da9342055",
+								"score": 0.55
+							},
+							{
+								"id": 91731,
+								"url": "https://www.brainpickings.org/2021/04/23/gardening-art-resistance/?utm_source=pocket-newtab-intl-en",
+								"domain": "brainpickings.org",
+								"title": "Gardening as Resistance: Notes on Building Paradise",
+								"excerpt": "“The gardener digs in another time, without past or future, beginning or end… Here is the Amen beyond the prayer,” Derek Jarman wrote as he grieved his dying friends, faced his own death, and contemplated art, mortality, and resistance while planting a garden between an old lighthouse and a ne",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fi1.wp.com%2Fwww.brainpickings.org%2Fwp-content%2Fuploads%2F2020%2F01%2Felizabethblackwell_curiousherbal_poppy0.jpg%3Ffit%3D1200%252C630%26ssl%3D1&resize=w450",
+								"published_timestamp": "1619228990",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.53333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://i1.wp.com/www.brainpickings.org/wp-content/uploads/2020/01/elizabethblackwell_curiousherbal_poppy0.jpg?fit=1200%2C630&ssl=1",
+								"score": 0.53333333333333
+							},
+							{
+								"id": 91743,
+								"url": "https://www.wealthsimple.com/en-us/magazine/rembert-browne?utm_source=pocket-newtab-intl-en",
+								"domain": "wealthsimple.com",
+								"title": "It’ll Work Itself Out (It Actually Won’t)",
+								"excerpt": "He was a writer, in New York, people knew his name. But under his bed was a plastic bin that contained — in form of bills and notices — another man entirely.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fimages.ctfassets.net%2Fv44fuld738we%2FX5Q9ay3XpfVGfhIzDOTBv%2Ff90393309410237db5ecfa277002d980%2FRembert_1200x628_Facebook.png%3Fw%3D1200%26h%3D630%26q%3D90%26fit%3Dfill%26fm%3Djpg&resize=w450",
+								"published_timestamp": "1618808400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.51666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://images.ctfassets.net/v44fuld738we/X5Q9ay3XpfVGfhIzDOTBv/f90393309410237db5ecfa277002d980/Rembert_1200x628_Facebook.png?w=1200&h=630&q=90&fit=fill&fm=jpg",
+								"score": 0.51666666666667
+							}
+						],
+						"status": "success"
+					}
+				}
+			},
+			"loaded": true
+		},
+		"spocs": {
+			"spocs_endpoint": "https://spocs.getpocket.com/spocs",
+			"lastUpdated": 1619787026499,
+			"data": {},
+			"loaded": true,
+			"frequency_caps": [],
+			"blocked": [],
+			"placements": [
+				{
+					"name": "sponsored-collection",
+					"ad_types": [
+						3617
+					],
+					"zone_ids": [
+						217759,
+						218031
+					]
+				},
+				{
+					"name": "spocs",
+					"ad_types": [
+						3617
+					],
+					"zone_ids": [
+						217758,
+						217995
+					]
+				}
+			]
+		}
+	},
+	"Search": {
+		"fakeFocus": false,
+		"hide": false
+	}
+};
+
+��iƱ�           `��B��^����       :about:home alt-data 1;81875,script version 20210430092829  3�

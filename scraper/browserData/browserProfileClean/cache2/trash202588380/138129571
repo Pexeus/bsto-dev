@@ -1,0 +1,1218 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; object-src 'none'; script-src resource: chrome:; connect-src https:; img-src https: data: blob:; style-src 'unsafe-inline';">
+    <title data-l10n-id="newtab-page-title"></title>
+    <link rel="icon" type="image/png" href="chrome://branding/content/icon32.png"/>
+    <link rel="localization" href="branding/brand.ftl" />
+    <link rel="localization" href="browser/branding/brandings.ftl" />
+    <link rel="localization" href="browser/newtab/newtab.ftl" />
+    <link rel="stylesheet" href="chrome://browser/content/contentSearchUI.css" />
+    <link rel="stylesheet" href="chrome://activity-stream/content/css/activity-stream.css" />
+  </head>
+  <!-- Cached: Thu, 29 Apr 2021 14:36:59 GMT -->
+  <body class="activity-stream">
+    <div id="header-asrouter-container" role="presentation"></div>
+    <div id="root">
+      <div><span><button class="personalize-button" data-l10n-id="newtab-personalize-button-label"></button><div class="customize-menu"><button class="close-button" data-l10n-id="newtab-custom-close-button"></button><div></div><div></div><div class="home-section"><div id="shortcuts-section" class="section"><label class="switch"><input type="checkbox" id="shortcuts-toggle" checked="" preference="feeds.topsites" aria-labelledby="custom-shortcuts-title" aria-describedby="custom-shortcuts-subtitle" eventSource="TOP_SITES"/><span class="slider" role="presentation"></span></label><div><h2 id="custom-shortcuts-title" class="title"><label for="shortcuts-toggle" data-l10n-id="newtab-custom-shortcuts-title"></label></h2><p id="custom-shortcuts-subtitle" class="subtitle" data-l10n-id="newtab-custom-shortcuts-subtitle"></p><div class="more-info-top-wrapper "><div class="more-information expand"><select id="row-selector" class="selector" name="row-count" preference="topSitesRows" aria-labelledby="custom-shortcuts-title"><option selected="" value="1" data-l10n-id="newtab-custom-row-selector" data-l10n-args="{&quot;num&quot;: 1}"></option><option value="2" data-l10n-id="newtab-custom-row-selector" data-l10n-args="{&quot;num&quot;: 2}"></option><option value="3" data-l10n-id="newtab-custom-row-selector" data-l10n-args="{&quot;num&quot;: 3}"></option><option value="4" data-l10n-id="newtab-custom-row-selector" data-l10n-args="{&quot;num&quot;: 4}"></option></select><div class="check-wrapper" role="presentation"><input type="checkbox" id="sponsored-shortcuts" class="sponsored-checkbox" checked="" preference="showSponsoredTopSites" eventSource="SPONSORED_TOP_SITES"/><label class="sponsored" for="sponsored-shortcuts" data-l10n-id="newtab-custom-sponsored-sites"></label></div></div></div></div></div><div id="pocket-section" class="section"><label class="switch"><input type="checkbox" id="pocket-toggle" checked="" preference="feeds.section.topstories" aria-labelledby="custom-pocket-title" aria-describedby="custom-pocket-subtitle" eventSource="TOP_STORIES"/><span class="slider" role="presentation"></span></label><div><h2 id="custom-pocket-title" class="title"><label for="pocket-toggle" data-l10n-id="newtab-custom-pocket-title"></label></h2><p id="custom-pocket-subtitle" class="subtitle" data-l10n-id="newtab-custom-pocket-subtitle"></p></div></div><div id="recent-section" class="section"><label class="switch"><input type="checkbox" id="highlights-toggle" preference="feeds.section.highlights" eventSource="HIGHLIGHTS" aria-labelledby="custom-recent-title" aria-describedby="custom-recent-subtitle"/><span class="slider" role="presentation"></span></label><div><h2 id="custom-recent-title" class="title"><label for="highlights-toggle" data-l10n-id="newtab-custom-recent-title"></label></h2><p id="custom-recent-subtitle" class="subtitle" data-l10n-id="newtab-custom-recent-subtitle"></p></div></div><div id="snippets-section" class="section"><label class="switch"><input type="checkbox" id="snippets-toggle" checked="" preference="feeds.snippets" aria-labelledby="custom-snippets-title" aria-describedby="custom-snippets-subtitle" eventSource="SNIPPETS"/><span class="slider" role="presentation"></span></label><div><h2 id="custom-snippets-title" class="title"><label for="snippets-toggle" data-l10n-id="newtab-custom-snippets-title"></label></h2><p id="custom-snippets-subtitle" class="subtitle" data-l10n-id="newtab-custom-snippets-subtitle"></p></div></div><span class="divider" role="separator"></span><div><button id="settings-link" class="external-link" data-l10n-id="newtab-custom-settings"></button></div></div></div></span><div class="outer-wrapper ds-outer-wrapper-search-alignment ds-outer-wrapper-breakpoint-override visible-logo newtab-experience"><main><div class="non-collapsible-section"><div class="search-wrapper"><div class="logo-and-wordmark"><div class="logo"></div><div class="wordmark"></div></div><div class="search-inner-wrapper"><button class="search-handoff-button" data-l10n-id="newtab-search-box-handoff-input" data-l10n-args="{&quot;engine&quot;: &quot;Google&quot;}" tabindex="-1"><div class="fake-textbox" data-l10n-id="newtab-search-box-handoff-text" data-l10n-args="{&quot;engine&quot;: &quot;Google&quot;}"></div><input type="search" class="fake-editable" tabindex="-1" aria-hidden="true"/><div class="fake-caret"></div></button></div></div></div><div class="body-wrapper on"><div class="discovery-stream ds-layout"><div class="ds-column ds-column-12"><div class="ds-column-grid"><div><div class="ds-top-sites "><section class="collapsible-section top-sites animation-enabled" aria-expanded="true" data-section-id="topsites"><div class="section-top-bar"><h3 class="section-title" style="visibility:hidden"><span class="click-target-container"><span class="click-target" role="button" tabindex="0"><span data-l10n-id="newtab-section-header-topsites"></span></span><span class="learn-more-link-wrapper"></span></span></h3></div><div class="section-body"><ul class="top-sites-list"><li class="top-site-outer"><div class="top-site-inner"><a class="top-site-button" href="https://apiecelee.com/u282mgam?key=0f22c1fd609f13cb7947c8cabfe1a90d&amp;submetric=15992426" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper letter-fallback" data-fallback="a" style="background-color:#FF4F5F"><div class="" style="background-image:url(moz-page-thumb://thumbnails/?url=https%3A%2F%2Fapiecelee.com%2Fu282mgam%3Fkey%3D0f22c1fd609f13cb7947c8cabfe1a90d%26submetric%3D15992426&amp;revision=1069)"></div></div></div><div class="title"><span dir="auto">apiecelee<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;apiecelee&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer"><div class="top-site-inner"><a class="top-site-button" href="https://bs.to/serie/Die-Simpsons/1/2-Bart-wird-ein-Genie/" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="b"><div class="screenshot active" style="background-image:url(moz-page-thumb://thumbnails/?url=https%3A%2F%2Fbs.to%2Fserie%2FDie-Simpsons%2F1%2F2-Bart-wird-ein-Genie%2F&amp;revision=7983)"></div><div class="top-site-icon default-icon" style="background-image:url(data:image/png;base64,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)"></div></div></div><div class="title"><span dir="auto">bs<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;bs&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer"><div class="top-site-inner"><a class="top-site-button" href="https://www.youtube.com/" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="Y"><div class="top-site-icon rich-icon" style="background-image:url(chrome://activity-stream/content/data/content/tippytop/images/youtube-com@2x.png)"></div></div></div><div class="title"><span dir="auto">YouTube<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;YouTube&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer"><div class="top-site-inner"><a class="top-site-button" href="https://www.facebook.com/" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="F"><div class="top-site-icon rich-icon" style="background-image:url(chrome://activity-stream/content/data/content/tippytop/images/facebook-com@2x.png)"></div></div></div><div class="title"><span dir="auto">Facebook<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Facebook&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer"><div class="top-site-inner"><a class="top-site-button" href="https://www.wikipedia.org/" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="W"><div class="top-site-icon rich-icon" style="background-image:url(chrome://activity-stream/content/data/content/tippytop/images/wikipedia-org@2x.png)"></div></div></div><div class="title"><span dir="auto">Wikipedia<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Wikipedia&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer"><div class="top-site-inner"><a class="top-site-button" href="https://www.reddit.com/" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="R"><div class="top-site-icon rich-icon" style="background-image:url(chrome://activity-stream/content/data/content/tippytop/images/reddit-com@2x.png)"></div></div></div><div class="title"><span dir="auto">Reddit<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Reddit&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer hide-for-narrow search-shortcut"><div class="top-site-inner"><a class="top-site-button" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="@"><div class="top-site-icon rich-icon" style="background-image:url(chrome://activity-stream/content/data/content/tippytop/images/amazon@2x.png)"></div></div><div class="top-site-icon search-topsite"></div></div><div class="title"><span dir="auto">@amazon<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;@amazon&quot;}" class="context-menu-button icon"></button></div></div></li><li class="top-site-outer hide-for-narrow"><div class="top-site-inner"><a class="top-site-button" href="https://twitter.com/" tabindex="0" draggable="true"><div class="tile" aria-hidden="true"><div class="icon-wrapper" data-fallback="T"><div class="top-site-icon rich-icon" style="background-image:url(chrome://activity-stream/content/data/content/tippytop/images/twitter-com@2x.png)"></div></div></div><div class="title"><span dir="auto">Twitter<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored"></span></span></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Twitter&quot;}" class="context-menu-button icon"></button></div></div></li></ul><div class="edit-topsites-wrapper"></div></div></section></div></div></div></div><style data-styles="[[null]]"></style></div><div class="discovery-stream ds-layout"><div class="ds-column ds-column-12"><div class="ds-column-grid"><div></div></div></div><style data-styles="[[null]]"></style></div><section class="collapsible-section ds-layout animation-enabled" aria-expanded="true" data-section-id="topstories"><div class="section-top-bar"><h3 class="section-title"><span class="click-target-container"><span class="click-target" role="button" tabindex="0"><span data-l10n-args="{&quot;provider&quot;:&quot;Pocket&quot;}" data-l10n-id="newtab-section-header-pocket"></span></span><span class="learn-more-link-wrapper"><span class="learn-more-link"><a href="https://getpocket.com/firefox/new_tab_learn_more" data-l10n-id="newtab-pocket-learn-more"></a></span></span></span></h3></div><div class="section-body"><div class="discovery-stream ds-layout"><div class="ds-column ds-column-12"><div class="ds-column-grid"><div><div><div class="ds-card-grid ds-card-grid-border "><div class="ds-card "><a href="https://www.wired.com/story/opinion-the-plane-paradox-more-automation-should-mean-more-training/?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://media.wired.com/photos/6081da2eee32045691f62b38/191:100/w_1280,c_limit/OpEd-Pilot-Training-590865444.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6081da2eee32045691f62b38%2F191%3A100%2Fw_1280%2Cc_limit%2FOpEd-Pilot-Training-590865444.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6081da2eee32045691f62b38%2F191%3A100%2Fw_1280%2Cc_limit%2FOpEd-Pilot-Training-590865444.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6081da2eee32045691f62b38%2F191%3A100%2Fw_1280%2Cc_limit%2FOpEd-Pilot-Training-590865444.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6081da2eee32045691f62b38%2F191%3A100%2Fw_1280%2Cc_limit%2FOpEd-Pilot-Training-590865444.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6081da2eee32045691f62b38%2F191%3A100%2Fw_1280%2Cc_limit%2FOpEd-Pilot-Training-590865444.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6081da2eee32045691f62b38%2F191%3A100%2Fw_1280%2Cc_limit%2FOpEd-Pilot-Training-590865444.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">wired.com</p><header class="title clamp">The Plane Paradox: More Automation Should Mean More Training</header><p class="excerpt clamp">Captain Shem Malmquist, a veteran safety and aviation accident investigator and current B-777 captain, teaches at the Florida Institute of Technology and is coauthor of Angle of Attack and Grounded (Lexographic Press) with Roger Rapoport, producer of the feature film Pilot Error.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;The Plane Paradox: More Automation Should Mean More Training&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://getpocket.com/explore/item/food-fads-have-always-been-ridiculous-just-ask-the-great-masticator?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://pocket-image-cache.com/1200x/filters:no_upscale():format(jpg):extract_cover()/https%3A%2F%2Fnarratively.com%2Fwp-content%2Fuploads%2F2020%2F09%2FFletcher_header_final-2580-scaled.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fnarratively.com%252Fwp-content%252Fuploads%252F2020%252F09%252FFletcher_header_final-2580-scaled.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fnarratively.com%252Fwp-content%252Fuploads%252F2020%252F09%252FFletcher_header_final-2580-scaled.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fnarratively.com%252Fwp-content%252Fuploads%252F2020%252F09%252FFletcher_header_final-2580-scaled.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fnarratively.com%252Fwp-content%252Fuploads%252F2020%252F09%252FFletcher_header_final-2580-scaled.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fnarratively.com%252Fwp-content%252Fuploads%252F2020%252F09%252FFletcher_header_final-2580-scaled.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale()%3Aformat(jpg)%3Aextract_cover()%2Fhttps%253A%252F%252Fnarratively.com%252Fwp-content%252Fuploads%252F2020%252F09%252FFletcher_header_final-2580-scaled.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">narratively.com</p><header class="title clamp">Food Fads Have Always Been Ridiculous. Just Ask the Great Masticator.</header><p class="excerpt clamp">Horace Fletcher preached the gospel of fanatically chewing food until it completely dissolved in the mouth. Even celebs like Upton Sinclair and Franz Kafka drank the Kool-Aid.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Food Fads Have Always Been Ridiculous. Just Ask the Great Masticator.&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.abc.net.au/news/science/2021-04-18/cockroaches-insects-reasons-love-them-environment/100053056?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://live-production.wcms.abc-cdn.net.au/4a3c0562d7553eb1e108c3f90348ff54?impolicy=wcms_crop_resize&amp;cropH=529&amp;cropW=940&amp;xPos=0&amp;yPos=97&amp;width=862&amp;height=485" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">abc.net.au</p><header class="title clamp">Cockroaches can be smart and beautiful — and might even save the planet</header><p class="excerpt clamp">Many people are disgusted by cockroaches — it&#x27;s even thought they&#x27;re the top insect feared by humans. But not all that you&#x27;ve heard about them is true.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Cockroaches can be smart and beautiful — and might even save the planet&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.olivemagazine.com/recipes/healthy/high-protein-foods/?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://images.immediate.co.uk/production/volatile/sites/2/2018/01/OLI0118-BumperHealthy-EasyPrawnJambalaya_020276-965070d.jpg?quality=45&amp;resize=960,413" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fimages.immediate.co.uk%2Fproduction%2Fvolatile%2Fsites%2F2%2F2018%2F01%2FOLI0118-BumperHealthy-EasyPrawnJambalaya_020276-965070d.jpg%3Fquality%3D45%26resize%3D960%2C413 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fimages.immediate.co.uk%2Fproduction%2Fvolatile%2Fsites%2F2%2F2018%2F01%2FOLI0118-BumperHealthy-EasyPrawnJambalaya_020276-965070d.jpg%3Fquality%3D45%26resize%3D960%2C413 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fimages.immediate.co.uk%2Fproduction%2Fvolatile%2Fsites%2F2%2F2018%2F01%2FOLI0118-BumperHealthy-EasyPrawnJambalaya_020276-965070d.jpg%3Fquality%3D45%26resize%3D960%2C413 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fimages.immediate.co.uk%2Fproduction%2Fvolatile%2Fsites%2F2%2F2018%2F01%2FOLI0118-BumperHealthy-EasyPrawnJambalaya_020276-965070d.jpg%3Fquality%3D45%26resize%3D960%2C413 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fimages.immediate.co.uk%2Fproduction%2Fvolatile%2Fsites%2F2%2F2018%2F01%2FOLI0118-BumperHealthy-EasyPrawnJambalaya_020276-965070d.jpg%3Fquality%3D45%26resize%3D960%2C413 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fimages.immediate.co.uk%2Fproduction%2Fvolatile%2Fsites%2F2%2F2018%2F01%2FOLI0118-BumperHealthy-EasyPrawnJambalaya_020276-965070d.jpg%3Fquality%3D45%26resize%3D960%2C413 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">olivemagazine.com</p><header class="title clamp">20 high-protein foods</header><p class="excerpt clamp">Nourish your body and delight your palate with our satisfying recipes packed with protein – we have meat, fish, veggie and vegan options to try Looking for creative ways to add more protein to your diet? Do you want to try some new protein-rich foods? If so, you’ll love our recipes below, then t</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;20 high-protein foods&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.polygon.com/22358945/wii-fit-nintendo-health-ring-fit-adventure?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://cdn.vox-cdn.com/thumbor/wjtZy0anUlZMNlej2xARRJaeDgM=/0x215:3000x1786/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22409092/jbareham_210330_ecl1072_wii_fit.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FwjtZy0anUlZMNlej2xARRJaeDgM%3D%2F0x215%3A3000x1786%2Ffit-in%2F1200x630%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F22409092%2Fjbareham_210330_ecl1072_wii_fit.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FwjtZy0anUlZMNlej2xARRJaeDgM%3D%2F0x215%3A3000x1786%2Ffit-in%2F1200x630%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F22409092%2Fjbareham_210330_ecl1072_wii_fit.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FwjtZy0anUlZMNlej2xARRJaeDgM%3D%2F0x215%3A3000x1786%2Ffit-in%2F1200x630%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F22409092%2Fjbareham_210330_ecl1072_wii_fit.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FwjtZy0anUlZMNlej2xARRJaeDgM%3D%2F0x215%3A3000x1786%2Ffit-in%2F1200x630%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F22409092%2Fjbareham_210330_ecl1072_wii_fit.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FwjtZy0anUlZMNlej2xARRJaeDgM%3D%2F0x215%3A3000x1786%2Ffit-in%2F1200x630%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F22409092%2Fjbareham_210330_ecl1072_wii_fit.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FwjtZy0anUlZMNlej2xARRJaeDgM%3D%2F0x215%3A3000x1786%2Ffit-in%2F1200x630%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F22409092%2Fjbareham_210330_ecl1072_wii_fit.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">polygon.com</p><header class="title clamp">For some, Wii Fit’s legacy is body shame</header><p class="excerpt clamp">Nintendo wants to make exercise easy and fun. At least, that’s the message the company tries to broadcast through health-conscientious developments like step counters and memory games.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;For some, Wii Fit’s legacy is body shame&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://medium.com/team-human/the-lost-art-of-pattern-recognition-ab077c2867?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://miro.medium.com/max/1200/1*4fqXfUeMdzoIfqRPXpWzuQ.jpeg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmiro.medium.com%2Fmax%2F1200%2F1*4fqXfUeMdzoIfqRPXpWzuQ.jpeg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmiro.medium.com%2Fmax%2F1200%2F1*4fqXfUeMdzoIfqRPXpWzuQ.jpeg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmiro.medium.com%2Fmax%2F1200%2F1*4fqXfUeMdzoIfqRPXpWzuQ.jpeg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmiro.medium.com%2Fmax%2F1200%2F1*4fqXfUeMdzoIfqRPXpWzuQ.jpeg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmiro.medium.com%2Fmax%2F1200%2F1*4fqXfUeMdzoIfqRPXpWzuQ.jpeg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmiro.medium.com%2Fmax%2F1200%2F1*4fqXfUeMdzoIfqRPXpWzuQ.jpeg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">medium.com</p><header class="title clamp">The Lost Art of Pattern Recognition</header><p class="excerpt clamp">The Japanese built a nuclear power plant right down the hill from the stone tablets that their ancestors put in the ground warning, “Don’t build anything below here.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;The Lost Art of Pattern Recognition&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.nytimes.com/2021/04/21/arts/television/tv-soundtracks-dawsons-creek-freaks-and-geeks.html?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://static01.nyt.com/images/2021/04/23/arts/21tvmusic-2/21tvmusic-2-facebookJumbo.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F23%2Farts%2F21tvmusic-2%2F21tvmusic-2-facebookJumbo.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F23%2Farts%2F21tvmusic-2%2F21tvmusic-2-facebookJumbo.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F23%2Farts%2F21tvmusic-2%2F21tvmusic-2-facebookJumbo.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F23%2Farts%2F21tvmusic-2%2F21tvmusic-2-facebookJumbo.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F23%2Farts%2F21tvmusic-2%2F21tvmusic-2-facebookJumbo.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F23%2Farts%2F21tvmusic-2%2F21tvmusic-2-facebookJumbo.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">nytimes.com</p><header class="title clamp">Why Don’t Some TV Shows Sound the Way They Used To?</header><p class="excerpt clamp">Licensing issues have gutted the soundtracks of many beloved series on streaming services, resulting in bewildering music cues and missing theme songs.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Why Don’t Some TV Shows Sound the Way They Used To?&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.bbc.com/future/article/20210419-the-end-of-the-worlds-capital-of-brown-coal?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://ychef.files.bbci.co.uk/live/624x351/p09f3gw8.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fychef.files.bbci.co.uk%2Flive%2F624x351%2Fp09f3gw8.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fychef.files.bbci.co.uk%2Flive%2F624x351%2Fp09f3gw8.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fychef.files.bbci.co.uk%2Flive%2F624x351%2Fp09f3gw8.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fychef.files.bbci.co.uk%2Flive%2F624x351%2Fp09f3gw8.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fychef.files.bbci.co.uk%2Flive%2F624x351%2Fp09f3gw8.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fychef.files.bbci.co.uk%2Flive%2F624x351%2Fp09f3gw8.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">bbc.com</p><header class="title clamp">The end of the world&#x27;s capital of brown coal</header><p class="excerpt clamp">Germany is slowly shuttering its prolific lignite mines, which produce the least efficient type of coal. The ghostly towns in the mines&#x27; shadows may hold a lesson for how to move on.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;The end of the world&#x27;s capital of brown coal&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.theguardian.com/lifeandstyle/2021/apr/25/going-vegan-can-switching-to-a-plant-based-diet-really-save-the-planet?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://i.guim.co.uk/img/media/90f91c38cb895cc270a8bfa034f9f8574c200982/0_622_2976_1786/master/2976.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=d1a3bc2207394c9bee14d15da9342055" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F90f91c38cb895cc270a8bfa034f9f8574c200982%2F0_622_2976_1786%2Fmaster%2F2976.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dd1a3bc2207394c9bee14d15da9342055 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F90f91c38cb895cc270a8bfa034f9f8574c200982%2F0_622_2976_1786%2Fmaster%2F2976.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dd1a3bc2207394c9bee14d15da9342055 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F90f91c38cb895cc270a8bfa034f9f8574c200982%2F0_622_2976_1786%2Fmaster%2F2976.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dd1a3bc2207394c9bee14d15da9342055 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F90f91c38cb895cc270a8bfa034f9f8574c200982%2F0_622_2976_1786%2Fmaster%2F2976.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dd1a3bc2207394c9bee14d15da9342055 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F90f91c38cb895cc270a8bfa034f9f8574c200982%2F0_622_2976_1786%2Fmaster%2F2976.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dd1a3bc2207394c9bee14d15da9342055 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F90f91c38cb895cc270a8bfa034f9f8574c200982%2F0_622_2976_1786%2Fmaster%2F2976.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dd1a3bc2207394c9bee14d15da9342055 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">theguardian.com</p><header class="title clamp">Going vegan: can switching to a plant-based diet really save the planet?</header><p class="excerpt clamp">If politicians are serious about change, they need to incentivise it, say scientists and writers.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Going vegan: can switching to a plant-based diet really save the planet?&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.npr.org/sections/health-shots/2021/04/26/990821079/cheap-legal-and-everywhere-how-food-companies-get-us-hooked-on-junk?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://media.npr.org/assets/img/2021/04/26/gettyimages-1203102891_wide-16aa9e009ee8ce091821218486c25ba4d31d65f0.jpg?s=1400" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2021%2F04%2F26%2Fgettyimages-1203102891_wide-16aa9e009ee8ce091821218486c25ba4d31d65f0.jpg%3Fs%3D1400 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2021%2F04%2F26%2Fgettyimages-1203102891_wide-16aa9e009ee8ce091821218486c25ba4d31d65f0.jpg%3Fs%3D1400 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2021%2F04%2F26%2Fgettyimages-1203102891_wide-16aa9e009ee8ce091821218486c25ba4d31d65f0.jpg%3Fs%3D1400 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2021%2F04%2F26%2Fgettyimages-1203102891_wide-16aa9e009ee8ce091821218486c25ba4d31d65f0.jpg%3Fs%3D1400 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2021%2F04%2F26%2Fgettyimages-1203102891_wide-16aa9e009ee8ce091821218486c25ba4d31d65f0.jpg%3Fs%3D1400 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2021%2F04%2F26%2Fgettyimages-1203102891_wide-16aa9e009ee8ce091821218486c25ba4d31d65f0.jpg%3Fs%3D1400 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">npr.org</p><header class="title clamp">Cheap, Legal And Everywhere: How Food Companies Get Us &#x27;Hooked&#x27; On Junk</header><p class="excerpt clamp">If you&#x27;re someone who has turned to snacking on junk food more in the pandemic, you&#x27;re not alone. Pulitzer Prize-winning investigative reporter Michael Moss says processed food is engineered to be &quot;craveable,&quot; not unlike a cigarette or a hit of cocaine.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Cheap, Legal And Everywhere: How Food Companies Get Us &#x27;Hooked&#x27; On Junk&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.entrepreneur.com/article/367350?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://assets.entrepreneur.com/content/3x2/2000/1617818425-GettyImages-1215627681.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fassets.entrepreneur.com%2Fcontent%2F3x2%2F2000%2F1617818425-GettyImages-1215627681.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fassets.entrepreneur.com%2Fcontent%2F3x2%2F2000%2F1617818425-GettyImages-1215627681.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fassets.entrepreneur.com%2Fcontent%2F3x2%2F2000%2F1617818425-GettyImages-1215627681.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fassets.entrepreneur.com%2Fcontent%2F3x2%2F2000%2F1617818425-GettyImages-1215627681.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fassets.entrepreneur.com%2Fcontent%2F3x2%2F2000%2F1617818425-GettyImages-1215627681.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fassets.entrepreneur.com%2Fcontent%2F3x2%2F2000%2F1617818425-GettyImages-1215627681.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">entrepreneur.com</p><header class="title clamp">Elon Musk and Steve Jobs Embraced Lateral Thinking. Here&#x27;s Why It Beats Best Practices Every Time.</header><p class="excerpt clamp">Ask just about any leader to offer you a set of best practices they use in their company and they probably can do it.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Elon Musk and Steve Jobs Embraced Lateral Thinking. Here&#x27;s Why It Beats Best Practices Every Time.&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.washingtonpost.com/lifestyle/interactive/2021/pandemic-parenting-life-changes-return/?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/G4TM7KCGYFAHLDF5A3ICR4I4SQ.png&amp;w=1200" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.washingtonpost.com%2Fwp-apps%2Fimrs.php%3Fsrc%3Dhttps%3A%2F%2Farc-anglerfish-washpost-prod-washpost.s3.amazonaws.com%2Fpublic%2FG4TM7KCGYFAHLDF5A3ICR4I4SQ.png%26w%3D1200 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.washingtonpost.com%2Fwp-apps%2Fimrs.php%3Fsrc%3Dhttps%3A%2F%2Farc-anglerfish-washpost-prod-washpost.s3.amazonaws.com%2Fpublic%2FG4TM7KCGYFAHLDF5A3ICR4I4SQ.png%26w%3D1200 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.washingtonpost.com%2Fwp-apps%2Fimrs.php%3Fsrc%3Dhttps%3A%2F%2Farc-anglerfish-washpost-prod-washpost.s3.amazonaws.com%2Fpublic%2FG4TM7KCGYFAHLDF5A3ICR4I4SQ.png%26w%3D1200 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.washingtonpost.com%2Fwp-apps%2Fimrs.php%3Fsrc%3Dhttps%3A%2F%2Farc-anglerfish-washpost-prod-washpost.s3.amazonaws.com%2Fpublic%2FG4TM7KCGYFAHLDF5A3ICR4I4SQ.png%26w%3D1200 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.washingtonpost.com%2Fwp-apps%2Fimrs.php%3Fsrc%3Dhttps%3A%2F%2Farc-anglerfish-washpost-prod-washpost.s3.amazonaws.com%2Fpublic%2FG4TM7KCGYFAHLDF5A3ICR4I4SQ.png%26w%3D1200 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.washingtonpost.com%2Fwp-apps%2Fimrs.php%3Fsrc%3Dhttps%3A%2F%2Farc-anglerfish-washpost-prod-washpost.s3.amazonaws.com%2Fpublic%2FG4TM7KCGYFAHLDF5A3ICR4I4SQ.png%26w%3D1200 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">washingtonpost.com</p><header class="title clamp">The pandemic changed everything about family life. These are the parts parents want to keep.</header><p class="excerpt clamp">We asked parents to tell us, as we start to see light at the end of this pandemic tunnel: What is one change you’d like to carry with you into post-pandemic life? These are their answers.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;The pandemic changed everything about family life. These are the parts parents want to keep.&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.independent.co.uk/life-style/health-and-families/astrazeneca-blood-clots-contraceptive-pill-b1834001.html?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://static.independent.co.uk/2021/04/19/18/newFile-4.jpg?width=1200&amp;auto=webp&amp;quality=75" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">independent.co.uk</p><header class="title clamp">If we’re concerned about vaccine blood clots, should we be worried about the pill?</header><p class="excerpt clamp">After the AstraZeneca and Johnson &amp; Johnson vaccines were halted over rare blood clot concerns, women asked - what about the clotting risk of the contraceptive pill?</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;If we’re concerned about vaccine blood clots, should we be worried about the pill?&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.smithsonianmag.com/science-nature/new-science-motherhood-180977456/?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://thumbs-prod.si-cdn.com/CqZ3xGeVxtSHToSVvcXLQeyjerk=/fit-in/1600x0/https://public-media.si-cdn.com/filer/6c/f5/6cf5e3c7-9ce0-4fd9-abc5-687624a62bed/mom_social_media.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fthumbs-prod.si-cdn.com%2FCqZ3xGeVxtSHToSVvcXLQeyjerk%3D%2Ffit-in%2F1600x0%2Fhttps%3A%2F%2Fpublic-media.si-cdn.com%2Ffiler%2F6c%2Ff5%2F6cf5e3c7-9ce0-4fd9-abc5-687624a62bed%2Fmom_social_media.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fthumbs-prod.si-cdn.com%2FCqZ3xGeVxtSHToSVvcXLQeyjerk%3D%2Ffit-in%2F1600x0%2Fhttps%3A%2F%2Fpublic-media.si-cdn.com%2Ffiler%2F6c%2Ff5%2F6cf5e3c7-9ce0-4fd9-abc5-687624a62bed%2Fmom_social_media.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fthumbs-prod.si-cdn.com%2FCqZ3xGeVxtSHToSVvcXLQeyjerk%3D%2Ffit-in%2F1600x0%2Fhttps%3A%2F%2Fpublic-media.si-cdn.com%2Ffiler%2F6c%2Ff5%2F6cf5e3c7-9ce0-4fd9-abc5-687624a62bed%2Fmom_social_media.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fthumbs-prod.si-cdn.com%2FCqZ3xGeVxtSHToSVvcXLQeyjerk%3D%2Ffit-in%2F1600x0%2Fhttps%3A%2F%2Fpublic-media.si-cdn.com%2Ffiler%2F6c%2Ff5%2F6cf5e3c7-9ce0-4fd9-abc5-687624a62bed%2Fmom_social_media.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fthumbs-prod.si-cdn.com%2FCqZ3xGeVxtSHToSVvcXLQeyjerk%3D%2Ffit-in%2F1600x0%2Fhttps%3A%2F%2Fpublic-media.si-cdn.com%2Ffiler%2F6c%2Ff5%2F6cf5e3c7-9ce0-4fd9-abc5-687624a62bed%2Fmom_social_media.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fthumbs-prod.si-cdn.com%2FCqZ3xGeVxtSHToSVvcXLQeyjerk%3D%2Ffit-in%2F1600x0%2Fhttps%3A%2F%2Fpublic-media.si-cdn.com%2Ffiler%2F6c%2Ff5%2F6cf5e3c7-9ce0-4fd9-abc5-687624a62bed%2Fmom_social_media.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">smithsonianmag.com</p><header class="title clamp">The New Science of Motherhood</header><p class="excerpt clamp">Through studies of fetal DNA, researchers are revealing how a child can shape a mom’s heart and mind—literally.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;The New Science of Motherhood&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.mentalfloss.com/article/645625/unsolved-mysteries-tv-show-history?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://images2.minutemediacdn.com/image/upload/c_crop,h_1126,w_2000,x_0,y_127/v1593651941/shape/mentalfloss/robertstack-unsolvedmysteries_photo_courtesy_of_nbc.jpg?itok=2tIBaUeW" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fimages2.minutemediacdn.com%2Fimage%2Fupload%2Fc_crop%2Ch_1126%2Cw_2000%2Cx_0%2Cy_127%2Fv1593651941%2Fshape%2Fmentalfloss%2Frobertstack-unsolvedmysteries_photo_courtesy_of_nbc.jpg%3Fitok%3D2tIBaUeW 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fimages2.minutemediacdn.com%2Fimage%2Fupload%2Fc_crop%2Ch_1126%2Cw_2000%2Cx_0%2Cy_127%2Fv1593651941%2Fshape%2Fmentalfloss%2Frobertstack-unsolvedmysteries_photo_courtesy_of_nbc.jpg%3Fitok%3D2tIBaUeW 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fimages2.minutemediacdn.com%2Fimage%2Fupload%2Fc_crop%2Ch_1126%2Cw_2000%2Cx_0%2Cy_127%2Fv1593651941%2Fshape%2Fmentalfloss%2Frobertstack-unsolvedmysteries_photo_courtesy_of_nbc.jpg%3Fitok%3D2tIBaUeW 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fimages2.minutemediacdn.com%2Fimage%2Fupload%2Fc_crop%2Ch_1126%2Cw_2000%2Cx_0%2Cy_127%2Fv1593651941%2Fshape%2Fmentalfloss%2Frobertstack-unsolvedmysteries_photo_courtesy_of_nbc.jpg%3Fitok%3D2tIBaUeW 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fimages2.minutemediacdn.com%2Fimage%2Fupload%2Fc_crop%2Ch_1126%2Cw_2000%2Cx_0%2Cy_127%2Fv1593651941%2Fshape%2Fmentalfloss%2Frobertstack-unsolvedmysteries_photo_courtesy_of_nbc.jpg%3Fitok%3D2tIBaUeW 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fimages2.minutemediacdn.com%2Fimage%2Fupload%2Fc_crop%2Ch_1126%2Cw_2000%2Cx_0%2Cy_127%2Fv1593651941%2Fshape%2Fmentalfloss%2Frobertstack-unsolvedmysteries_photo_courtesy_of_nbc.jpg%3Fitok%3D2tIBaUeW 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">mentalfloss.com</p><header class="title clamp">A Brief History of Unsolved Mysteries</header><p class="excerpt clamp">A show about true crime before true crime was a mass media obsession, and reality television before reality television was everywhere.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;A Brief History of Unsolved Mysteries&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.theatlantic.com/technology/archive/2021/04/how-yahoo-became-internet-villain/618681/?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://cdn.theatlantic.com/thumbor/vMx5jypzEGWY4OYPM8Q50EMSOBM=/0x43:2000x1085/960x500/media/img/mt/2021/04/YahooVillaincolor3v2/original.jpg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">theatlantic.com</p><header class="title clamp">Yahoo, the Destroyer</header><p class="excerpt clamp">Yahoo Answers is not what most people would call a good source of information.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Yahoo, the Destroyer&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.popsugar.com/node/48273064?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://media1.popsugar-assets.com/files/thumbor/XJBq2xWiSHJLjSOoFRVeG0B26jQ/fit-in/1200x630/filters:format_auto-!!-:strip_icc-!!-:fill-!white!-/2021/04/15/886/n/1922729/42e1411a60789f394a4234.94176192_.png" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FXJBq2xWiSHJLjSOoFRVeG0B26jQ%2Ffit-in%2F1200x630%2Ffilters%3Aformat_auto-!!-%3Astrip_icc-!!-%3Afill-!white!-%2F2021%2F04%2F15%2F886%2Fn%2F1922729%2F42e1411a60789f394a4234.94176192_.png 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FXJBq2xWiSHJLjSOoFRVeG0B26jQ%2Ffit-in%2F1200x630%2Ffilters%3Aformat_auto-!!-%3Astrip_icc-!!-%3Afill-!white!-%2F2021%2F04%2F15%2F886%2Fn%2F1922729%2F42e1411a60789f394a4234.94176192_.png 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FXJBq2xWiSHJLjSOoFRVeG0B26jQ%2Ffit-in%2F1200x630%2Ffilters%3Aformat_auto-!!-%3Astrip_icc-!!-%3Afill-!white!-%2F2021%2F04%2F15%2F886%2Fn%2F1922729%2F42e1411a60789f394a4234.94176192_.png 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FXJBq2xWiSHJLjSOoFRVeG0B26jQ%2Ffit-in%2F1200x630%2Ffilters%3Aformat_auto-!!-%3Astrip_icc-!!-%3Afill-!white!-%2F2021%2F04%2F15%2F886%2Fn%2F1922729%2F42e1411a60789f394a4234.94176192_.png 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FXJBq2xWiSHJLjSOoFRVeG0B26jQ%2Ffit-in%2F1200x630%2Ffilters%3Aformat_auto-!!-%3Astrip_icc-!!-%3Afill-!white!-%2F2021%2F04%2F15%2F886%2Fn%2F1922729%2F42e1411a60789f394a4234.94176192_.png 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FXJBq2xWiSHJLjSOoFRVeG0B26jQ%2Ffit-in%2F1200x630%2Ffilters%3Aformat_auto-!!-%3Astrip_icc-!!-%3Afill-!white!-%2F2021%2F04%2F15%2F886%2Fn%2F1922729%2F42e1411a60789f394a4234.94176192_.png 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">popsugar.com</p><header class="title clamp">Does This Viral 3-Move Core Routine Actually Work? Just Ask My Shaking Abs</header><p class="excerpt clamp">Six-packs are great and all, but strengthening your core is about so much more than looking good.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Does This Viral 3-Move Core Routine Actually Work? Just Ask My Shaking Abs&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.gq.com/story/john-lennon-plastic-ono-band?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://media.gq.com/photos/60771c10f74872e19957f8a7/16:9/w_1280,c_limit/041421_GQ_Lennon_Janov_1.jpeg" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.gq.com%2Fphotos%2F60771c10f74872e19957f8a7%2F16%3A9%2Fw_1280%2Cc_limit%2F041421_GQ_Lennon_Janov_1.jpeg 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.gq.com%2Fphotos%2F60771c10f74872e19957f8a7%2F16%3A9%2Fw_1280%2Cc_limit%2F041421_GQ_Lennon_Janov_1.jpeg 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.gq.com%2Fphotos%2F60771c10f74872e19957f8a7%2F16%3A9%2Fw_1280%2Cc_limit%2F041421_GQ_Lennon_Janov_1.jpeg 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.gq.com%2Fphotos%2F60771c10f74872e19957f8a7%2F16%3A9%2Fw_1280%2Cc_limit%2F041421_GQ_Lennon_Janov_1.jpeg 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.gq.com%2Fphotos%2F60771c10f74872e19957f8a7%2F16%3A9%2Fw_1280%2Cc_limit%2F041421_GQ_Lennon_Janov_1.jpeg 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fmedia.gq.com%2Fphotos%2F60771c10f74872e19957f8a7%2F16%3A9%2Fw_1280%2Cc_limit%2F041421_GQ_Lennon_Janov_1.jpeg 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">gq.com</p><header class="title clamp">How a Weird Cult Therapy Inspired John Lennon to Make His Greatest Album</header><p class="excerpt clamp">A new deluxe edition of John Lennon/Plastic Ono Band promises an exhaustive document of the former Beatle screaming out his pain with the help of the once- fashionable but now-discredited “primal scream” technique.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;How a Weird Cult Therapy Inspired John Lennon to Make His Greatest Album&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.thedrive.com/the-war-zone/40286/the-hunt-for-a-soviet-submarine-desperately-trying-to-sneak-through-the-strait-of-gibraltar?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://www.thedrive.com/content/2021/04/foxtrot.jpg?quality=85" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.thedrive.com%2Fcontent%2F2021%2F04%2Ffoxtrot.jpg%3Fquality%3D85 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.thedrive.com%2Fcontent%2F2021%2F04%2Ffoxtrot.jpg%3Fquality%3D85 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.thedrive.com%2Fcontent%2F2021%2F04%2Ffoxtrot.jpg%3Fquality%3D85 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.thedrive.com%2Fcontent%2F2021%2F04%2Ffoxtrot.jpg%3Fquality%3D85 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.thedrive.com%2Fcontent%2F2021%2F04%2Ffoxtrot.jpg%3Fquality%3D85 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.thedrive.com%2Fcontent%2F2021%2F04%2Ffoxtrot.jpg%3Fquality%3D85 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">thedrive.com</p><header class="title clamp">The Hunt For A Soviet Submarine Desperately Trying To Sneak Through The Strait Of Gibraltar</header><p class="excerpt clamp">The Cold War cat-and-mouse game of anti-submarine warfare became very hot as the USS Steinaker approached the Mediterranean in January of 1967. In the North Atlantic on the evening of January 20, 1967, four U.S.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;The Hunt For A Soviet Submarine Desperately Trying To Sneak Through The Strait Of Gibraltar&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.theguardian.com/books/2021/apr/23/chinese-don-quixote-is-translated-into-spanish-after-100-years?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://i.guim.co.uk/img/media/85afa2a9a78079f472f22a6d5346420eba14b60c/0_166_4898_2939/master/4898.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=ac11f445a274cde255abbee8f6a7cca6" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F85afa2a9a78079f472f22a6d5346420eba14b60c%2F0_166_4898_2939%2Fmaster%2F4898.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dac11f445a274cde255abbee8f6a7cca6 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F85afa2a9a78079f472f22a6d5346420eba14b60c%2F0_166_4898_2939%2Fmaster%2F4898.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dac11f445a274cde255abbee8f6a7cca6 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F85afa2a9a78079f472f22a6d5346420eba14b60c%2F0_166_4898_2939%2Fmaster%2F4898.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dac11f445a274cde255abbee8f6a7cca6 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F85afa2a9a78079f472f22a6d5346420eba14b60c%2F0_166_4898_2939%2Fmaster%2F4898.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dac11f445a274cde255abbee8f6a7cca6 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F85afa2a9a78079f472f22a6d5346420eba14b60c%2F0_166_4898_2939%2Fmaster%2F4898.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dac11f445a274cde255abbee8f6a7cca6 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F85afa2a9a78079f472f22a6d5346420eba14b60c%2F0_166_4898_2939%2Fmaster%2F4898.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dac11f445a274cde255abbee8f6a7cca6 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">theguardian.com</p><header class="title clamp">Chinese Don Quixote is translated into Spanish after 100 years</header><p class="excerpt clamp">In the early 20th century a pioneering and appropriately idiosyncratic man of letters took it upon himself to translate the first part of Don Quixote into classical Chinese.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Chinese Don Quixote is translated into Spanish after 100 years&quot;}" class="context-menu-button icon"></button></div></div><div class="ds-card "><a href="https://www.bloomberg.com/graphics/2021-cities-climate-solutions/?utm_source=pocket-newtab-intl-en" class="ds-card-link"><div class="img-wrapper"><picture class="ds-image
+       img
+      
+      
+    "><img loading="lazy" crossorigin="anonymous" sizes="(min-width: 1122px) 296px,(min-width: 866px) 218px,(max-width: 610px) 202px,202px" src="https://www.bloomberg.com/graphics/2021-cities-climate-solutions/img/2021-cities-climate-solutions-facebook.png" srcSet="https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png 296w,https://img-getpocket.cdn.mozilla.net/592x296/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png 592w,https://img-getpocket.cdn.mozilla.net/218x109/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png 218w,https://img-getpocket.cdn.mozilla.net/436x218/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png 436w,https://img-getpocket.cdn.mozilla.net/202x101/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png 202w,https://img-getpocket.cdn.mozilla.net/404x202/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png 404w"/></picture></div><div class="meta"><div class="info-wrap"><p class="source clamp">bloomberg.com</p><header class="title clamp">Cities Are Our Best Hope for Surviving Climate Change</header><p class="excerpt clamp">The hysteria about urban density that arrived with the coronavirus is—like the pandemic itself—already easing. Regardless of how quickly or slowly urbanites return to their cramped apartments, however, the long term trend is clear. Humans will continue to flock to cities.</p></div><div class="story-footer"></div></div><div class="impression-observer"></div></a><div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;Cities Are Our Best Hope for Surviving Climate Change&quot;}" class="context-menu-button icon"></button></div></div></div></div></div><div><div class="ds-navigation ds-navigation-left-align"><span class="ds-navigation-header" data-l10n-id="newtab-pocket-read-more"></span><ul><li><a href="https://getpocket.com/explore/self-improvement?utm_source=pocket-newtab">Self Improvement</a></li><li><a href="https://getpocket.com/explore/food?utm_source=pocket-newtab">Food</a></li><li><a href="https://getpocket.com/explore/entertainment?utm_source=pocket-newtab">Entertainment</a></li><li><a href="https://getpocket.com/explore/health?utm_source=pocket-newtab">Health</a></li><li><a href="https://getpocket.com/explore/science?utm_source=pocket-newtab">Science</a></li><li><a href="https://getpocket.com/explore?utm_source=pocket-newtab">More Recommendations ›</a></li></ul></div></div></div></div><style data-styles="[[null,{&quot;.ds-navigation&quot;:&quot;margin-top: -10px;&quot;}]]"></style></div></div></section><div class="discovery-stream ds-layout"><div class="ds-column ds-column-12"><div class="ds-column-grid"><div></div></div></div><style data-styles="[[null]]"></style></div></div></main></div></div>
+    </div>
+    <div id="footer-asrouter-container" role="presentation"></div>
+    <script src="about:home?jscache"></script>
+  </body>
+</html>
+window.__FROM_STARTUP_CACHE__ = true;
+window.__STARTUP_STATE__ = {
+	"TopSites": {
+		"initialized": true,
+		"rows": [
+			{
+				"bookmarkGuid": null,
+				"frecency": 700,
+				"guid": "SRrMPt4o2XVr",
+				"lastVisitDate": 1619706875474,
+				"title": null,
+				"url": "https://apiecelee.com/u282mgam?key=0f22c1fd609f13cb7947c8cabfe1a90d&submetric=15992426",
+				"type": "history",
+				"hostname": "apiecelee",
+				"typedBonus": true,
+				"screenshot": "moz-page-thumb://thumbnails/?url=https%3A%2F%2Fapiecelee.com%2Fu282mgam%3Fkey%3D0f22c1fd609f13cb7947c8cabfe1a90d%26submetric%3D15992426&revision=1069"
+			},
+			{
+				"bookmarkGuid": null,
+				"frecency": 700,
+				"guid": "bztATX1bwszj",
+				"lastVisitDate": 1619706872511,
+				"title": "Bart wird ein Genie - Die Simpsons (1) - Burning Series: Serien online sehen",
+				"url": "https://bs.to/serie/Die-Simpsons/1/2-Bart-wird-ein-Genie/",
+				"type": "history",
+				"favicon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAJfElEQVRYhXWX+XMUxxXHX4+cH+KU80/ETvw/WMcK3QiwBeIyt7gRe+teIRCHOYXQDdLqliDGiZEwDgZMGQeMjWIgAZJynMIp4ysQnKBd7and+eSHHh2AM1WvXk/39Pt+3uvumRpJJOIkEiYjf3lAVseHvLjjNEbVaaSiH6PsJFI+jCofQpUNospPIt4hlHcYKRtGyqd8H+IdQMoGkfJTSIWeI+WDqLJBpPIkUjHEiztOk9FxibN3v2VycpJEIo4kEgmq37+pg09N9g4/JS7eQcQ7pK3M8t4B634Q8QxpEM8gyjusRb39GrR8GCmfSuYUUjmAVAxR84dbJOJJ5OzdB1ZmAzpI2aCe5LZE3cOIZwjDM4B4+rW5+1DufpSrx2r3Iq4+pMzqd/fqeJ5BxNNLinsI8fRrMM+wBTzAu3ceIJntlxHvAIZHP2S4hjFcWki5e7Wgqw9x9SCuHkvMr+/dfdpcfYi7B+W02vYexNWN4Rq05g+g3IOIa8DSGkA8Q2S2XUR+WX0KcWkA5RzAf+k2CQBzljHLW9ejHwP8+auH9Fz4nFd9w4ijSwvbe0hx+BF7D8regzj8iGMQcfkx7P2IoxdxDiGuPl6qOoko5wDK3Y84+xFnL10f3iZJAkgCSa1rJp5hmBkzgVA4Tt2pq8j2LlRpF2Lv1uLOLpTdjyrt1iBOy7v7LLBeRBz9iLNLD27vpvvCbTDBNGfknkmepDkDYpLENE2CkSiZe06itp1Atp0gZesJpNSPbO8kpbQH2dapQex9um33I/ZORNl7UKXdqG2dyPZuei7cmsncEu+5cIvOC7foPv8Z/g9ucvHzL2dozJmVeufj26iNHci24xhb25Gtx7VtbtdgW9uRrSe0bfMj27sR2daJlHZOD/g/uMmzl2xqRza3IhvakS0dyMYWSjvOPvWMCdz+6jvURuvZjW0YG9o00KZ21KZWZFMHxuYuZMtxyzoQTaM71OaO5wBMQDY3o9Y3I5takJImpKQF2dCKOXuTkuTi2JfI+gakpAW1rgVjQ4uet6EN2dg2DaY2tSIbT+jEdHbtyMZ21MZ2/OfHnq9ASRNq/THUuiZkfQNqXRNzavunAZMkwISGd64iaxqRdUc1yLqpOY0auqQJtb7VgmrV1ZL1rciGNmug9ScBtrSPUNo6QmnrWUqbR9nZc5FHP05oAFOL3//2MbL6CGrtMWT1UWRtA7LmsIZZ06j7SxqRtc1ISSNqXase02QtemBtM/73bzy9BKYu7/TRNHXGplX2UDjKby/f4RV7G7JyP7LiCGr1IWT1UVJWHEatOoJadYSUVY3I2sPI2gbUqiMzULKmCVl7DFndhKw+Ste5z57JPzldanP6dnIaBpJcvH6Pl7c2o5bvR1YcQt48qP2KQ8iKI8ibR6x+y688jFp1FFnZiKhVVslWNiIrG+h+73mAJObsw09ieu/pdwAmTIQivLq1iZLDp7h4/R53v/iKYDDI3/7xNZdv/JX2M1d5ZUsLalkDsrwBefOwBpKVDcjKBovuCN3nrj8HIMsOIcsOIEv3IUv38eqmRvyj16yqJKdhvv7+MePBJ4wHAwQDTwgGg0xMBJgIBwmFIkSjYU5e+BS1/CBq6QFk+QFELT+oaZYdQJYdwj96bbrkU6U2luzDKN6LLH4LKd6NWrwXKd7D/e/+9dTymGaC8fEgofEATyaChANBgqEJwuEw4YkQ0UiIwQufIosPYCzejyzdi8iS/cjiQ8iS/ciSffhHr88CsN4DxbuR4l2oor3Iwnpk4S5eLjnIw8fjTH0XsI5jMDhOIBBgw/5BfrXuENUtv2Pk8k3i4QjhaIgsVwdSvAcp3odatA9RxQdQxW9hFO9FLdqD/+yn0+s6RdE18gn+M1foHdW+e+QjHj4Ozlol622QMAkEAowHA6Q7mjEW7EKKdmG8sYsMZxttpy+RUlSPFNVhvFGPLNyLyMK9Vma7UYt20zl6lamPjC7B5PSmm/pATa391IacuiKhKIGJIMFgkEePHtN6+gPSHc2oBbXIgp1I0S7U67uQ13cjb9QjRbsQVbTb6tiDWrCbnpFrTx2/6RKbU0syu62zT5Lg1p37BIMhgsFxgqEAE4EQoVCEcDjM2J37HOw9h8z3IfN3IAvqkPk+1PydiLxej8yvRxbs4YUFO+l+98pTeyAxC0ZXIDn9Prj3939y+uIYGdsbUIU1nLk8xsREgHAoSCgUIhKeIByeIBIJEYlFuX3vS9TcnUjhDmRelfYpc+uQ+XUY83YghfVI4Q6MeT5UQbWmLKxF5ddh5Fej8msx8n2owhqkoAqZV4PkV2Hk+5C8clRhDYsr2jhzeYx/Px4nHI0QicSIxWJEonHi0Rid71xC5dci+VWowlpECuqQglrU3B2oAh8ytx5V4NOkBbV6LK8KyatB5dUg+T4kr5IXcmuQvGokrxLJ8/GbZXuQHB+SW4mRo/urmk7xxf1viEajxGIR4vEE3/zwCMmtQfJ8SEENInk+JN+HyvPpzvwabXk+S7AGya3WllP1jFUgOVWonAq+efCIkQ/H+PWSOiSrEpVdheSU86uldcRik0zG4kzG4sQTk1a8Su0lt4aU7BqdSW4NkmtlmmsJ5Fajsqt0wKzKmeDZ5aicCiS7nMpjJwmHw0QiEf7z5L8MvneF4opmUrK81B57m1gsQiwWI5Ew+fbhY1SWF8nWsURl+5DsSozsClROBSqrHJlTgZFVrdtZlaisSmROxSwrm7GsMm7e+YJ4NEYoriHik+iyR+LE41Gi8RiJRJx4PMGJty8gWR5kThmGzYu8NL8aydaiklWFkV2BkVmG5FSSMqfcAtJiRmYZkulF2WZMMr28vGgnw+9dIRqPEYtFmIxEmUzGicfjTE5O6t+weJLzV26gbOXWvHJ+UViN2DwdGJmViK2CFFsFYrOyzLSEnxXM8DxlKsODke7BsLl5paiOzlPn+XjsLg9+eEQikeD7Hx7zyY07bKnv5WfpXsTmQtLdGDYv6fYO5Ny1e0imJjJsbpTNi2FzatJM50+KTglrc+mgGU5UhgPJcCI2B5LuRDLsSLoTleFBbHYkw63bGXrs3SufI5hQ1fk+YpsJLGllOnBaGZLu/v+W6kJSPUi6HUl1YKQ6UGlOJNU1y7uRNO1124GR7qLq+CjRaBhJYmKaJqN/vEOmo4MXc6s0ddpPCKa5ZizVNSP0ml2DpDl0f5oLec2JpNqRtO1IqgNJdfDzXC8Z9kZ+/9GfiEbjxGKT/A8vGUz/LtaEWAAAAABJRU5ErkJggg==",
+				"faviconLength": 2485,
+				"faviconRef": "",
+				"faviconSize": 32,
+				"smallFavicon": "data:image/png;base64,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",
+				"smallFaviconLength": 2485,
+				"smallFaviconRef": "",
+				"smallFaviconSize": 32,
+				"hostname": "bs",
+				"typedBonus": true,
+				"screenshot": "moz-page-thumb://thumbnails/?url=https%3A%2F%2Fbs.to%2Fserie%2FDie-Simpsons%2F1%2F2-Bart-wird-ein-Genie%2F&revision=7983"
+			},
+			{
+				"isDefault": true,
+				"url": "https://www.youtube.com/",
+				"hostname": "youtube",
+				"sendAttributionRequest": false,
+				"label": "YouTube",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/youtube-com@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/youtube-com.png",
+				"typedBonus": true
+			},
+			{
+				"isDefault": true,
+				"url": "https://www.facebook.com/",
+				"hostname": "facebook",
+				"sendAttributionRequest": false,
+				"label": "Facebook",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/facebook-com@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/facebook-com.ico",
+				"typedBonus": true
+			},
+			{
+				"isDefault": true,
+				"url": "https://www.wikipedia.org/",
+				"hostname": "wikipedia",
+				"sendAttributionRequest": false,
+				"label": "Wikipedia",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/wikipedia-org@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/wikipedia-org.ico",
+				"typedBonus": true
+			},
+			{
+				"isDefault": true,
+				"url": "https://www.reddit.com/",
+				"hostname": "reddit",
+				"sendAttributionRequest": false,
+				"label": "Reddit",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/reddit-com@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/reddit-com.png",
+				"typedBonus": true
+			},
+			{
+				"isDefault": true,
+				"url": "https://www.amazon.com/",
+				"hostname": "amazon",
+				"sendAttributionRequest": false,
+				"label": "@amazon",
+				"searchTopSite": true,
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/amazon@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/amazon.ico",
+				"typedBonus": true
+			},
+			{
+				"isDefault": true,
+				"url": "https://twitter.com/",
+				"hostname": "twitter",
+				"sendAttributionRequest": false,
+				"label": "Twitter",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/twitter-com@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/twitter-com.ico",
+				"typedBonus": true
+			}
+		],
+		"editForm": null,
+		"showSearchShortcutsForm": false,
+		"searchShortcuts": [
+			{
+				"keyword": "@google",
+				"shortURL": "google",
+				"url": "https://google.com",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/google-com@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/google-com.ico"
+			},
+			{
+				"keyword": "@amazon",
+				"shortURL": "amazon",
+				"url": "https://amazon.com",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/amazon@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/amazon.ico"
+			},
+			{
+				"keyword": "@bing",
+				"shortURL": "bing",
+				"url": "https://bing.com",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/bing-com@2x.svg",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/bing-com.ico"
+			},
+			{
+				"keyword": "@duckduckgo",
+				"shortURL": "duckduckgo",
+				"url": "https://duckduckgo.com",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/duckduckgo-com@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/duckduckgo-com.ico"
+			},
+			{
+				"keyword": "@ebay",
+				"shortURL": "ebay",
+				"url": "https://ebay.com",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/ebay@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/ebay.ico"
+			},
+			{
+				"keyword": "@wikipedia",
+				"shortURL": "wikipedia",
+				"url": "https://wikipedia.org",
+				"tippyTopIcon": "chrome://activity-stream/content/data/content/tippytop/images/wikipedia-org@2x.png",
+				"smallFavicon": "chrome://activity-stream/content/data/content/tippytop/favicons/wikipedia-org.ico"
+			}
+		],
+		"pref": {
+			"collapsed": false
+		}
+	},
+	"App": {
+		"initialized": true,
+		"locale": "en-US",
+		"isForStartupCache": true
+	},
+	"ASRouter": {
+		"initialized": false
+	},
+	"Snippets": {
+		"initialized": false
+	},
+	"Prefs": {
+		"initialized": true,
+		"values": {
+			"default.sites": "https://www.youtube.com/,https://www.facebook.com/,https://www.wikipedia.org/,https://www.reddit.com/,https://www.amazon.com/,https://twitter.com/",
+			"feeds.section.topstories.options": "{\"api_key_pref\":\"extensions.pocket.oAuthConsumerKey\",\"hidden\":false,\"provider_icon\":\"pocket\",\"provider_name\":\"Pocket\",\"read_more_endpoint\":\"https://getpocket.com/explore/trending?src=fx_new_tab\",\"stories_endpoint\":\"https://getpocket.cdn.mozilla.net/v3/firefox/global-recs?version=3&consumer_key=$apiKey&locale_lang=en-US&feed_variant=default_spocs_off\",\"stories_referrer\":\"https://getpocket.com/recommendations\",\"topics_endpoint\":\"https://getpocket.cdn.mozilla.net/v3/firefox/trending-topics?version=2&consumer_key=$apiKey&locale_lang=en-US\",\"show_spocs\":false}",
+			"feeds.topsites": true,
+			"hideTopSitesTitle": false,
+			"showSponsored": true,
+			"showSponsoredTopSites": true,
+			"pocketCta": "{\"cta_button\":\"\",\"cta_text\":\"\",\"cta_url\":\"\",\"use_cta\":false}",
+			"filterAdult": true,
+			"showSearch": true,
+			"feeds.snippets": true,
+			"topSitesRows": 1,
+			"telemetry": true,
+			"telemetry.ut.events": true,
+			"telemetry.structuredIngestion.endpoint": "https://incoming.telemetry.mozilla.org/submit",
+			"section.highlights.includeVisited": true,
+			"section.highlights.includeBookmarks": true,
+			"section.highlights.includePocket": true,
+			"section.highlights.includeDownloads": true,
+			"section.highlights.rows": 1,
+			"section.topstories.rows": 1,
+			"sectionOrder": "topsites,topstories,highlights",
+			"improvesearch.noDefaultSearchTile": true,
+			"improvesearch.topSiteSearchShortcuts.searchEngines": "google",
+			"improvesearch.topSiteSearchShortcuts.havePinned": "",
+			"asrouter.devtoolsEnabled": false,
+			"asrouter.providers.onboarding": "{\"id\":\"onboarding\",\"type\":\"local\",\"localProvider\":\"OnboardingMessageProvider\",\"enabled\":true,\"exclude\":[]}",
+			"asrouter.providers.cfr-fxa": "{\"id\":\"cfr-fxa\",\"enabled\":true,\"type\":\"remote-settings\",\"bucket\":\"cfr-fxa\",\"updateCycleInMs\":3600000}",
+			"discoverystream.flight.blocks": "{}",
+			"discoverystream.config": "{\"api_key_pref\":\"extensions.pocket.oAuthConsumerKey\",\"collapsible\":true,\"enabled\":true,\"show_spocs\":false,\"hardcoded_layout\":true,\"personalized\":true,\"layout_endpoint\":\"https://getpocket.cdn.mozilla.net/v3/newtab/layout?version=1&consumer_key=$apiKey&layout_variant=basic\"}",
+			"discoverystream.endpoints": "https://getpocket.cdn.mozilla.net/,https://spocs.getpocket.com/",
+			"discoverystream.engagementLabelEnabled": false,
+			"discoverystream.isCollectionDismissible": true,
+			"discoverystream.region-basic-layout": false,
+			"discoverystream.spoc.impressions": "{}",
+			"discoverystream.endpointSpocsClear": "https://spocs.getpocket.com/user",
+			"discoverystream.rec.impressions": "{\"91614\":1619706248699,\"91775\":1619706248698}",
+			"feeds.aboutpreferences": true,
+			"feeds.newtabinit": true,
+			"feeds.places": true,
+			"feeds.prefs": true,
+			"feeds.sections": true,
+			"feeds.section.highlights": false,
+			"feeds.system.topstories": true,
+			"feeds.systemtick": true,
+			"feeds.telemetry": true,
+			"feeds.favicon": true,
+			"feeds.system.topsites": true,
+			"feeds.recommendationproviderswitcher": true,
+			"feeds.discoverystreamfeed": true,
+			"isPrivateBrowsingEnabled": true,
+			"platform": "linux",
+			"region": "CH",
+			"fxa_endpoint": "https://accounts.firefox.com/",
+			"appUpdateChannel": "nightly",
+			"improvesearch.topSiteSearchShortcuts": true,
+			"mayHaveSponsoredTopSites": true,
+			"improvesearch.handoffToAwesomebar": true,
+			"urlbar.placeholderName": "Google",
+			"featureConfig": {
+				"newNewtabExperienceEnabled": true,
+				"customizationMenuEnabled": false
+			},
+			"logowordmark.alwaysVisible": true,
+			"feeds.section.topstories": true,
+			"discoverystream.enabled": true,
+			"discoverystream.hardcoded-basic-layout": false,
+			"discoverystream.recs.personalized": false,
+			"discoverystream.spocs.personalized": true,
+			"discoverystream.personalization.modelKeys": "nb_model_arts_and_entertainment, nb_model_autos_and_vehicles, nb_model_beauty_and_fitness, nb_model_blogging_resources_and_services, nb_model_books_and_literature, nb_model_business_and_industrial, nb_model_computers_and_electronics, nb_model_finance, nb_model_food_and_drink, nb_model_games, nb_model_health, nb_model_hobbies_and_leisure, nb_model_home_and_garden, nb_model_internet_and_telecom, nb_model_jobs_and_education, nb_model_law_and_government, nb_model_online_communities, nb_model_people_and_society, nb_model_pets_and_animals, nb_model_real_estate, nb_model_reference, nb_model_science, nb_model_shopping, nb_model_sports, nb_model_travel",
+			"discoverystream.personalization.version": 2,
+			"discoverystream.personalization.overrideVersion": 0,
+			"discoverystream.spocs-endpoint": "",
+			"discoverystream.spocs-endpoint-query": "",
+			"newNewtabExperience.colors": "#0090ED,#FF4F5F,#2AC3A2,#FF7139,#A172FF,#FFA437,#FF2A8A"
+		}
+	},
+	"Dialog": {
+		"visible": false,
+		"data": {}
+	},
+	"Sections": [
+		{
+			"title": {
+				"id": "newtab-section-header-pocket",
+				"values": {
+					"provider": "Pocket"
+				}
+			},
+			"rows": [],
+			"enabled": true,
+			"id": "topstories",
+			"pref": {
+				"titleString": {
+					"id": "home-prefs-recommended-by-header",
+					"values": {
+						"provider": "Pocket"
+					}
+				},
+				"descString": {
+					"id": "home-prefs-recommended-by-description-new",
+					"values": {
+						"provider": "Pocket"
+					}
+				},
+				"nestedPrefs": [],
+				"learnMore": {
+					"link": {
+						"href": "https://getpocket.com/firefox/new_tab_learn_more",
+						"id": "home-prefs-recommended-by-learn-more"
+					}
+				},
+				"collapsed": false,
+				"feed": "feeds.section.topstories"
+			},
+			"shouldHidePref": false,
+			"eventSource": "TOP_STORIES",
+			"icon": "pocket",
+			"learnMore": {
+				"link": {
+					"href": "https://getpocket.com/firefox/new_tab_learn_more",
+					"message": {
+						"id": "newtab-pocket-learn-more"
+					}
+				}
+			},
+			"privacyNoticeURL": "https://www.mozilla.org/privacy/firefox/#suggest-relevant-content",
+			"compactCards": false,
+			"rowsPref": "section.topstories.rows",
+			"maxRows": 4,
+			"availableLinkMenuOptions": [
+				"CheckBookmarkOrArchive",
+				"CheckSavedToPocket",
+				"Separator",
+				"OpenInNewWindow",
+				"OpenInPrivateWindow",
+				"Separator",
+				"BlockUrl"
+			],
+			"emptyState": {
+				"message": {
+					"id": "newtab-empty-section-topstories",
+					"values": {
+						"provider": "Pocket"
+					}
+				},
+				"icon": "check"
+			},
+			"shouldSendImpressionStats": true,
+			"dedupeFrom": [
+				"highlights"
+			],
+			"options": {
+				"api_key_pref": "extensions.pocket.oAuthConsumerKey",
+				"hidden": false,
+				"provider_icon": "pocket",
+				"provider_name": "Pocket",
+				"read_more_endpoint": "https://getpocket.com/explore/trending?src=fx_new_tab",
+				"stories_endpoint": "https://getpocket.cdn.mozilla.net/v3/firefox/global-recs?version=3&consumer_key=$apiKey&locale_lang=en-US&feed_variant=default_spocs_off",
+				"stories_referrer": "https://getpocket.com/recommendations",
+				"topics_endpoint": "https://getpocket.cdn.mozilla.net/v3/firefox/trending-topics?version=2&consumer_key=$apiKey&locale_lang=en-US",
+				"show_spocs": false
+			},
+			"contextMenuOptions": [
+				"CheckBookmarkOrArchive",
+				"CheckSavedToPocket",
+				"Separator",
+				"OpenInNewWindow",
+				"OpenInPrivateWindow",
+				"Separator",
+				"BlockUrl"
+			],
+			"initialized": false,
+			"dedupeConfigurations": [
+				{
+					"id": "topstories",
+					"dedupeFrom": [
+						"highlights"
+					]
+				}
+			]
+		},
+		{
+			"title": {
+				"id": "newtab-section-header-recent-activity"
+			},
+			"rows": [],
+			"enabled": false,
+			"id": "highlights",
+			"pref": {
+				"titleString": {
+					"id": "home-prefs-recent-activity-header"
+				},
+				"descString": {
+					"id": "home-prefs-recent-activity-description"
+				},
+				"nestedPrefs": [
+					{
+						"name": "section.highlights.includeVisited",
+						"titleString": "home-prefs-highlights-option-visited-pages"
+					},
+					{
+						"name": "section.highlights.includeBookmarks",
+						"titleString": "home-prefs-highlights-options-bookmarks"
+					},
+					{
+						"name": "section.highlights.includeDownloads",
+						"titleString": "home-prefs-highlights-option-most-recent-download"
+					},
+					{
+						"name": "section.highlights.includePocket",
+						"titleString": "home-prefs-highlights-option-saved-to-pocket",
+						"hidden": false
+					}
+				],
+				"collapsed": false,
+				"feed": "feeds.section.highlights"
+			},
+			"shouldHidePref": false,
+			"eventSource": "HIGHLIGHTS",
+			"icon": "highlights",
+			"compactCards": true,
+			"rowsPref": "section.highlights.rows",
+			"maxRows": 4,
+			"emptyState": {
+				"message": {
+					"id": "newtab-empty-section-highlights"
+				},
+				"icon": "highlights"
+			},
+			"shouldSendImpressionStats": false,
+			"options": {},
+			"initialized": false
+		}
+	],
+	"Pocket": {
+		"isUserLoggedIn": null,
+		"pocketCta": {},
+		"waitingForSpoc": true
+	},
+	"Personalization": {
+		"version": 2,
+		"lastUpdated": 1619706525918,
+		"initialized": true
+	},
+	"DiscoveryStream": {
+		"config": {
+			"api_key_pref": "extensions.pocket.oAuthConsumerKey",
+			"collapsible": true,
+			"enabled": true,
+			"show_spocs": false,
+			"hardcoded_layout": true,
+			"personalized": true,
+			"layout_endpoint": "https://getpocket.cdn.mozilla.net/v3/newtab/layout?version=1&consumer_key=40249-e88c401e1b1f2242d9e441c4&layout_variant=basic"
+		},
+		"layout": [
+			{
+				"width": 12,
+				"components": [
+					{
+						"type": "TopSites",
+						"header": {
+							"title": {
+								"id": "newtab-section-header-topsites"
+							}
+						},
+						"properties": {}
+					},
+					{
+						"type": "CollectionCardGrid",
+						"properties": {
+							"items": 3
+						},
+						"header": {
+							"title": ""
+						},
+						"placement": {
+							"name": "sponsored-collection",
+							"ad_types": [
+								3617
+							],
+							"zone_ids": [
+								217759,
+								218031
+							]
+						},
+						"spocs": {
+							"probability": 1,
+							"positions": [
+								{
+									"index": 0
+								},
+								{
+									"index": 1
+								},
+								{
+									"index": 2
+								}
+							]
+						}
+					},
+					{
+						"type": "Message",
+						"header": {
+							"title": {
+								"id": "newtab-section-header-pocket",
+								"values": {
+									"provider": "Pocket"
+								}
+							},
+							"subtitle": "",
+							"link_text": {
+								"id": "newtab-pocket-learn-more"
+							},
+							"link_url": "https://getpocket.com/firefox/new_tab_learn_more",
+							"icon": "chrome://activity-stream/content/data/content/assets/glyph-pocket-16.svg"
+						},
+						"properties": {},
+						"styles": {
+							".ds-message": "margin-bottom: -20px"
+						}
+					},
+					{
+						"type": "CardGrid",
+						"properties": {
+							"items": 21
+						},
+						"cta_variant": "link",
+						"header": {
+							"title": ""
+						},
+						"placement": {
+							"name": "spocs",
+							"ad_types": [
+								3617
+							],
+							"zone_ids": [
+								217758,
+								217995
+							]
+						},
+						"feed": {
+							"embed_reference": null,
+							"url": "https://getpocket.cdn.mozilla.net/v3/firefox/global-recs?version=3&consumer_key=$apiKey&locale_lang=$locale&region=$region&count=30"
+						},
+						"spocs": {
+							"probability": 1,
+							"positions": [
+								{
+									"index": 2
+								},
+								{
+									"index": 4
+								},
+								{
+									"index": 11
+								},
+								{
+									"index": 20
+								}
+							]
+						}
+					},
+					{
+						"type": "Navigation",
+						"properties": {
+							"alignment": "left-align",
+							"links": [
+								{
+									"name": "Self Improvement",
+									"url": "https://getpocket.com/explore/self-improvement?utm_source=pocket-newtab"
+								},
+								{
+									"name": "Food",
+									"url": "https://getpocket.com/explore/food?utm_source=pocket-newtab"
+								},
+								{
+									"name": "Entertainment",
+									"url": "https://getpocket.com/explore/entertainment?utm_source=pocket-newtab"
+								},
+								{
+									"name": "Health",
+									"url": "https://getpocket.com/explore/health?utm_source=pocket-newtab"
+								},
+								{
+									"name": "Science",
+									"url": "https://getpocket.com/explore/science?utm_source=pocket-newtab"
+								},
+								{
+									"name": "More Recommendations ›",
+									"url": "https://getpocket.com/explore?utm_source=pocket-newtab"
+								}
+							]
+						},
+						"header": {
+							"title": {
+								"id": "newtab-pocket-read-more"
+							}
+						},
+						"styles": {
+							".ds-navigation": "margin-top: -10px;"
+						}
+					}
+				]
+			}
+		],
+		"lastUpdated": null,
+		"isPrivacyInfoModalVisible": false,
+		"isCollectionDismissible": true,
+		"feeds": {
+			"data": {
+				"https://getpocket.cdn.mozilla.net/v3/firefox/global-recs?version=3&consumer_key=$apiKey&locale_lang=$locale&region=$region&count=30": {
+					"lastUpdated": 1619706177977,
+					"data": {
+						"settings": {
+							"domainAffinityParameterSets": {
+								"default": {
+									"recencyFactor": 0.5,
+									"frequencyFactor": 0.5,
+									"combinedDomainFactor": 0.5,
+									"perfectFrequencyVisits": 10,
+									"perfectCombinedDomainScore": 2,
+									"multiDomainBoost": 0,
+									"itemScoreFactor": 1
+								},
+								"fully-personalized": {
+									"recencyFactor": 0.5,
+									"frequencyFactor": 0.5,
+									"combinedDomainFactor": 0.5,
+									"perfectFrequencyVisits": 10,
+									"perfectCombinedDomainScore": 2,
+									"itemScoreFactor": 0.01,
+									"multiDomainBoost": 0
+								}
+							},
+							"timeSegments": [
+								{
+									"id": "week",
+									"startTime": 604800,
+									"endTime": 0,
+									"weightPosition": 1
+								},
+								{
+									"id": "month",
+									"startTime": 2592000,
+									"endTime": 604800,
+									"weightPosition": 0.5
+								}
+							],
+							"recsExpireTime": 5400,
+							"spocsPerNewTabs": 0.5,
+							"version": "08a01d854c52b745b16e62e58c1917a96b12597f"
+						},
+						"recommendations": [
+							{
+								"id": 91775,
+								"url": "https://www.wired.com/story/opinion-the-plane-paradox-more-automation-should-mean-more-training/?utm_source=pocket-newtab-intl-en",
+								"domain": "wired.com",
+								"title": "The Plane Paradox: More Automation Should Mean More Training",
+								"excerpt": "Captain Shem Malmquist, a veteran safety and aviation accident investigator and current B-777 captain, teaches at the Florida Institute of Technology and is coauthor of Angle of Attack and Grounded (Lexographic Press) with Roger Rapoport, producer of the feature film Pilot Error.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmedia.wired.com%2Fphotos%2F6081da2eee32045691f62b38%2F191%3A100%2Fw_1280%2Cc_limit%2FOpEd-Pilot-Training-590865444.jpg&resize=w450",
+								"published_timestamp": "-62169962400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 1,
+								"domain_affinities": {},
+								"raw_image_src": "https://media.wired.com/photos/6081da2eee32045691f62b38/191:100/w_1280,c_limit/OpEd-Pilot-Training-590865444.jpg",
+								"score": 1
+							},
+							{
+								"id": 91614,
+								"url": "https://getpocket.com/explore/item/food-fads-have-always-been-ridiculous-just-ask-the-great-masticator?utm_source=pocket-newtab-intl-en",
+								"domain": "narratively.com",
+								"title": "Food Fads Have Always Been Ridiculous. Just Ask the Great Masticator.",
+								"excerpt": "Horace Fletcher preached the gospel of fanatically chewing food until it completely dissolved in the mouth. Even celebs like Upton Sinclair and Franz Kafka drank the Kool-Aid.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale%28%29%3Aformat%28jpg%29%3Aextract_cover%28%29%2Fhttps%253A%252F%252Fnarratively.com%252Fwp-content%252Fuploads%252F2020%252F09%252FFletcher_header_final-2580-scaled.jpg&resize=w450",
+								"published_timestamp": "-62169962400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.98333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://pocket-image-cache.com/1200x/filters:no_upscale():format(jpg):extract_cover()/https%3A%2F%2Fnarratively.com%2Fwp-content%2Fuploads%2F2020%2F09%2FFletcher_header_final-2580-scaled.jpg",
+								"score": 0.98333333333333
+							},
+							{
+								"id": 91771,
+								"url": "https://www.abc.net.au/news/science/2021-04-18/cockroaches-insects-reasons-love-them-environment/100053056?utm_source=pocket-newtab-intl-en",
+								"domain": "abc.net.au",
+								"title": "Cockroaches can be smart and beautiful — and might even save the planet",
+								"excerpt": "Many people are disgusted by cockroaches — it's even thought they're the top insect feared by humans. But not all that you've heard about them is true.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Flive-production.wcms.abc-cdn.net.au%2F4a3c0562d7553eb1e108c3f90348ff54%3Fimpolicy%3Dwcms_crop_resize%26cropH%3D529%26cropW%3D940%26xPos%3D0%26yPos%3D97%26width%3D862%26height%3D485&resize=w450",
+								"published_timestamp": "1618700400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.96666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://live-production.wcms.abc-cdn.net.au/4a3c0562d7553eb1e108c3f90348ff54?impolicy=wcms_crop_resize&cropH=529&cropW=940&xPos=0&yPos=97&width=862&height=485",
+								"score": 0.96666666666667
+							},
+							{
+								"id": 91690,
+								"url": "https://www.olivemagazine.com/recipes/healthy/high-protein-foods/?utm_source=pocket-newtab-intl-en",
+								"domain": "olivemagazine.com",
+								"title": "20 high-protein foods",
+								"excerpt": "Nourish your body and delight your palate with our satisfying recipes packed with protein – we have meat, fish, veggie and vegan options to try Looking for creative ways to add more protein to your diet? Do you want to try some new protein-rich foods? If so, you’ll love our recipes below, then t",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fimages.immediate.co.uk%2Fproduction%2Fvolatile%2Fsites%2F2%2F2018%2F01%2FOLI0118-BumperHealthy-EasyPrawnJambalaya_020276-965070d.jpg%3Fquality%3D45%26resize%3D960%2C413&resize=w450",
+								"published_timestamp": "1618236623",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.95,
+								"domain_affinities": {},
+								"raw_image_src": "https://images.immediate.co.uk/production/volatile/sites/2/2018/01/OLI0118-BumperHealthy-EasyPrawnJambalaya_020276-965070d.jpg?quality=45&resize=960,413",
+								"score": 0.95
+							},
+							{
+								"id": 91686,
+								"url": "https://www.polygon.com/22358945/wii-fit-nintendo-health-ring-fit-adventure?utm_source=pocket-newtab-intl-en",
+								"domain": "polygon.com",
+								"title": "For some, Wii Fit’s legacy is body shame",
+								"excerpt": "Nintendo wants to make exercise easy and fun. At least, that’s the message the company tries to broadcast through health-conscientious developments like step counters and memory games.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FwjtZy0anUlZMNlej2xARRJaeDgM%3D%2F0x215%3A3000x1786%2Ffit-in%2F1200x630%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F22409092%2Fjbareham_210330_ecl1072_wii_fit.jpg&resize=w450",
+								"published_timestamp": "1619269200",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.93333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://cdn.vox-cdn.com/thumbor/wjtZy0anUlZMNlej2xARRJaeDgM=/0x215:3000x1786/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22409092/jbareham_210330_ecl1072_wii_fit.jpg",
+								"score": 0.93333333333333
+							},
+							{
+								"id": 91694,
+								"url": "https://medium.com/team-human/the-lost-art-of-pattern-recognition-ab077c2867?utm_source=pocket-newtab-intl-en",
+								"domain": "medium.com",
+								"title": "The Lost Art of Pattern Recognition",
+								"excerpt": "The Japanese built a nuclear power plant right down the hill from the stone tablets that their ancestors put in the ground warning, “Don’t build anything below here.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmiro.medium.com%2Fmax%2F1200%2F1%2A4fqXfUeMdzoIfqRPXpWzuQ.jpeg&resize=w450",
+								"published_timestamp": "1619067814",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.91666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://miro.medium.com/max/1200/1*4fqXfUeMdzoIfqRPXpWzuQ.jpeg",
+								"score": 0.91666666666667
+							},
+							{
+								"id": 91642,
+								"url": "https://www.nytimes.com/2021/04/21/arts/television/tv-soundtracks-dawsons-creek-freaks-and-geeks.html?utm_source=pocket-newtab-intl-en",
+								"domain": "nytimes.com",
+								"title": "Why Don’t Some TV Shows Sound the Way They Used To?",
+								"excerpt": "Licensing issues have gutted the soundtracks of many beloved series on streaming services, resulting in bewildering music cues and missing theme songs.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2021%2F04%2F23%2Farts%2F21tvmusic-2%2F21tvmusic-2-facebookJumbo.jpg&resize=w450",
+								"published_timestamp": "1619413200",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.9,
+								"domain_affinities": {},
+								"raw_image_src": "https://static01.nyt.com/images/2021/04/23/arts/21tvmusic-2/21tvmusic-2-facebookJumbo.jpg",
+								"score": 0.9
+							},
+							{
+								"id": 91646,
+								"url": "https://www.bbc.com/future/article/20210419-the-end-of-the-worlds-capital-of-brown-coal?utm_source=pocket-newtab-intl-en",
+								"domain": "bbc.com",
+								"title": "The end of the world's capital of brown coal",
+								"excerpt": "Germany is slowly shuttering its prolific lignite mines, which produce the least efficient type of coal. The ghostly towns in the mines' shadows may hold a lesson for how to move on.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fychef.files.bbci.co.uk%2Flive%2F624x351%2Fp09f3gw8.jpg&resize=w450",
+								"published_timestamp": "1618894800",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.88333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://ychef.files.bbci.co.uk/live/624x351/p09f3gw8.jpg",
+								"score": 0.88333333333333
+							},
+							{
+								"id": 91710,
+								"url": "https://www.theguardian.com/lifeandstyle/2021/apr/25/going-vegan-can-switching-to-a-plant-based-diet-really-save-the-planet?utm_source=pocket-newtab-intl-en",
+								"domain": "theguardian.com",
+								"title": "Going vegan: can switching to a plant-based diet really save the planet?",
+								"excerpt": "If politicians are serious about change, they need to incentivise it, say scientists and writers.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F90f91c38cb895cc270a8bfa034f9f8574c200982%2F0_622_2976_1786%2Fmaster%2F2976.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dd1a3bc2207394c9bee14d15da9342055&resize=w450",
+								"published_timestamp": "1619339405",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.86666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://i.guim.co.uk/img/media/90f91c38cb895cc270a8bfa034f9f8574c200982/0_622_2976_1786/master/2976.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d1a3bc2207394c9bee14d15da9342055",
+								"score": 0.86666666666667
+							},
+							{
+								"id": 91585,
+								"url": "https://www.npr.org/sections/health-shots/2021/04/26/990821079/cheap-legal-and-everywhere-how-food-companies-get-us-hooked-on-junk?utm_source=pocket-newtab-intl-en",
+								"domain": "npr.org",
+								"title": "Cheap, Legal And Everywhere: How Food Companies Get Us 'Hooked' On Junk",
+								"excerpt": "If you're someone who has turned to snacking on junk food more in the pandemic, you're not alone. Pulitzer Prize-winning investigative reporter Michael Moss says processed food is engineered to be \"craveable,\" not unlike a cigarette or a hit of cocaine.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2021%2F04%2F26%2Fgettyimages-1203102891_wide-16aa9e009ee8ce091821218486c25ba4d31d65f0.jpg%3Fs%3D1400&resize=w450",
+								"published_timestamp": "1619413200",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.85,
+								"domain_affinities": {},
+								"raw_image_src": "https://media.npr.org/assets/img/2021/04/26/gettyimages-1203102891_wide-16aa9e009ee8ce091821218486c25ba4d31d65f0.jpg?s=1400",
+								"score": 0.85
+							},
+							{
+								"id": 91598,
+								"url": "https://www.entrepreneur.com/article/367350?utm_source=pocket-newtab-intl-en",
+								"domain": "entrepreneur.com",
+								"title": "Elon Musk and Steve Jobs Embraced Lateral Thinking. Here's Why It Beats Best Practices Every Time.",
+								"excerpt": "Ask just about any leader to offer you a set of best practices they use in their company and they probably can do it.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fassets.entrepreneur.com%2Fcontent%2F3x2%2F2000%2F1617818425-GettyImages-1215627681.jpg&resize=w450",
+								"published_timestamp": "1618309800",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.83333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://assets.entrepreneur.com/content/3x2/2000/1617818425-GettyImages-1215627681.jpg",
+								"score": 0.83333333333333
+							},
+							{
+								"id": 91682,
+								"url": "https://www.washingtonpost.com/lifestyle/interactive/2021/pandemic-parenting-life-changes-return/?utm_source=pocket-newtab-intl-en",
+								"domain": "washingtonpost.com",
+								"title": "The pandemic changed everything about family life. These are the parts parents want to keep.",
+								"excerpt": "We asked parents to tell us, as we start to see light at the end of this pandemic tunnel: What is one change you’d like to carry with you into post-pandemic life? These are their answers.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fwww.washingtonpost.com%2Fwp-apps%2Fimrs.php%3Fsrc%3Dhttps%3A%2F%2Farc-anglerfish-washpost-prod-washpost.s3.amazonaws.com%2Fpublic%2FG4TM7KCGYFAHLDF5A3ICR4I4SQ.png%26w%3D1200&resize=w450",
+								"published_timestamp": "1618894800",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.81666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/G4TM7KCGYFAHLDF5A3ICR4I4SQ.png&w=1200",
+								"score": 0.81666666666667
+							},
+							{
+								"id": 91751,
+								"url": "https://www.independent.co.uk/life-style/health-and-families/astrazeneca-blood-clots-contraceptive-pill-b1834001.html?utm_source=pocket-newtab-intl-en",
+								"domain": "independent.co.uk",
+								"title": "If we’re concerned about vaccine blood clots, should we be worried about the pill?",
+								"excerpt": "After the AstraZeneca and Johnson & Johnson vaccines were halted over rare blood clot concerns, women asked - what about the clotting risk of the contraceptive pill?",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fstatic.independent.co.uk%2F2021%2F04%2F19%2F18%2FnewFile-4.jpg%3Fwidth%3D1200%26auto%3Dwebp%26quality%3D75&resize=w450",
+								"published_timestamp": "1619026980",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.8,
+								"domain_affinities": {},
+								"raw_image_src": "https://static.independent.co.uk/2021/04/19/18/newFile-4.jpg?width=1200&auto=webp&quality=75",
+								"score": 0.8
+							},
+							{
+								"id": 91606,
+								"url": "https://www.smithsonianmag.com/science-nature/new-science-motherhood-180977456/?utm_source=pocket-newtab-intl-en",
+								"domain": "smithsonianmag.com",
+								"title": "The New Science of Motherhood",
+								"excerpt": "Through studies of fetal DNA, researchers are revealing how a child can shape a mom’s heart and mind—literally.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fthumbs-prod.si-cdn.com%2FCqZ3xGeVxtSHToSVvcXLQeyjerk%3D%2Ffit-in%2F1600x0%2Fhttps%3A%2F%2Fpublic-media.si-cdn.com%2Ffiler%2F6c%2Ff5%2F6cf5e3c7-9ce0-4fd9-abc5-687624a62bed%2Fmom_social_media.jpg&resize=w450",
+								"published_timestamp": "-62169962400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.78333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://thumbs-prod.si-cdn.com/CqZ3xGeVxtSHToSVvcXLQeyjerk=/fit-in/1600x0/https://public-media.si-cdn.com/filer/6c/f5/6cf5e3c7-9ce0-4fd9-abc5-687624a62bed/mom_social_media.jpg",
+								"score": 0.78333333333333
+							},
+							{
+								"id": 91618,
+								"url": "https://www.mentalfloss.com/article/645625/unsolved-mysteries-tv-show-history?utm_source=pocket-newtab-intl-en",
+								"domain": "mentalfloss.com",
+								"title": "A Brief History of Unsolved Mysteries",
+								"excerpt": "A show about true crime before true crime was a mass media obsession, and reality television before reality television was everywhere.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fimages2.minutemediacdn.com%2Fimage%2Fupload%2Fc_crop%2Ch_1126%2Cw_2000%2Cx_0%2Cy_127%2Fv1593651941%2Fshape%2Fmentalfloss%2Frobertstack-unsolvedmysteries_photo_courtesy_of_nbc.jpg%3Fitok%3D2tIBaUeW&resize=w450",
+								"published_timestamp": "1619168400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.76666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://images2.minutemediacdn.com/image/upload/c_crop,h_1126,w_2000,x_0,y_127/v1593651941/shape/mentalfloss/robertstack-unsolvedmysteries_photo_courtesy_of_nbc.jpg?itok=2tIBaUeW",
+								"score": 0.76666666666667
+							},
+							{
+								"id": 91706,
+								"url": "https://www.theatlantic.com/technology/archive/2021/04/how-yahoo-became-internet-villain/618681/?utm_source=pocket-newtab-intl-en",
+								"domain": "theatlantic.com",
+								"title": "Yahoo, the Destroyer",
+								"excerpt": "Yahoo Answers is not what most people would call a good source of information.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FvMx5jypzEGWY4OYPM8Q50EMSOBM%3D%2F0x43%3A2000x1085%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FYahooVillaincolor3v2%2Foriginal.jpg&resize=w450",
+								"published_timestamp": "1619352000",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.75,
+								"domain_affinities": {},
+								"raw_image_src": "https://cdn.theatlantic.com/thumbor/vMx5jypzEGWY4OYPM8Q50EMSOBM=/0x43:2000x1085/960x500/media/img/mt/2021/04/YahooVillaincolor3v2/original.jpg",
+								"score": 0.75
+							},
+							{
+								"id": 91759,
+								"url": "https://www.popsugar.com/node/48273064?utm_source=pocket-newtab-intl-en",
+								"domain": "popsugar.com",
+								"title": "Does This Viral 3-Move Core Routine Actually Work? Just Ask My Shaking Abs",
+								"excerpt": "Six-packs are great and all, but strengthening your core is about so much more than looking good.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FXJBq2xWiSHJLjSOoFRVeG0B26jQ%2Ffit-in%2F1200x630%2Ffilters%3Aformat_auto-%21%21-%3Astrip_icc-%21%21-%3Afill-%21white%21-%2F2021%2F04%2F15%2F886%2Fn%2F1922729%2F42e1411a60789f394a4234.94176192_.png&resize=w450",
+								"published_timestamp": "1618524005",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.73333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://media1.popsugar-assets.com/files/thumbor/XJBq2xWiSHJLjSOoFRVeG0B26jQ/fit-in/1200x630/filters:format_auto-!!-:strip_icc-!!-:fill-!white!-/2021/04/15/886/n/1922729/42e1411a60789f394a4234.94176192_.png",
+								"score": 0.73333333333333
+							},
+							{
+								"id": 91698,
+								"url": "https://www.gq.com/story/john-lennon-plastic-ono-band?utm_source=pocket-newtab-intl-en",
+								"domain": "gq.com",
+								"title": "How a Weird Cult Therapy Inspired John Lennon to Make His Greatest Album",
+								"excerpt": "A new deluxe edition of John Lennon/Plastic Ono Band promises an exhaustive document of the former Beatle screaming out his pain with the help of the once- fashionable but now-discredited “primal scream” technique.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmedia.gq.com%2Fphotos%2F60771c10f74872e19957f8a7%2F16%3A9%2Fw_1280%2Cc_limit%2F041421_GQ_Lennon_Janov_1.jpeg&resize=w450",
+								"published_timestamp": "1618462800",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.71666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://media.gq.com/photos/60771c10f74872e19957f8a7/16:9/w_1280,c_limit/041421_GQ_Lennon_Janov_1.jpeg",
+								"score": 0.71666666666667
+							},
+							{
+								"id": 91654,
+								"url": "https://www.thedrive.com/the-war-zone/40286/the-hunt-for-a-soviet-submarine-desperately-trying-to-sneak-through-the-strait-of-gibraltar?utm_source=pocket-newtab-intl-en",
+								"domain": "thedrive.com",
+								"title": "The Hunt For A Soviet Submarine Desperately Trying To Sneak Through The Strait Of Gibraltar",
+								"excerpt": "The Cold War cat-and-mouse game of anti-submarine warfare became very hot as the USS Steinaker approached the Mediterranean in January of 1967. In the North Atlantic on the evening of January 20, 1967, four U.S.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fwww.thedrive.com%2Fcontent%2F2021%2F04%2Ffoxtrot.jpg%3Fquality%3D85&resize=w450",
+								"published_timestamp": "1619067600",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.7,
+								"domain_affinities": {},
+								"raw_image_src": "https://www.thedrive.com/content/2021/04/foxtrot.jpg?quality=85",
+								"score": 0.7
+							},
+							{
+								"id": 91602,
+								"url": "https://www.theguardian.com/books/2021/apr/23/chinese-don-quixote-is-translated-into-spanish-after-100-years?utm_source=pocket-newtab-intl-en",
+								"domain": "theguardian.com",
+								"title": "Chinese Don Quixote is translated into Spanish after 100 years",
+								"excerpt": "In the early 20th century a pioneering and appropriately idiosyncratic man of letters took it upon himself to translate the first part of Don Quixote into classical Chinese.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fi.guim.co.uk%2Fimg%2Fmedia%2F85afa2a9a78079f472f22a6d5346420eba14b60c%2F0_166_4898_2939%2Fmaster%2F4898.jpg%3Fwidth%3D1200%26height%3D630%26quality%3D85%26auto%3Dformat%26fit%3Dcrop%26overlay-align%3Dbottom%252Cleft%26overlay-width%3D100p%26overlay-base64%3DL2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc%26enable%3Dupscale%26s%3Dac11f445a274cde255abbee8f6a7cca6&resize=w450",
+								"published_timestamp": "1619154000",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.68333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://i.guim.co.uk/img/media/85afa2a9a78079f472f22a6d5346420eba14b60c/0_166_4898_2939/master/4898.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=ac11f445a274cde255abbee8f6a7cca6",
+								"score": 0.68333333333333
+							},
+							{
+								"id": 91714,
+								"url": "https://www.bloomberg.com/graphics/2021-cities-climate-solutions/?utm_source=pocket-newtab-intl-en",
+								"domain": "bloomberg.com",
+								"title": "Cities Are Our Best Hope for Surviving Climate Change",
+								"excerpt": "The hysteria about urban density that arrived with the coronavirus is—like the pandemic itself—already easing. Regardless of how quickly or slowly urbanites return to their cramped apartments, however, the long term trend is clear. Humans will continue to flock to cities.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fwww.bloomberg.com%2Fgraphics%2F2021-cities-climate-solutions%2Fimg%2F2021-cities-climate-solutions-facebook.png&resize=w450",
+								"published_timestamp": "1618977600",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.66666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://www.bloomberg.com/graphics/2021-cities-climate-solutions/img/2021-cities-climate-solutions-facebook.png",
+								"score": 0.66666666666667
+							},
+							{
+								"id": 91593,
+								"url": "https://hbr.org/2021/04/6-strategies-for-leading-through-uncertainty?utm_source=pocket-newtab-intl-en",
+								"domain": "hbr.org",
+								"title": "6 Strategies for Leading Through Uncertainty",
+								"excerpt": "If there was ever any doubt about the importance of a leader’s ability to navigate change, uncertainty, and disruption, the emergence of the global pandemic in 2020 made this necessity abundantly clear.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fhbr.org%2Fresources%2Fimages%2Farticle_assets%2F2021%2F04%2FApr21_24_922853094-3.jpg&resize=w450",
+								"published_timestamp": "1619439300",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.65,
+								"domain_affinities": {},
+								"raw_image_src": "https://hbr.org/resources/images/article_assets/2021/04/Apr21_24_922853094-3.jpg",
+								"score": 0.65
+							},
+							{
+								"id": 91495,
+								"url": "https://www.newyorker.com/magazine/2021/04/26/do-brain-implants-change-your-identity?utm_source=pocket-newtab-intl-en",
+								"domain": "newyorker.com",
+								"title": "Do Brain Implants Change Your Identity?",
+								"excerpt": "From Charles Darwin to Toni Morrison, Jeremy DeSilva looks at our need to move.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmedia.newyorker.com%2Fphotos%2F607797141871da7b373d905f%2F16%3A9%2Fw_1280%2Cc_limit%2F210426_r38268.jpg&resize=w450",
+								"published_timestamp": "1620018000",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.63333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://media.newyorker.com/photos/607797141871da7b373d905f/16:9/w_1280,c_limit/210426_r38268.jpg",
+								"score": 0.63333333333333
+							},
+							{
+								"id": 91727,
+								"url": "https://getpocket.com/explore/item/it-s-time-to-start-wasting-solar-energy?utm_source=pocket-newtab-intl-en",
+								"domain": "qz.com",
+								"title": "It's Time to Start Wasting Solar Energy",
+								"excerpt": "Plummeting solar panel prices make it cheaper to overbuild, even if producers don't always sell the power.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fpocket-image-cache.com%2F1200x%2Ffilters%3Ano_upscale%28%29%3Aformat%28jpg%29%3Aextract_cover%28%29%2Fhttps%253A%252F%252Fcms.qz.com%252Fwp-content%252Fuploads%252F2020%252F04%252Fsolar_plant.jpeg%253Fquality%253D75%2526strip%253Dall%2526w%253D3200%2526h%253D1606&resize=w450",
+								"published_timestamp": "-62169962400",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.61666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://pocket-image-cache.com/1200x/filters:no_upscale():format(jpg):extract_cover()/https%3A%2F%2Fcms.qz.com%2Fwp-content%2Fuploads%2F2020%2F04%2Fsolar_plant.jpeg%3Fquality%3D75%26strip%3Dall%26w%3D3200%26h%3D1606",
+								"score": 0.61666666666667
+							},
+							{
+								"id": 91630,
+								"url": "https://www.vanityfair.com/hollywood/2021/04/barry-jenkins-on-bringing-underground-railroad-to-tv-form?utm_source=pocket-newtab-intl-en",
+								"domain": "vanityfair.com",
+								"title": "Barry Jenkins on Bringing The Underground Railroad to TV Form",
+								"excerpt": "While the Moonlight director was turning Colson Whitehead’s award-winning novel into an Amazon Prime Video series, he learned new things about himself.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fmedia.vanityfair.com%2Fphotos%2F607da93f783ff7d44fa8a44d%2F16%3A9%2Fw_1280%2Cc_limit%2FVF-May-2021-Barry-Jenkins-John-Edmonds-Tout.jpg&resize=w450",
+								"published_timestamp": "1618981200",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.6,
+								"domain_affinities": {},
+								"raw_image_src": "https://media.vanityfair.com/photos/607da93f783ff7d44fa8a44d/16:9/w_1280,c_limit/VF-May-2021-Barry-Jenkins-John-Edmonds-Tout.jpg",
+								"score": 0.6
+							},
+							{
+								"id": 91589,
+								"url": "https://www.outsideonline.com/2422433/camping-mistakes-lessons-learned?utm_source=pocket-newtab-intl-en",
+								"domain": "outsideonline.com",
+								"title": "Everything That’s Ever Gone Wrong on My Camping Trips",
+								"excerpt": "What I learned and how to avoid my mistakes.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fwww.outsideonline.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Ffull-page%2Fpublic%2F2021%2F04%2F15%2Fcamping-dangers_h.jpg%3Fitok%3DTK9_0yJP&resize=w450",
+								"published_timestamp": "1619263800",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.58333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://www.outsideonline.com/sites/default/files/styles/full-page/public/2021/04/15/camping-dangers_h.jpg?itok=TK9_0yJP",
+								"score": 0.58333333333333
+							},
+							{
+								"id": 91626,
+								"url": "https://www.thecut.com/2021/04/history-of-the-work-wife-husband.html?utm_source=pocket-newtab-intl-en",
+								"domain": "thecut.com",
+								"title": "The History of the Work Spouse",
+								"excerpt": "The term’s modern connotations are most often attributed to the journalist David Owen, who wrote a story called “Work Marriage” for The Atlantic in 1987.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fpyxis.nymag.com%2Fv1%2Fimgs%2Fd78%2F251%2F6cfc497acaafe8456f032dba57e7c5b893-sec-3-nyc11391.1x.rsocial.w1200.jpg&resize=w450",
+								"published_timestamp": "1619434818",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.56666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://pyxis.nymag.com/v1/imgs/d78/251/6cfc497acaafe8456f032dba57e7c5b893-sec-3-nyc11391.1x.rsocial.w1200.jpg",
+								"score": 0.56666666666667
+							},
+							{
+								"id": 91767,
+								"url": "https://www.theatlantic.com/culture/archive/2021/04/hoarding-ae-reality-tv-kate-durbin-poetry/618610/?utm_source=pocket-newtab-intl-en",
+								"domain": "theatlantic.com",
+								"title": "The Interior Lives of Hoarders",
+								"excerpt": "I cannot remember whether I knew what compulsive hoarding was before 2009. Likely not. That year, the TV network A&E put the disorder on the cultural radar in an unparalleled way with its show Hoarders.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fcdn.theatlantic.com%2Fthumbor%2FFQutz3lucICdl65BgnNiDlgkJgU%3D%2F0x88%3A2444x1361%2F960x500%2Fmedia%2Fimg%2Fmt%2F2021%2F04%2FGettyImages_1032296180%2Foriginal.jpg&resize=w450",
+								"published_timestamp": "1618831800",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.55,
+								"domain_affinities": {},
+								"raw_image_src": "https://cdn.theatlantic.com/thumbor/FQutz3lucICdl65BgnNiDlgkJgU=/0x88:2444x1361/960x500/media/img/mt/2021/04/GettyImages_1032296180/original.jpg",
+								"score": 0.55
+							},
+							{
+								"id": 91650,
+								"url": "https://restofworld.org/2021/grab-indonesia-silicon-valley/?utm_source=pocket-newtab-intl-en",
+								"domain": "restofworld.org",
+								"title": "Global South startups can do better than Silicon Valley",
+								"excerpt": "Grab positioned its changes as a triumph of innovative problem solving without acknowledging that the practices it was embracing had been around for decades.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2F149346090.v2.pressablecdn.com%2Fwp-content%2Fuploads%2F2021%2F04%2F20210128_ROW_GOJEK_GRAB_00179-1600x900.jpg&resize=w450",
+								"published_timestamp": "1618999200",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.53333333333333,
+								"domain_affinities": {},
+								"raw_image_src": "https://149346090.v2.pressablecdn.com/wp-content/uploads/2021/04/20210128_ROW_GOJEK_GRAB_00179-1600x900.jpg",
+								"score": 0.53333333333333
+							},
+							{
+								"id": 91763,
+								"url": "https://grist.org/climate-tipping-points-amazon-greenland-boreal-forest/?utm_source=pocket-newtab-intl-en",
+								"domain": "grist.org",
+								"title": "The 7 climate tipping points that could change the world forever",
+								"excerpt": "What can we do? Protesters call for climate action in New York City’s Battery Park during the 2019 Youth Climate Strike. As coral reefs dissolve, Antarctica melts, and vast swaths of rainforest disappear, the world already seems to be headed down a dark path: 2 or 3 degrees C (3.6 or 5.",
+								"image_src": "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fgrist.org%2Fwp-content%2Fuploads%2F2021%2F04%2Ftp-feat-img-16-x-9.jpg&resize=w450",
+								"published_timestamp": "1619123480",
+								"engagement": "",
+								"parameter_set": "default",
+								"item_score": 0.51666666666667,
+								"domain_affinities": {},
+								"raw_image_src": "https://grist.org/wp-content/uploads/2021/04/tp-feat-img-16-x-9.jpg",
+								"score": 0.51666666666667
+							}
+						],
+						"status": "success"
+					}
+				}
+			},
+			"loaded": true
+		},
+		"spocs": {
+			"spocs_endpoint": "https://spocs.getpocket.com/spocs",
+			"lastUpdated": 1619707013882,
+			"data": {},
+			"loaded": true,
+			"frequency_caps": [],
+			"blocked": [],
+			"placements": [
+				{
+					"name": "sponsored-collection",
+					"ad_types": [
+						3617
+					],
+					"zone_ids": [
+						217759,
+						218031
+					]
+				},
+				{
+					"name": "spocs",
+					"ad_types": [
+						3617
+					],
+					"zone_ids": [
+						217758,
+						217995
+					]
+				}
+			]
+		}
+	},
+	"Search": {
+		"fakeFocus": false,
+		"hide": false
+	}
+};
+
+��a�      `���`���B�������       :about:home alt-data 1;80859,script version 20210427221830  (	

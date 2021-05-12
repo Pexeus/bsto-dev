@@ -1,6 +1,13 @@
-const fs = require('fs');
+const fs = require('fs-extra');
+const bash = require("shelljs")
 const path = require('path');
 const rimraf = require('rimraf');
+
+const directories = [
+  "browserData",
+  "browserData/browserProfile",
+  "browserData/browserProfileClean",
+]
 
 module.exports = {
   clear: async function() {
@@ -10,25 +17,50 @@ module.exports = {
 
       resolve(check)
     })
+  },
+  init: () => {
+    return new Promise(resolve => {
+      console.log("[PM] initiating profile manager");
+
+      directories.forEach(dir => {
+        if(!fs.existsSync(dir)) {
+          console.log(`[PM] created directory ${dir}`);
+
+          fs.mkdirSync(dir)
+        }
+      })
+
+      resolve(true)
+    })
+  },
+  resetProfile: async () => {
+    return new Promise(async resolve => {
+      console.log("[PM] resetting current profile")
+
+      await bash.rm("-rf", "./browserData/browserProfile")
+      await bash.cp("-rf", "./browserData/browserProfileClean", "./browserData/browserProfile");
+
+      resolve(true)
+    })
   }
 }
 
 function clear(directory) {
   return new Promise(resolve => {
-    fs.readdir(directory, (err, files) => {
-      if (err) throw err;
-    
-      for (const file of files) {
-        rimraf(path.join(directory, file), function(err) {
-          if (err) {
-            console.log(err)
-            resolve(false)
-          }
-        })
-      }
-    });
-  
-    console.log("> cleared cache")
+    if (fs.existsSync(directory)) {
+      fs.readdir(directory, (err, files) => {
+        if (err) throw err;
+      
+        for (const file of files) {
+          rimraf(path.join(directory, file), function(err) {
+            if (err) {
+              console.log(err)
+              resolve(false)
+            }
+          })
+        }
+      });
+    }
 
     resolve(true)
   })

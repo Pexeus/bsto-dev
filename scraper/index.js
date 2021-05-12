@@ -1,37 +1,15 @@
-const fs = require("fs")
-
-const scraper = require("./src/scraper")
 const remote = require("./src/remote")
+const scraper = require("./src/scraper")
 const VPN = require("./src/vpn")
 const storage = require("./src/localStorage")
 
-const timer = ms => new Promise(res => setTimeout(res, ms))
-
 async function init() {
-    await VPN.disconnect()
+    await VPN.reconnect()
     await scraper.init()
 
-    const shows = JSON.parse(fs.readFileSync("./import/all.json"))
-    remote.log("> imported " + shows.length + " shows")
-    const remoteStatus = await remote.status()
-
-
-    let showNr = 0
-    remote.log(`Remote pointer: ${remoteStatus.pointer}`);
-
-    for (show of shows) {
-        showNr += 1
-        if (remoteStatus.pointer < showNr) {
-            remote.log(`Scraping: ${show.title}`);
-
-            dataset = await scrapeShow(show)
-            dataset.id = showNr
-            remote.dispatch(dataset)
-            await timer(2000)
-
-            //storage.reset()
-        }
-    }
+    const job = await remote.job()
+    
+    const scraped = await scrapeShow(job)
 }
 
 async function scrapeShow(show) {
@@ -45,6 +23,7 @@ async function scrapeShow(show) {
             currentEpisodeIndex = 0
             for (episode of season.episodes) {
                 currentEpisodeIndex += 1
+
                 const localEpisode = storage.get(episode.href)
                 if (localEpisode == false) {
                     let redo = true
@@ -78,38 +57,32 @@ async function scrapeShow(show) {
 
         resolve(show)
     })
-
-    async function scrapeEpisode(episode) {
-        return new Promise(async (resolve) => {
-            let result = await scraper.scrape(episode)
-
-            if (result == "error: blockedIP") {
-                remote.log("[!] getting new IP...")
-                await VPN.reconnect()
-                remote.log("[!] rebooting scraper...")
-                await scraper.reboot()
-
-                resolve(result)
-            }
-            else if (result == "error: timeout") {
-                remote.log("[!] getting new IP...")
-                await VPN.reconnect()
-                remote.log("[!] rebooting scraper...")
-                await scraper.reboot()
-
-                resolve(result)
-            }
-            else {
-                resolve(result)
-            }
-        })
-    }
 }
 
-remote.log("scraper starting...")
+async function scrapeEpisode(episode) {
+    return new Promise(async (resolve) => {
+        let result = await scraper.scrape(episode)
+
+        if (result == "error: blockedIP") {
+            remote.log("[!] getting new IP...")
+            await VPN.reconnect()
+            remote.log("[!] rebooting scraper...")
+            await scraper.reboot()
+
+            resolve(result)
+        }
+        else if (result == "error: timeout") {
+            remote.log("[!] getting new IP...")
+            await VPN.reconnect()
+            remote.log("[!] rebooting scraper...")
+            await scraper.reboot()
+
+            resolve(result)
+        }
+        else {
+            resolve(result)
+        }
+    })
+}
+
 init()
-
-async function vpnTest() {
-    await VPN.reconnect()
-    console.log("reconnected");
-}

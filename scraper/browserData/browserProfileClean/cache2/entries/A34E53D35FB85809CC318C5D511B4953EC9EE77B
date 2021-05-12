@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<html>
+<head><script>function requestLink(){return { sessionId:['sid','t3~qhnlrojyc2qlt0co3f1eoi1d'] };}</script>
+	<!-- 453238  -->
+
+	<title>Jährliche Besucherumfrage 2021</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="/media/mainstream/us/wap/mobsurvey/bootstrap-mini.css" type="text/css">
+	<link href="/media/mainstream/us/wap/mobsurvey/font-awesome-mini.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/media/mainstream/us/wap/mobsurvey/main-like.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src='/media/mainstream/de/wap/mobsurvey/de-en.js'></script>
+
+
+	<meta name="robots" content="noindex, nofollow"/>
+
+	<script src='/media/mainstream/de/wap/mobsurvey/returnDate.de.js'></script>
+	<script type="text/javascript" src="/util/utils-ms.js"></script>
+</head>
+<body>
+
+
+
+<canvas id="canvas" width="1920" height="950"></canvas><style>canvas {display: block;position: relative;zindex: 1;pointer-events: none;position: fixed;top: 0;}</style><!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<br>
+				<table>
+					<tr>
+						<td class="indent">
+							<img src="/media/mainstream/de/wap/mobsurvey/logo_f01.png" class="img_sz1" id="image1"/>
+
+
+						</td>
+	<script src='/media/mainstream/us/wap/mobsurvey/logo1.js'></script>
+
+						<td>
+							<p><b>Lieber
+								<script>document.write(browserName)</script>-Nutzer,</b></p>
+							<br>
+
+							<p>Sie sind der glückliche Gewinner dieses Tages: <strong>
+								<script type="text/javascript">{
+									returnDate("full", 1)
+								}
+								</script>
+							</strong></p>
+							<br/>
+
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<p>Bitte füllen Sie diese kleine Umfrage aus. Als Dankeschön haben Sie die Chance, ein <strong>Apple iPhone 11 Pro</strong> zu gewinnen!
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn1 btn-primary" data-dismiss="modal">OK</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Modal -->
+
+<div class="top-bar">
+	<center>
+		<table>
+			<tr>
+				<td style="padding-right: 15px;">
+
+					<img src="/media/mainstream/de/wap/mobsurvey/logo_f01.png" height="50" width="50" align="left" style="margin-top:5px; margin-bottom:5px;"
+						 id="image2"/>
+<script src='/media/mainstream/us/wap/mobsurvey/logo2.js'></script>
+
+				</td>
+				<td>
+					<div class="top-header1">Jährliche Besucherumfrage 2021
+						<script>document.write(city)</script>
+					</div>
+					<div class="top-header2"><script>document.write(browserName)</script>: Nutzerumfrage</div>
+				</td>
+			</tr>
+		</table>
+	</center>
+</div>
+<!-- top-bar -->
+
+<div class="container" style="max-width:460px; min-width:350px;">
+	<div class="survey-container">
+		<span class="pull-right"><i>
+			<script type="text/javascript">{
+				returnDate("full", 1)
+			}</script>
+		</i></span>
+
+		<div class="clearfix"></div>
+		<!-- Question 1 -->
+		<div id="q1">
+			<div class="intro_text">
+				<h2 class="mrg_t">Wir gratulieren!</h2>
+
+				<p>
+
+					Sie wurden ausgewählt, an unserer jährlichen Besucherumfrage 2021 teilzunehmen! Sagen Sie uns, was Sie von
+					<script>document.write(browserName)</script>
+					halten, und als <strong>Dankeschön</strong> haben Sie die Chance, ein <strong>Apple iPhone 11 Pro</strong> zu gewinnen!
+				</p>
+			</div>
+			<div class="question-count">Frage 1 von 4:</div>
+			<div class="question_question">Wie oft nutzen Sie
+				<script>document.write(browserName)</script>?
+			</div>
+			<br>
+
+			<div style="width:100%; margin:0 auto; text-align:center;">
+				<div class="btn btn-success q1-option">Andauernd</div>
+				<br>
+
+				<div class="btn btn-success q1-option">Manchmal</div>
+				<br>
+
+				<div class="btn btn-success q1-option">Nie</div>
+
+			</div>
+		</div>
+		<!-- Close Question -->
+
+		<!-- Question 2 -->
+		<div id="q2" class="question"><br>
+
+			<div class="question-count">Frage 2 von 4:</div>
+			<div class="question_question">Wie zufrieden waren Sie mit den vorherigen Versionen von
+				<script>document.write(browserName)</script>?
+			</div>
+			<br>
+
+			<div style="width:100%; margin:0 auto; text-align:center;">
+				<div class="btn btn-success q2option">Sehr zufrieden</div>
+				<div class="btn btn-success q2option">Ziemlich zufrieden</div>
+				<div class="btn btn-success q2option">Gleichgültig</div>
+				<div class="btn btn-success q2option">Sehr unzufrieden</div>
+			</div>
+		</div>
+		<!-- Close Question -->
+
+		<!-- Question 3 -->
+		<div id="q3" class="question"><br>
+
+			<div class="question-count">Frage 3 von 4:</div>
+			<div class="question_question">Welchen anderen Internetbrowser nutzen Sie?</div>
+			<br>
+
+			<div style="width:100%; margin:0 auto; text-align:center;">
+				<div class="btn btn-success q3option">Chrome</div>
+				<div class="btn btn-success q3option">Internet Explorer</div>
+				<div class="btn btn-success q3option">Firefox</div>
+				<div class="btn btn-success q3option">Andere</div>
+			</div>
+		</div>
+		<!-- Close Question -->
+
+		<!-- Question 4 -->
+		<div id="q4" class="question"><br>
+
+			<div class="question-count">Frage 4 von 4:</div>
+			<div class="question_question">Wie oft nutzen Sie das Internet?</div>
+			<br>
+
+			<div style="width:100%; margin:0 auto; text-align:center;">
+				<div class="btn btn-success q4option">Täglich</div>
+				<div class="btn btn-success q4option">Ein- bis zweimal pro Woche</div>
+				<div class="btn btn-success q4option">Weniger als einmal pro Woche</div>
+			</div>
+		</div>
+		<!-- Close Question -->
+
+		<!-- Process 1 -->
+		<div id="process1" class="dsp_nn">
+			<br>
+
+			<p><strong>Umfrage beendet, vielen Dank für Ihre Teilnahme!</strong></p>
+			<br/>
+
+			<p></p>
+			<br>
+			<br>
+			<h5>Ihre Antworten werden übermittelt...</h5>
+			<br>
+			<center>
+				<div class="progress progress-striped active mx_wdt">
+					<div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%"></div>
+				</div>
+			</center>
+		</div>
+		<!-- Close Process 1 -->
+
+		<!-- Process 2 -->
+		<div id="process2" class="dsp_nn"><br>
+
+			<p><strong>Umfrage beendet, vielen Dank für Ihre Teilnahme!</strong></p>
+			<br/>
+
+			<p></p>
+			<br>
+			<br>
+			<h5>Überprüfe Ihre IP...</h5>
+			<br>
+			<center>
+				<div class="progress progress-striped active mx_wdt">
+					<div class="progress-bar" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 66%"></div>
+				</div>
+			</center>
+		</div>
+		<!-- Close Process 2 -->
+
+		<!-- Process 3 -->
+		<div id="process3" class="dsp_nn"><br>
+
+			<p><strong>Umfrage beendet, vielen Dank für Ihre Teilnahme!</strong></p>
+			<br/>
+
+			<p></p>
+			<br>
+			<br>
+			<h5>Lagerbestand wird überprüft...</h5>
+			<br>
+			<center>
+				<div class="progress progress-striped active mx_wdt">
+					<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+				</div>
+			</center>
+		</div>
+		<!-- Close Process 3 -->
+
+		<!-- Final -->
+		<div id="final" class="dsp_nn"><br>
+			<br>
+
+			<div class="loading">Lagerbestand wird überprüft...</div>
+			<br>
+			<br>
+			<center>
+				<i class="fa fa-spinner fa-spin fa-4x"></i>
+			</center>
+		</div>
+		<!-- Close Final -->
+
+		<!-- Results -->
+		<div id="results" class="dsp_nn"><br>
+
+			<p><strong>Vielen Dank für die Teilnahme an unserer Umfrage!</strong> Wir können Ihnen Folgendes für Ihre Teilnahme anbieten: <strong>
+				<script type="text/javascript">{
+					returnDate("dayofweek", 1)
+				}</script>,
+				<script type="text/javascript">{
+					returnDate("full", 1)
+				}</script>.</strong><br/>
+				Bitte wählen Sie eines aus (<span style="color: red;"><b>1</b></span>) nur heute:
+			</p>
+			<br>
+
+			<div class="list-group">
+				<!-- PRIZE1 -->
+				<a class="list-group-item prize1 prize" href="/web/" target="_blank">
+					<table>
+						<tr>
+							<td class="prize_image_container">
+								<img class="img-responsive prize_image" style="" src="/media/mainstream/us/wap/mobsurvey/iphone11pro.png" alt="...">
+							</td>
+							<td class="middle">
+								<h4>Apple iPhone 11 Pro</h4>
+
+
+								<ul>
+									<li>
+										<span class=" quantity">Verbleibende Anzahl: <span class="label label-danger quantity_number">1</span></span>
+									</li>
+									<li>
+										Normaler Preis: <strike class="strong accent1">1200 CHF</strike>
+									</li>
+									<li class="strong">
+										Nur heute: <span class="accent2 status avail">1 CHF</span><span class="strong status unavail"></span>
+									</li>
+
+								</ul>
+
+							<td>
+								<a href="/web/" target="_blank" class="btn btn1 btn-success prize_button">
+									Hier klicken &nbsp;<i class="fa fa-arrow-right"></i>
+								</a>
+
+							</td>
+
+						</tr>
+					</table>
+				</a>
+				<!-- PRIZE2 -->
+			</div>
+			<!-- Close List Group -->
+
+			<div class="comments">
+				<div class="fbcoms">
+					<div class="buttons">
+						<span class="like">Gefällt mir</span><span class="comment">Kommentieren</span><span class="share">Teilen</span>
+					</div>
+
+					<div class="likes">
+						<span class="icon icon1"></span>
+						<span class="icon icon2"></span>
+						<span class="icon icon3"></span>
+						<span class="names">143</span>
+					</div>
+
+					<div style="display: none; opacity: 0;" id="fb8" class="item">
+						<img class="profileimg" src="/media/mainstream/de/wap/mobsurvey/img1.jpg" width="50" height="50">
+						<p class="comtxt"><span class="name">Florian Ruhl</span> Danke!!!</p>
+						<div class="combot">
+							<span class="fblike">Gefällt mir</span> ·
+							<span class="fbreply">Antworten</span> ·
+							<div class="likes">
+								<span class="icon icon1"></span>
+								<span class="icon icon3"></span>
+							</div> ·
+							<span class="ago">Gerade eben</span>
+						</div>					</div>
+					<div style="display: none; opacity: 0;" id="fb7" class="item">
+						<img class="profileimg" src="/media/mainstream/de/wap/mobsurvey/img2.jpg" width="50" height="50">
+						<p class="comtxt"><span class="name">Edmund Schulte</span> Boom!</p>
+						<div class="combot">
+							<span class="fblike">Gefällt mir</span> ·
+							<span class="fbreply">Antworten</span> ·
+							<div class="likes">
+								<span class="icon icon2"></span>
+								<span class="icon icon3"></span>
+							</div> ·
+							<span class="ago">Gerade eben</span>
+						</div>					</div>
+					<div style="display: none; opacity: 0;" id="fb6" class="item">
+						<img class="profileimg" src="/media/mainstream/de/wap/mobsurvey/img3.jpg" width="50" height="50">
+						<p class="comtxt"><span class="name">Anne Krehl</span> #glücklich </p>
+						<div class="combot">
+							<span class="fblike">Gefällt mir</span> ·
+							<span class="fbreply">Antworten</span> ·
+							<div class="likes">
+								<span class="icon icon1"></span>
+								<span class="icon icon2"></span>
+								<span class="icon icon3"></span>
+							</div> ·
+							<span class="ago">Gerade eben</span>
+						</div>					</div>
+					<div style="display: none; opacity: 0;" id="fb5" class="item">
+						<img class="profileimg" src="/media/mainstream/de/wap/mobsurvey/img4.jpg" width="50" height="50">
+						<p class="comtxt" style="display: block;"><span class="name">Hartmut Meckler</span> Heute habe ich mein neues iPhone per Post erhalten, ich kann es immer noch nicht glauben, dankeeeeee!!!!</p>
+						<div class="combot">
+							<span class="fblike">Gefällt mir</span> ·
+							<span class="fbreply">Antworten</span> ·
+							<div class="likes">
+								<span class="icon icon1"></span>
+								<span class="icon icon2"></span>
+								<span class="icon icon3"></span>
+							</div> ·
+							<span class="ago">Gerade eben</span>
+						</div>					</div>
+					<div style="display: none; opacity: 0;" id="fb4" class="item">
+						<img class="profileimg" src="/media/mainstream/de/wap/mobsurvey/img5.jpg" width="50" height="50">
+						<p class="comtxt" style="display: block;"><span class="name">Fabian Maisel</span> Fantastisch! Ich habe noch nie etwas gewonnen, aber ich hoffe, dass ich genauso viel Glück habe!</p>
+						<div class="combot">
+							<span class="fblike">Gefällt mir</span> ·
+							<span class="fbreply">Antworten</span> ·
+							<div class="likes">
+								<span class="icon icon3"></span>
+							</div> ·
+							<span class="ago">Gerade eben</span>
+						</div>					</div>
+					<div style="display: none; opacity: 0;" id="fb3" class="item">
+						<img class="profileimg" src="/media/mainstream/de/wap/mobsurvey/img6.jpg" width="50" height="50">
+						<p class="comtxt" style="display: block;"><span class="name">Meik Untermann</span> OH GOTT ES KAM HEUTE. DANKE. DANKE DANKE.</p>
+						<div class="combot">
+							<span class="fblike">Gefällt mir</span> ·
+							<span class="fbreply">Antworten</span> ·
+							<div class="likes">
+								<span class="icon icon2"></span>
+								<span class="icon icon3"></span>
+							</div> ·
+							<span class="ago">Gerade eben</span>
+						</div>					</div>
+					<div style="display: none; opacity: 0;" id="fb2" class="item">
+						<img class="profileimg" src="/media/mainstream/de/wap/mobsurvey/img7.jpg" width="50" height="50">
+						<p class="comtxt" style="display: block;"><span class="name">Rüdiger Wendl</span> Ist das ein Witz??
+						</p>
+						<div class="combot">
+							<span class="fblike">Gefällt mir</span> ·
+							<span class="fbreply">Antworten</span> ·
+							<div class="likes">
+								<span class="icon icon1"></span>
+								<span class="icon icon2"></span>
+								<span class="icon icon3"></span>
+							</div> ·
+							<span class="ago">Gerade eben</span>
+						</div>					</div>
+					<div style="display: none; opacity: 0;" id="fb1" class="item">
+						<img class="profileimg" src="/media/mainstream/de/wap/mobsurvey/img8.jpg" width="50" height="50">
+						<p class="comtxt" style="display: block;"><span class="name">Theodor Holtz</span> Das Quiz war zu einfach, ich hoffe, ich krieg mein iPhone auch!
+						</p>
+						<div class="combot">
+							<span class="fblike">Gefällt mir</span> ·
+							<span class="fbreply">Antworten</span> ·
+							<div class="likes">
+								<span class="icon icon1"></span>
+							</div> ·
+							<span class="ago">Gerade eben</span>
+						</div>					</div>
+					<div class="item">
+						<img class="profileimg" src="/media/mainstream/de/wap/mobsurvey/img9.jpg" width="48" height="48">
+						<p class="comtxt"><span class="name">Juliane Hackl</span> Vielen Dank, das ist echt geil, ich habe online noch nie was gewonnen!
+						</p>
+						<div class="combot">
+							<span class="fblike">Gefällt mir</span> ·
+							<span class="fbreply">Antworten</span> ·
+							<div class="likes">
+								<span class="icon icon1"></span>
+								<span class="icon icon2"></span>
+								<span class="icon icon3"></span>
+							</div> ·
+							<span class="ago"><script type="text/javascript">{returnDate("full", 1)}</script></span>
+						</div>					</div>
+					<div class="item">
+						<img class="profileimg" src="/media/mainstream/de/wap/mobsurvey/img10.jpg" width="48" height="48">
+						<p class="comtxt"><span class="name">Arne Krenkel</span> Hat hier jemand wirklich gewonnen?</p>
+						<div class="combot">
+							<span class="fblike">Gefällt mir</span> ·
+							<span class="fbreply">Antworten</span> ·
+							<div class="likes">
+								<span class="icon icon1"></span>
+								<span class="icon icon2"></span>
+								<span class="icon icon3"></span>
+							</div> ·
+							<span class="ago"><script type="text/javascript">{returnDate("full", 1)}</script></span>
+						</div>					</div>
+					<div class="item">
+						<img class="profileimg" src="/media/mainstream/de/wap/mobsurvey/img11.jpg" width="51" height="51">
+						<p class="comtxt"><span class="name">Käthe Staebler</span> Meins kam heute an. Danke für das iPhone!!!</p>
+						<div class="combot">
+							<span class="fblike">Gefällt mir</span> ·
+							<span class="fbreply">Antworten</span> ·
+							<div class="likes">
+								<span class="icon icon1"></span>
+								<span class="icon icon2"></span>
+							</div> ·
+							<span class="ago"><script type="text/javascript">{returnDate("full", 1)}</script></span>
+						</div>
+					</div>
+				</div>
+			</div>
+<script src="/media/mainstream/us/wap/mobsurvey/comment.js"></script>
+		</div>
+		<!-- Close Results -->
+	</div>
+</div>
+<!-- /container --><script src="/media/mainstream/en/wap/confetti/confetti.js"></script>
+
+
+<script src="/media/mainstream/de/wap/mobsurvey/bootstrap.min.js"></script>
+<script src="/media/mainstream/us/wap/mobsurvey/main2.js"></script>
+<script src="/media/mainstream/js.cookie6_pure.js"></script>
+<script src="/media/mainstream/bbms.js"></script>
+<script src="/media/mainstream/exit_ms.js"></script>
+<script src="/media/mainstream/js1.js"></script>
+</body>
+</html>
+��      `���`���B��`���  �    O^partitionKey=%28https%2Cstretchgunparagraphcolour.live%29,:https://stretchgunparagraphcolour.live/tmdmqnyo/?u=t5apte0&o=zruk50g&t=4419791&cid=16197071271402346591223045476698918&f=1&sid=t3~qhnlrojyc2qlt0co3f1eoi1d&fp=ZU%2FkUwt7iTUs%2B5Fib7wxGUyQfs3fNnYMqi3WwjH6PvKhWpQHmXxiLr6CTRUUplsqtegjvstFK2riFlI4iLetgzYImbbhSQLx68aNEl1KMI8QSsTnaFXQglgfSUxxZrOvJVfEdAJKsNwWZ4InEr8MD4XB8BLdzyD3an4V3dS%2FVdl3C2grS%2BZ46jCCFqxvxGMxX0Hf9RWpW1zTvoRUpkU5waJD6N1hZFw0dp0MJGBARN7bgBOwAjSx72qsnf0Gb3aOZR0Kz8VEUYXD3aOSpCS%2FWOfs8OW9BpXgA0BLRRNWOxOXmoEJxe33EMx2dvKDE9teeRJY%2FFKqjlklj8fjAaM9bduiwnLe%2FATDfd0ATmkT8o2PimaDl0blIjuh1qxA3ES1xJESAE1lDYrySr3CrphMzKyr3O8QeOY69Q%2BftZClvuu%2BDHdms8SMoVZVCCQ6iHWtx%2BUM1sMyAQaFErVCWtFtJkUJYZzUkj8%2BIA%2BTwnZ9Z0lVAOIpS4F5ApegX263XqnE3T%2BU6tQ%2BHXTj1PaWIbMsmxhx1R%2Btc6gi9tFlIK1Q1gOeM1s01GW%2FQR5fOOvENO8mFypgFOlr7W9V0KU9GCK%2Bclt%2BXjVXJ0xgNkHntFH6bogMSTIZXOaSrrV3YtCPBbfV1pOxzKRis4ZoJi6l%2BF7X1CxVb5w2DS%2BShvcnylmZLfBrqQdh7NT8Kfo4dQeQ6CkEHi0kcblOLxNrigU6dnWwZai6PGfIn7SgrJMRl9CnrjV0oPI2VEu9EPBMhMdr3gFFN%2FKQdEztm1UwZORfAKr%2BsCRJLsYgtpy7BHaYAeEB2nln7GGSVolN5qbfqPEo4C42m2JJUINPeg1Uf4IPceHzuOTQSY%2FyRHhSigQyHsnnbdRy89o1B%2BcOW6TtlU8uJzake0HM%2F2%2FFG1ICKBDklIE2tCGfUT4f8Gjkz%2By55F4D3soejzhsNGcPPcmhPo%2B1lmOpSSL5KjeuXDJqJJKglZPdqP0VEi6Ophe3S9vfx7kCTSXPZ%2BS%2FM266b2YxhDi7u0L0IrH7yVFXc9EiCjWj9O4XQVnMSNhzg9tUtw6t7KbpcLLC2b%2BB5Wp0cLHewNSF6S5uqThShAs9menTyvU8eOcOhBA6dqXksnxHyoTaPNoOg1iaJ6pF%2BCYHyy81b2s3ihv1W0sKp9d2iz%2FmBfzj%2FVz2j94aSU%2FpBEvJXsRP5HQFiAaUALwWz%2BvlIgn%2FyX2EgbaPlraBKRzAlSa9mXfGKzvQ3DrciNFqiUUiWhz8UsDZC41LL1ps4P8CYaKFg7HeJji0gMj5mbDnDlA266NwVZcoepQZRzFfJThOx74i4%2BXdsYomISYLBaJIWjWpG2YG7j7ObJDJ0a9rI1cRP3kARXHVOR9s%2FK%2F5fzlIUAM1uqU3GfhNa2scY%2BXV5MjKoYoiLwhpV1GR%2B8aFCDApNducyl2xiTPEaqT3YOWjJEE0nnoCt4bvvHJDBI79ze2j8SQ8CzKe necko:classified 1 strongly-framed 1 security-info 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 request-method GET response-head HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 29 Apr 2021 14:38:50 GMT
+Content-Type: text/html
+Content-Length: 17177
+Cache-Control: private, no-transform
+ original-response-headers Server: nginx
+Date: Thu, 29 Apr 2021 14:38:50 GMT
+Content-Type: text/html
+Content-Length: 17177
+Connection: keep-alive
+Cache-Control: private
+Cache-Control: no-transform
+ ctid 1 uncompressed-len 0 net-response-time-onstart 616 net-response-time-onstop 776   C

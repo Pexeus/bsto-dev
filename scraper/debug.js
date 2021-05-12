@@ -1,19 +1,28 @@
 const scraper = require("./src/scraper")
+const profileManager = require("./src/profileManager")
+
+const timer = ms => new Promise(res => setTimeout(res, ms))
+
 
 async function init() {
+    console.clear()
     await scraper.init()
 
-    let vivo = await scraper.scrape("https://bs.to/serie/Die-Simpsons/1/2-Bart-wird-ein-Genie/en#46kg7kpjq")
-    console.log(vivo);
+    while (true) {
+        console.log("[DEBUGGER] Requesting link");
 
-    vivo = await scraper.scrape("https://bs.to/serie/Die-Simpsons/1/2-Bart-wird-ein-Genie/en#46kg7kpjq")
-    console.log(vivo);
+        vivo = await scraper.scrape("https://bs.to/serie/Die-Simpsons/1/2-Bart-wird-ein-Genie/")
+        console.log(vivo);
 
-    vivo = await scraper.scrape("https://bs.to/serie/Die-Simpsons/1/2-Bart-wird-ein-Genie/en#46kg7kpjq")
-    console.log(vivo);
+        await timer(3000)
+    }
 
-    vivo = await scraper.scrape("https://bs.to/serie/Die-Simpsons/1/2-Bart-wird-ein-Genie/en#46kg7kpjq")
-    console.log(vivo);
+
+}
+
+async function profileManagerTest() {
+    await profileManager.init()
+    await profileManager.resetProfile()
 }
 
 init()

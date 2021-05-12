@@ -1,4 +1,6 @@
 const fs = require("fs")
+const { resolve } = require("path")
+const grabber = require("./grabber")
 
 
 const qFile = "./json/queue.json"
@@ -35,6 +37,30 @@ function checkShow(show) {
     return true
 }
 
+async function getJob() {
+    return new Promise(async resolve => {
+        const queue = get()
+        var job
+
+        queue.forEach(show => {
+            if (show.status == "updating") {
+                job = show
+            }
+        })
+
+        if (job == undefined) {
+            job = queue[0]
+            queue[0].status = "updating"
+
+            set(queue)
+        }
+
+        job.seasons = await grabber.episdesWeb(job.title)
+        
+        resolve(job)
+    })
+}
+
 module.exports = {
     get: () => {
         return get()
@@ -53,5 +79,12 @@ module.exports = {
             queue.push(show)
             set(queue)
         }
+    },
+    job:() => {
+        return new Promise(async resolve => {
+            const job = await getJob()
+
+            resolve(job)
+        })
     }
 }

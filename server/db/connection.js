@@ -4,7 +4,7 @@ var knex = require("knex")({
         host: "localhost",
         user: "root",
         password: "sml12345",
-        database: "bsto"
+        database: "bsto_dev"
     },
     pool: {
         min: 1,

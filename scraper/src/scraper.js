@@ -70,6 +70,8 @@ module.exports = {
             console.log("[S] Link found: " + result);
             await clearTabs()
 
+            await clearTabs()
+
             resolve(result)
         })
     }

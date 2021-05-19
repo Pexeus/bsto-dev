@@ -63,7 +63,6 @@ function updateSeasons(showID, newSeasons) {
         }
 
         resolve(true)
-        
     })
 }
 
@@ -83,7 +82,6 @@ function updateSeason(season, newEpisodes) {
 
         for (const episode of seasonEpisodes) {
             const newEpisode = newEpisodes[episodeIndex]
-            console.log(newEpisode);
 
             if (newEpisode.vivo != episode.vivo_link) {
                 if (episode.title == newEpisode.title) {

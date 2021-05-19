@@ -1,17 +1,11 @@
-<<<<<<< HEAD
 const { resolve6 } = require('dns');
 const eventsModule = require('events');
-=======
-const eventsModule = require('events');
-const { resolve } = require('path');
->>>>>>> 69e2134330ac28ab2a1a5488e6d9897d728a010c
 const wit = require("./wit")
 
 const events = new eventsModule.EventEmitter();
 const timer = ms => new Promise(res => setTimeout(res, ms))
 
 var browser
-<<<<<<< HEAD
 var tab
 var alive
 
@@ -46,23 +40,11 @@ module.exports = {
         return new Promise(resolve => {
             alive = false
         })
-=======
-
-module.exports = {
-    initate: async config => {
-        browser = config.browser
-
-        const currentTab = await getCurrentTab()
-        findCaptchas(currentTab)
-
-        return events
->>>>>>> 69e2134330ac28ab2a1a5488e6d9897d728a010c
     }
 }
 
 //solve incoming captchas
 events.on("captcha", async frame => {
-<<<<<<< HEAD
     setStatus("solving")
     console.log("[C] Captcha dedected");
 
@@ -97,11 +79,6 @@ events.on("captcha", async frame => {
 })
 
 events.on("captcha-redo", async frame => {
-=======
-    console.log("[C] Captcha dedected");
-
-    await blindMode(frame)
->>>>>>> 69e2134330ac28ab2a1a5488e6d9897d728a010c
     const isBlocked = await checkBlindBlock(frame)
 
     if (!isBlocked) {
@@ -110,7 +87,6 @@ events.on("captcha-redo", async frame => {
 
         //get challenge solution
         const solution = await getSolution(audioSource)
-<<<<<<< HEAD
         console.log("[C] Captcha Solution: " + solution);
 
         await insertSolution(frame, solution)
@@ -190,34 +166,16 @@ function getCurrentTab() {
                 isHidden = true
             }
 
-=======
-        console.log("[S] Captcha Solution: " + solution);
-
-        await insertSolution(bstoTab, frame, solution)
-    }
-})
-
-function getCurrentTab() {
-    return new Promise(async resolve => {
-        const pages = await browser.pages()
-        let tab
-        for (let i = 0; i < pages.length && !tab; i++) {
-            const isHidden = await pages[i].evaluate(() => document.hidden)
->>>>>>> 69e2134330ac28ab2a1a5488e6d9897d728a010c
             if (!isHidden) {
                 tab = pages[i]
             }
         }
 
-<<<<<<< HEAD
         //console.log("----------------------");
-=======
->>>>>>> 69e2134330ac28ab2a1a5488e6d9897d728a010c
         resolve(tab)
     })
 }
 
-<<<<<<< HEAD
 //get the current tabs frames
 //in case of a reload or otherwise, prepare the tab
 function getFrames() {
@@ -346,67 +304,15 @@ async function findCaptchas() {
                 search = true
             }
         }
-=======
-//continously search for captchas on the current bsto page
-async function findCaptchas(tab) {
-    search = true
-
-    console.log("[C] Buster initated, looking for Captchas...");
-
-    while (search == true) {
-        const frames = await tab.frames()
-        captchaReady = false
-
-        frames.forEach(async frame => {
-            if (frame._url.includes("https://www.google.com/recaptcha/api2/bframe")) {
-                const button = await frame.$('#recaptcha-verify-button')
-
-                try {
-                    const inner = await button.getProperty('innerHTML');
-                    const text = await inner.jsonValue();
-                    
-                    console.log("captcha ready: " + text);
-                    captchaReady = true
-                }
-                catch {
-                    console.log("captcha not ready");
-                }
-
-                if (captchaReady) {
-                    const innerText = await tab.evaluate(() => {
-                        console.log("checking for failed captcha...")
-                        const player = document.getElementsByClassName("hoster-player")[0]
-                        const title = player.childNodes[1]
-                        
-                        console.log(player);
-                        console.log(title);
-                        
-
-                        return title.innerHTML
-                    });
-
-                    console.log(innerText);
-
-                    search = false
-                    events.emit("captcha", frame)
-                }
-            }
-        })
->>>>>>> 69e2134330ac28ab2a1a5488e6d9897d728a010c
 
         await timer(500)
     }
 }
 
-<<<<<<< HEAD
 
 
 //insert solution into textfield
 async function insertSolution(frame, solution) {
-=======
-//insert solution into textfield
-async function insertSolution(tab, frame, solution) {
->>>>>>> 69e2134330ac28ab2a1a5488e6d9897d728a010c
     return new Promise(async (resolve) => {
         try {
             await frame.focus('#audio-response')
@@ -417,11 +323,7 @@ async function insertSolution(tab, frame, solution) {
             resolve(true)
         }
         catch {
-<<<<<<< HEAD
             console.log("inserting went wrong...");
-=======
-            remote.log("inserting went wrong...");
->>>>>>> 69e2134330ac28ab2a1a5488e6d9897d728a010c
         }
     })
 }
@@ -440,7 +342,6 @@ async function getSolution(src) {
     })
 }
 
-<<<<<<< HEAD
 //check if the solution was wrong
 async function checkRedo(frame) {
     console.log("[B] Checking Redo...");
@@ -498,12 +399,6 @@ async function getAudio(frame) {
         catch {
             resolve(false)
         }
-=======
-//extract audio source of captcha
-async function getAudio(frame) {
-    return new Promise(async (resolve) => {
-        await frame.waitForSelector("#audio-source")
->>>>>>> 69e2134330ac28ab2a1a5488e6d9897d728a010c
 
         const audioElement = await frame.$('#audio-source')
         const srcAttribute = await audioElement.getProperty('src');
@@ -513,7 +408,6 @@ async function getAudio(frame) {
     })
 }
 
-<<<<<<< HEAD
 //check if the captcha is responding
 function checkCaptcha(frame) {
     return new Promise(async (resolve) => {
@@ -546,13 +440,6 @@ async function blindMode(frame) {
             console.log("[B] Failed to toggle to blind mode");
             console.log(err);
         }
-=======
-//toggle the captcha to blind mode
-async function blindMode(frame) {
-    return new Promise(async (resolve) => {
-        await frame.waitForSelector("#recaptcha-audio-button")
-        await frame.click("#recaptcha-audio-button")
->>>>>>> 69e2134330ac28ab2a1a5488e6d9897d728a010c
 
         resolve(true)
     })
@@ -563,7 +450,6 @@ async function checkBlindBlock(frame) {
     return new Promise(async (resolve) => {
         await timer(500)
 
-<<<<<<< HEAD
         let errorElement
 
         try {
@@ -572,9 +458,6 @@ async function checkBlindBlock(frame) {
         catch {
             errorElement = null
         }
-=======
-        const errorElement = await frame.$('.rc-doscaptcha-body-text')
->>>>>>> 69e2134330ac28ab2a1a5488e6d9897d728a010c
 
         if (errorElement != null && errorElement != undefined) {
             try {
@@ -582,15 +465,9 @@ async function checkBlindBlock(frame) {
                 const errorMessage = await inner.jsonValue();
                         
                 if (errorMessage.includes("Your computer or network may be sending automated queries.")) {
-<<<<<<< HEAD
                     console.log("[C] need new IP")
                     
                     events.emit("error", "ip")
-=======
-                    remote.log("[S] need new IP")
-                    
-                    events.emit("abort", "IP")
->>>>>>> 69e2134330ac28ab2a1a5488e6d9897d728a010c
                     resolve(true)
                 }
             }

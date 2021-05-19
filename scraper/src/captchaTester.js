@@ -4,8 +4,6 @@ const profileManager = require("./profileManager")
 
 const timer = ms => new Promise(res => setTimeout(res, ms))
 
-
-
 module.exports = {
     //startup browser
     init: async () => {
@@ -19,13 +17,13 @@ module.exports = {
                 defaultViewport: null,
                 userDataDir: "./browserData/browserProfile",
                 args: [
-                    '--no-sandbox',
+                    '--no-sandbox', '--auto-open-devtools-for-tabs'
                 ]
             });
 
             console.log("[CaptchaTester] browser initaited")
 
-            buster = await captchaBuster.initate({
+            buster = await captchaBuster.initiate({
                 browser: browser
             })
             

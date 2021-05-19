@@ -37,8 +37,13 @@ module.exports = {
                 events.emit("newTab")
             })
 
-            buster = captchaBuster.initate({
+            buster = await captchaBuster.initiate({
                 browser: browser
+            })
+
+            buster.on("error", err => {
+                console.log("Captcha error emitted");
+                events.emit("captcha-error", err)
             })
 
             remote.log("[S] browser initaited")
@@ -49,6 +54,7 @@ module.exports = {
     close: async () => {
         return new Promise(async resolve => {
             await browser.close()
+            await captchaBuster.exit()
 
             console.log("[S] browser closed");
 
@@ -58,12 +64,6 @@ module.exports = {
     //scrape episode
     scrape: async url => {
         return new Promise(async resolve => {
-            setTimeout(async () => {
-                console.log("Scrape timed out, aborting...");
-                await clearTabs
-                resolve("error: timeout")
-            }, 30000);
-
             console.log("[S] Scraping: " + url);
             const result = await scrapeEpisode(url)
             
@@ -77,6 +77,7 @@ module.exports = {
 
 async function scrapeEpisode(url) {
     return new Promise(async resolve => {
+        var solved = false
         //variable for the current bsto tab
         var bstoTab
 
@@ -105,8 +106,27 @@ async function scrapeEpisode(url) {
 
             if (newTabName.includes("vıvo | ")) {
                 console.log("[S] Vivo Tab dedected: " + newTabName);
+                solved = true
                 
                 resolve(newTab.url())
+            }
+        })
+
+        //on broken captcha, reload page
+        events.on("captcha-error", async err => {
+            console.log("[S] Captcha error: " + err);
+            if (err == "captcha-error") {
+                console.log("[S] Reloading Page");
+                await bstoTab.evaluate(() => {
+                    location.reload()
+                })
+
+                await bstoTab.waitForNavigation();
+                events.emit("bsto-tab", bstoTab)
+            }
+
+            if (err == "ip") {
+                events.emit("abort", err)
             }
         })
 
@@ -124,39 +144,58 @@ async function scrapeEpisode(url) {
 
             //check if vivo is a host and select if yes
             const vivoAvailable = await useVivo(bstoTab)
+            
+            await tab.waitForNavigation();
 
             if (vivoAvailable) {
                 //clicking the playButton
                 console.log("[S] clicking play")
 
+                scrollBottom(bstoTab)
+
                 try {
                     await bstoTab.click('[class="play"]')
                 }
                 catch {
-                    console.log("[S] Popup Triggered");
+                    console.log("[S] Cannot press play");
                 }
             }
             else {
-                events.emit("abort", "noAvailable")
+                events.emit("abort", "notAvailable")
             }
         })    
 
         //opening site
         bstoTab = await newTab(url)
+        setInterval(async () => {
+            if (solved == false) {
+                if (captchaBuster.status().current != "solving") {
+                    console.log("[S] Reloading page");
+                    await bstoTab.evaluate(() => {
+                        location.reload()
+                    })
+
+                    await bstoTab.waitForNavigation();
+                    events.emit("bsto-tab", bstoTab)
+                }
+            }
+        }, 15000);
     })
 }
 
 async function useVivo(tab) {
     return new Promise(async resolve => {
         const isAvailable = tab.evaluate(() => {
-            console.log("Validating vivo");
+            console.log("[S] Validating vivo");
             const hosts = Array.from(document.getElementsByClassName("hoster-tabs top")[0].children)
             let result = false
             
 
             hosts.forEach(host => {
                 if (host.innerHTML.includes("Vivo")) {
-                    host.click()
+                    const href = host.children[0]
+
+                    href.click()
 
                     result = true
                 }
@@ -165,21 +204,26 @@ async function useVivo(tab) {
             return result
         })
 
+        console.log("[S] Vivo Available: true");
+
         resolve(isAvailable)
     })
 }
 
 //scroll to bottom of page
 async function scrollBottom(tab) {
-    tab.evaluate(async () => {
-        window.scrollTo(0,document.body.scrollHeight);
-    })
+    try {
+        tab.evaluate(async () => {
+            window.scrollTo(0,document.body.scrollHeight);
+        })
+    }
+    catch {
+        console.log("[B] cannot scroll to bottom");
+    }
 }
 
 //create a new tab
 async function newTab(url) {
-    console.log("[S] Opening new Tab: " + url);
-
     return new Promise(async (resolve) => {
         const popupPage = await browser.newPage()
         popupPage.goto(url)

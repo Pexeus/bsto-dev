@@ -6,13 +6,26 @@ let loggerReady = true
 module.exports = {
     job: () => {
         return new Promise(async (resolve) => {
-            console.log(HOST + "queue/job");
-
             axios.get(HOST + "queue/job").then(response => {
                 resolve(response.data)
             }).catch(err => {
                 console.log(err)
             })
+        })
+    },
+    update: show => {
+        return new Promise(async resolve => {
+            const response = await axios.post(HOST + "update/show", show)
+                .catch(err => {
+                    console.log(err);
+
+                    resolve({
+                        status: false,
+                        message: "Cant reach Remote Server"
+                    })
+                })
+
+            resolve(response.data)
         })
     },
     status: async function() {

@@ -1,4 +1,3 @@
-const { response } = require("express")
 const knex = require("../db/connection")
 
 const db = knex.getDB()
@@ -84,6 +83,7 @@ function updateSeason(season, newEpisodes) {
 
         for (const episode of seasonEpisodes) {
             const newEpisode = newEpisodes[episodeIndex]
+            console.log(newEpisode);
 
             if (newEpisode.vivo != episode.vivo_link) {
                 if (episode.title == newEpisode.title) {
@@ -106,8 +106,6 @@ function updateSeason(season, newEpisodes) {
                         .where({
                             ID: episode.ID
                         })
-
-                    console.log(check);
 
                 }
                 else {
@@ -260,14 +258,26 @@ module.exports = {
                 showID = await registerShow(newData)
             }
 
-            const seasonStatus = await updateSeasons(showID, newData.seasons)
+            let seasonStatus
 
-            resolve(seasonStatus)
+            try {
+                seasonStatus = await updateSeasons(showID, newData.seasons)
+            }
+            catch {
+                seasonStatus = false
+            }
+
+            console.log(seasonStatus);
+
+            //resolve({
+            //    showID: showID,
+            //    status: seasonStatus
+            //})
         })
     },
-    meta(showID, newData){
+    showMeta(showID, newData) {
         return new Promise(async resolve => {
-            let update = await db("metadata").where({SID:showID}).update({
+            const update = await db("metadata").where({SID:showID}).update({
                 desc: newData.desc,
                 genres: newData.genres,
                 fromYear: newData.fromYear,
@@ -278,20 +288,36 @@ module.exports = {
                 authors: newData.authors,
                 cover: newData.cover
             })
-    
-            if(update) {
-                resolve(true)
+            .catch(err => {
+                console.log(err);
+            })
+
+            if (!update) {
+                console.log(`creating new metadata entry [${showID}]`);
+
+                const insert = await db("metadata").insert({
+                    SID:showID,
+                    desc: newData.desc,
+                    genres: newData.genres,
+                    fromYear: newData.fromYear,
+                    toYear: newData.toYear,
+                    actors: newData.actors,
+                    producers: newData.producers,
+                    directors: newData.directors,
+                    authors: newData.authors,
+                    cover: newData.cover
+                })
+                .catch(err => {
+                    console.log(err);
+                })
             }
-            else {
-                resolve(false)
-            }
+
+            const metaCheck = await db("metadata").where({SID:showID})
+
+            resolve({
+                status: true,
+                data: metaCheck
+            })
         })
     }
-} 
-
-async function tests() {
-    const result = await removeShow("Auf Achse")
-    console.log(result);
 }
-
-//tests()

@@ -225,7 +225,6 @@ const getShowEpisodes = (url) => {
             })
         }
 
-        console.log(out);
         resolve(out)
     })
 }
@@ -307,6 +306,16 @@ function fetchMetaWeb(url) {
     })
 }
 
+function cleanText(str) {
+    for (var i = 0, n = str.length; i < n; i++) {
+        if (str.charCodeAt( i ) > 255) {
+            str = str.replace(str[i], "")
+        }
+    }
+
+    return str
+}
+
 module.exports = {
     compare: () => {
         return new Promise(async resolve => {
@@ -362,7 +371,7 @@ module.exports = {
                     
                     for(child of children) {
                         if(child.name == "p") {
-                           out.desc = child.children[0].data
+                           out.desc = cleanText(child.children[0].data)
                         }
                     }
 
@@ -446,10 +455,10 @@ module.exports = {
                                                 }
                                             }
                                             if(actsStr.split(",").join(";") == "undefined") {
-                                                out.actors = undefined
+                                                out.actors = "undefined"
                                             }
                                             else {
-                                                out.actors = actsStr.split(",").join(";") + ";"
+                                                out.actors = cleanText(actsStr.split(",").join(";") + ";")
                                             }
                                         }
                                     }
@@ -480,7 +489,7 @@ module.exports = {
                                                 out.producers = undefined
                                             }
                                             else {
-                                                out.producers = prodStr.split(",").join(";") + ";"
+                                                out.producers = cleanText(prodStr.split(",").join(";") + ";")
                                             }
                                         }
                                     }
@@ -511,7 +520,7 @@ module.exports = {
                                                 out.directors = undefined
                                             }
                                             else {
-                                                out.directors = dirStr.split(",").join(";") + ";"
+                                                out.directors = cleanText(dirStr.split(",").join(";") + ";")
                                             }
                                         }
                                     }
@@ -542,7 +551,7 @@ module.exports = {
                                                 out.authors = undefined
                                             }
                                             else {
-                                                out.authors = authStr.split(",").join(";") + ";"
+                                                out.authors = cleanText(authStr.split(",").join(";") + ";")
                                             }
                                         }
                                     }

@@ -1,5 +1,4 @@
 const fs = require("fs")
-const { resolve } = require("path")
 const grabber = require("./grabber")
 
 
@@ -17,6 +16,18 @@ function get() {
 
 function set(data) {
     fs.writeFileSync(qFile, JSON.stringify(data))
+}
+
+function init() {
+    console.log("Initiating Shows Queue");
+
+    try  {
+        JSON.parse(fs.readFileSync(qFile))
+    }
+    catch {
+        fs.writeFileSync(qFile, JSON.stringify([]))
+    }
+
 }
 
 function checkShow(show) {
@@ -86,5 +97,58 @@ module.exports = {
 
             resolve(job)
         })
+    },
+    setStatus: (title, status) => {
+        return new Promise(resolve => {
+            const queue = get()
+
+
+            queue.forEach(show => {
+                if (show.title == title) {
+                    console.log(`[Q] Setting status of Show ${title} to ${status}`);
+                    show.status = status
+                }
+            })
+
+            resolve(true)
+        })
+    },
+    remove: title => {
+        const queue = get()
+        let showDeleted = false
+
+        queue.forEach((entry, index) => {
+            if (entry.title == title) {
+                console.log(`[ Removing ] ${show.title}`);
+                queue.splice(index, 1)
+
+                showDeleted = true
+            }
+        })
+
+        return showDeleted
+    },
+    forward: title => {
+        const queue = get()
+        let forwarded = false
+
+        queue.forEach((entry, index) => {
+            if (entry.title == title && entry.status == "updating") {
+                console.log(`[ Removing ] ${title}`);
+                queue.splice(index, 1)
+
+                forwarded = true
+            }
+        })
+
+        if (forwarded == true) {
+            queue[0].status == "updating"
+        }
+
+        set(queue)
+
+        return forwarded
     }
 }
+
+init()

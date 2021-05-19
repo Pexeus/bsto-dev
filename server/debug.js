@@ -1,7 +1,8 @@
 const fs = require("fs")
+const detectCharacterEncoding = require('detect-character-encoding');
 
 const updater = require("./src/updater")
-const grabber = require("./src/grabber") 
+const grabber = require("./src/grabber")
 
 async function testShowUpdater() {
     const show = JSON.parse(fs.readFileSync("./show.json"))
@@ -16,8 +17,38 @@ async function testShowUpdater() {
 
     console.log("Scattered Show Inserted");
 
-    const final = await updater.show(show)
-    console.log(final);
+    const metadata = await grabber.metaWeb(show.title)
+    console.log(metadata);
+
+    const statusEpisodes = await updater.show(show)
+    const statusMetadata = await updater.showMeta(statusEpisodes.showID, metadata)
+
+
+    console.log(statusEpisodes, statusMetadata);
+}
+
+async function metaTester() {
+    const data = await grabber.metaWeb("Nakanohito Genome [ Jikkyouchuu ] | The Ones Within")
+    const statusMetadata = await updater.showMeta(5413, data)
+
+    console.log(statusMetadata);
+}
+
+function isDoubleByte(str) {
+    for (var i = 0, n = str.length; i < n; i++) {
+        if (str.charCodeAt( i ) > 255) { return true; }
+    }
+    return false;
+}
+
+function cleanText(str) {
+    for (var i = 0, n = str.length; i < n; i++) {
+        if (str.charCodeAt( i ) > 255) {
+            str = str.replace(str[i], "_")
+        }
+    }
+
+    return str
 }
 
 function scatterShow(show) {
@@ -38,4 +69,4 @@ function scatterShow(show) {
     return show
 }
 
-testShowUpdater()
+metaTester()

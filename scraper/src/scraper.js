@@ -6,7 +6,7 @@ const profileManager = require("./profileManager")
 const eventsModule = require('events');
 const events = new eventsModule.EventEmitter()
 
-const captchaBuster = require("./captchaBuster")
+const captchaBuster = require("./captchaBuster");
 
 //delay funktion
 const timer = ms => new Promise(res => setTimeout(res, ms))
@@ -31,9 +31,19 @@ module.exports = {
                     '--no-sandbox',
                 ]
             });
+            
+            //emitting new tab event on new tab (fix to prohibit event duping)
+            browser.on("targetcreated", () => {
+                events.emit("newTab")
+            })
 
-            buster = captchaBuster.initate({
+            buster = await captchaBuster.initiate({
                 browser: browser
+            })
+
+            buster.on("error", err => {
+                console.log("Captcha error emitted");
+                events.emit("captcha-error", err)
             })
 
             remote.log("[S] browser initaited")
@@ -44,6 +54,7 @@ module.exports = {
     close: async () => {
         return new Promise(async resolve => {
             await browser.close()
+            await captchaBuster.exit()
 
             console.log("[S] browser closed");
 
@@ -55,6 +66,9 @@ module.exports = {
         return new Promise(async resolve => {
             console.log("[S] Scraping: " + url);
             const result = await scrapeEpisode(url)
+            
+            console.log("[S] Link found: " + result);
+            await clearTabs()
 
             await clearTabs()
 
@@ -65,10 +79,18 @@ module.exports = {
 
 async function scrapeEpisode(url) {
     return new Promise(async resolve => {
+        var solved = false
+        //variable for the current bsto tab
+        var bstoTab
 
-        //LISTENERS
-        browser.on("targetcreated", async () => {
+        //removing old listeners (to prohibit dublicated events)
+        const listeners = events.eventNames()
 
+        listeners.forEach(listener => {
+            events.removeAllListeners(listener)
+        })
+
+        events.on("newTab", async () => {
             let tabs = await browser.pages()
             let newTab = tabs[tabs.length - 1]
     
@@ -86,13 +108,29 @@ async function scrapeEpisode(url) {
 
             if (newTabName.includes("vıvo | ")) {
                 console.log("[S] Vivo Tab dedected: " + newTabName);
-    
+                solved = true
+                
                 resolve(newTab.url())
             }
         })
 
-        //variable for the current bsto tab
-        var bstoTab
+        //on broken captcha, reload page
+        events.on("captcha-error", async err => {
+            console.log("[S] Captcha error: " + err);
+            if (err == "captcha-error") {
+                console.log("[S] Reloading Page");
+                await bstoTab.evaluate(() => {
+                    location.reload()
+                })
+
+                await bstoTab.waitForNavigation();
+                events.emit("bsto-tab", bstoTab)
+            }
+
+            if (err == "ip") {
+                events.emit("abort", err)
+            }
+        })
 
         //resolve the scrape on abort (errors usw.)
         events.on("abort", msg => {
@@ -106,27 +144,88 @@ async function scrapeEpisode(url) {
             //scrolling to bottom of page
             scrollBottom(bstoTab)
 
-            //clicking the playButton
-            console.log("[S] clicking play");
-            await bstoTab.click('[class="play"]')
-        })
+            //check if vivo is a host and select if yes
+            const vivoAvailable = await useVivo(bstoTab)
+            
+            await tab.waitForNavigation();
+
+            if (vivoAvailable) {
+                //clicking the playButton
+                console.log("[S] clicking play")
+
+                scrollBottom(bstoTab)
+
+                try {
+                    await bstoTab.click('[class="play"]')
+                }
+                catch {
+                    console.log("[S] Cannot press play");
+                }
+            }
+            else {
+                events.emit("abort", "notAvailable")
+            }
+        })    
 
         //opening site
         bstoTab = await newTab(url)
+        setInterval(async () => {
+            if (solved == false) {
+                if (captchaBuster.status().current != "solving") {
+                    console.log("[S] Reloading page");
+                    await bstoTab.evaluate(() => {
+                        location.reload()
+                    })
+
+                    await bstoTab.waitForNavigation();
+                    events.emit("bsto-tab", bstoTab)
+                }
+            }
+        }, 15000);
+    })
+}
+
+async function useVivo(tab) {
+    return new Promise(async resolve => {
+        const isAvailable = tab.evaluate(() => {
+            console.log("[S] Validating vivo");
+            const hosts = Array.from(document.getElementsByClassName("hoster-tabs top")[0].children)
+            let result = false
+            
+
+            hosts.forEach(host => {
+                if (host.innerHTML.includes("Vivo")) {
+                    const href = host.children[0]
+
+                    href.click()
+
+                    result = true
+                }
+            })
+
+            return result
+        })
+
+        console.log("[S] Vivo Available: true");
+
+        resolve(isAvailable)
     })
 }
 
 //scroll to bottom of page
 async function scrollBottom(tab) {
-    tab.evaluate(async () => {
-        window.scrollTo(0,document.body.scrollHeight);
-    })
+    try {
+        tab.evaluate(async () => {
+            window.scrollTo(0,document.body.scrollHeight);
+        })
+    }
+    catch {
+        console.log("[B] cannot scroll to bottom");
+    }
 }
 
 //create a new tab
 async function newTab(url) {
-    console.log("[S] Opening new Tab: " + url);
-
     return new Promise(async (resolve) => {
         const popupPage = await browser.newPage()
         popupPage.goto(url)
@@ -157,7 +256,7 @@ async function clearTabs() {
         })
 
         remote.log("[S] scraper idle")
-        await timer(500)
+        await timer(2000)
         resolve(true)
     })
 }

@@ -10,7 +10,7 @@ module.exports = {
             await profileManager.init()
 
             browser = await puppeteer.launch({
-                headless: false,
+                headless: true,
                 defaultViewport: null,
                 userDataDir: "./browserData/browserProfile",
                 args: [

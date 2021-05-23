@@ -7,7 +7,7 @@ const session = {
 module.exports = {
     init: async () => {
         return new Promise(async resolve => {
-            await profileManager.init()
+            //await profileManager.init()
 
             browser = await puppeteer.launch({
                 headless: true,

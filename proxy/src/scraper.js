@@ -1,12 +1,11 @@
 const puppeteer = require('puppeteer')
-
 const session = {}
 
 module.exports = {
     init: async () => {
         return new Promise(async resolve => {
-            browser = await puppeteer.launch({
-                headless: false,
+            session.browser = await puppeteer.launch({
+                headless: true,
                 defaultViewport: null,
                 args: [
                     '--no-sandbox',
@@ -16,24 +15,39 @@ module.exports = {
                 console.log(err);
             })
 
-            session.page = await browser.newPage()
+            console.log("Scraper initiated");
+
+            session.page = await session.browser.newPage()
 
             resolve()
         })
     },
     getSource: async code => {
-        await session.page.goto(`https://vivo.sx/${code}`)
+        return new Promise(async resolve => {
+            console.log("getting source");
+            await session.page.goto(`https://vivo.sx/${code}`)
 
-        const source = await session.page.evaluate(() => {
-            const source = document.querySelector(".plyr__video-wrapper").children[0].children[0].src
-            console.log(source);
+            const source = await session.page.evaluate(() => {
+                const source = document.querySelector(".plyr__video-wrapper").children[0].children[0].src
+                console.log(source);
 
-            return source
+                return source
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+            resolve(source)
         })
-        .catch(err => {
-            console.log(err);
-        })
+    },
+    close: async () => {
+        return new Promise(async resolve => {
+            if (session.browser =! undefined) {
+                await session.browser.close()
+            }
 
-        return source
+            console.log("Scraper Closed");
+            resolve(true)
+        })
     }
 }

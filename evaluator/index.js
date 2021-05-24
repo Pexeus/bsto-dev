@@ -1,11 +1,11 @@
 const eval = require('./src/browser')
 
-const out = require("./out.json")
 const fs = require('fs')
 
 const max = 917
 
 const getAllPages = async () => {
+    const out = require("./out.json")
     await eval.init()
     await eval.executeAt("https://streamkiste.tv/include/fetch.php")
 
@@ -30,16 +30,28 @@ const getAllPages = async () => {
 
         html = html.replace(/\n/g, "") 
 
-        tmp.push(html)
+        if(html.substring(0,15) != "<!DOCTYPE html>") {
+            tmp.push(html)
+        }
+        else {
+            // request blocked
+            // get new IP & try again
+        }
 
+
+        fs.writeFileSync("./out.json", JSON.stringify({
+            length: tmp.length,
+            pages: tmp
+        }))
     }
-    fs.writeFileSync("./out.json", JSON.stringify({
-        length: tmp.length,
-        pages: tmp
-    }))
 }
 
-
+const clearOut = () => {
+    fs.writeFileSync("./out.json", JSON.stringify({
+        length: 0,
+        pages: []
+    }))
+}
 
 
 
@@ -61,5 +73,5 @@ async function init() {
         console.log(html)
     }
 }
-
+//clearOut()
 getAllPages()

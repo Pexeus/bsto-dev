@@ -83,37 +83,41 @@ function updateSeason(season, newEpisodes) {
         for (const episode of seasonEpisodes) {
             const newEpisode = newEpisodes[episodeIndex]
 
-            if (newEpisode.vivo != episode.vivo_link) {
-                if (episode.title == newEpisode.title) {
-                    console.log("updating episode " + episode.title);
-
-                    await db("episodes")
-                        .where({
-                            ID: episode.ID
-                        })
-                        .update({
-                            title: newEpisode.title,
-                            bs_link: newEpisode.href,
-                            vivo_link: newEpisode.vivo
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        })
-
-                    const check = await db("episodes")
-                        .where({
-                            ID: episode.ID
-                        })
-
+            if (newEpisode != undefined) {
+                if (newEpisode.vivo != episode.vivo_link) {
+                    if (episode.title == newEpisode.title) {
+                        console.log("updating episode " + episode.title);
+    
+                        await db("episodes")
+                            .where({
+                                ID: episode.ID
+                            })
+                            .update({
+                                title: newEpisode.title,
+                                bs_link: newEpisode.href,
+                                vivo_link: newEpisode.vivo
+                            })
+                            .catch(err => {
+                                console.log(err);
+                            })
+    
+                        const check = await db("episodes")
+                            .where({
+                                ID: episode.ID
+                            })
+    
+                    }
+                    else {
+                        console.log("[!] Possible Data corruption: Episode Titles do not match");
+                    }
                 }
-                else {
-                    console.log("Possible Data corruption:");
-                    console.log(episode);
-                }
+
+                //marking episode as updated
+                newEpisodes[episodeIndex].updated = true
             }
-
-            //marking episode as updated
-            newEpisodes[episodeIndex].updated = true
+            else {
+                console.log("[!] Possible Data corruption: Updated Season is shorter than before");
+            }
 
             //updating index
             episodeIndex++                         
@@ -256,21 +260,14 @@ module.exports = {
                 showID = await registerShow(newData)
             }
 
-            let seasonStatus
-
-            try {
-                seasonStatus = await updateSeasons(showID, newData.seasons)
-            }
-            catch {
-                seasonStatus = false
-            }
+            const seasonStatus = await updateSeasons(showID, newData.seasons)
 
             console.log(seasonStatus);
 
-            //resolve({
-            //    showID: showID,
-            //    status: seasonStatus
-            //})
+            resolve({
+                showID: showID,
+                status: seasonStatus
+            })
         })
     },
     showMeta(showID, newData) {

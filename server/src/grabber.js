@@ -425,9 +425,15 @@ module.exports = {
                                         }
                                         for(z of values_fixed) {
                                             if(values_fixed.length == 1) {
-                                                let dates = values_fixed[0].children[0].data.split(" - ")
-                                                out.fromYear = parseInt(dates[0])
-                                                out.toYear = parseInt(dates[1]) || 0
+                                                if(values_fixed[0].children[0].data != undefined) {
+                                                    let dates = values_fixed[0].children[0].data.split(" - ")
+                                                    out.fromYear = parseInt(dates[0])
+                                                    out.toYear = parseInt(dates[1]) || 0
+                                                }
+                                                else {
+                                                    out.toYear = undefined
+                                                    out.fromYear = undefined
+                                                }
                                             }
                                         }
                                     }

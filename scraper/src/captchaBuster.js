@@ -1,4 +1,3 @@
-const { time } = require('console');
 const eventsModule = require('events');
 const wit = require("./wit")
 
@@ -140,9 +139,6 @@ async function findCaptchas() {
                 search = true
             }
         }
-    }
-    else {
-        console.log("[B] Buster deactivated");
     }
 
     if (status.current != "solving") {

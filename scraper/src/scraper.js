@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer')
 const remote = require("./remote")
 const profileManager = require("./profileManager")
 
-const eventsModule = require('events');
+const eventsModule = require('events')
 const events = new eventsModule.EventEmitter()
 
 const captchaBuster = require("./captchaBuster");
@@ -66,6 +66,11 @@ module.exports = {
         return new Promise(async resolve => {
             url = `${url}/Vivo`
 
+            const timeout = setTimeout(() => {
+                console.log("[S] Scrape timed out, aborting...");
+                resolve("Scrape aborted: timeout")
+            }, 60000);
+
             console.log("[S] Scraping: " + url)
             const result = await scrapeEpisode(url)
             
@@ -76,16 +81,15 @@ module.exports = {
 
             while(captchaDone == false) {
                 await timer(100)
-                console.log("waiting for captcha: " + captchaBuster.status().current);
+                //console.log("waiting for captcha: " + captchaBuster.status().current);
 
                 if (captchaBuster.status().current == "waiting") {
                     captchaDone = true
                 }
             }
 
-            console.log("resolving link on: ");
-            console.log(captchaBuster.status());
-
+            console.log("[S] Clearing timeout");
+            clearTimeout(timeout)
             resolve(result)
         })
     },
@@ -93,6 +97,22 @@ module.exports = {
         const captchaTab = await browser.newPage()
         captchaTab.goto("https://www.google.com/recaptcha/api2/demo")
     }
+}
+
+//get a tab by url
+function getTab(url) {
+    return new Promise(async resolve => {
+        let tabs = await browser.pages()
+                .catch(err => {
+                    console.log("[S] cant get browser tabs");
+                })
+
+        for (const tab of tabs) {
+            if (tab.url() == url) {
+                resolve(tab)
+            }
+        }
+    })
 }
 
 async function scrapeEpisode(url) {
@@ -109,10 +129,9 @@ async function scrapeEpisode(url) {
         })
 
         events.on("newTab", async () => {
-            
             let tabs = await browser.pages()
                 .catch(err => {
-                    console.log(err);
+                    console.log("[S] cant get browser tabs");
                 })
                 
             let newTab = tabs[tabs.length - 1]
@@ -135,6 +154,14 @@ async function scrapeEpisode(url) {
                 solved = true
                 
                 resolve(newTab.url())
+            }
+
+            if (newTab.url().includes("https://bs.to/") == false && newTab.url().includes("https://vivo.sx/") == false) {
+                console.log("[S] Popup dedected");
+                await newTab.close()
+
+                const bstoTab = await getTab(url)
+                events.emit("bsto-tab", bstoTab)
             }
         })
 
@@ -166,7 +193,6 @@ async function scrapeEpisode(url) {
 
         //update the current bstoTab
         events.on("bsto-tab", async tab => {
-            console.log("");
             bstoTab = tab
 
             //scrolling to bottom of page
@@ -180,6 +206,7 @@ async function scrapeEpisode(url) {
                 scrollBottom(bstoTab)
 
                 //clicking the playButton
+                await timer(2000)
                 console.log("[S] clicking play")
 
                 await bstoTab.click('[class="play"]')
@@ -278,7 +305,7 @@ async function newTab(url) {
         }
         catch {
             remote.log("[S] failed to open page: " + url);
-            events.emit("abort", "failed to open page: " + url)
+            events.emit("abort", "invalidURL")
         }
     })
 }

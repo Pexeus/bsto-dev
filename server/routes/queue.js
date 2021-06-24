@@ -12,6 +12,7 @@ router.get("/status", (req, res) => {
 })
 
 router.get("/job", async (req, res) => {
+    console.log("[Queue API] Job Requested");
     const job = await queue.job()
     
     res.end(JSON.stringify(job))

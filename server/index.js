@@ -9,7 +9,7 @@ const logger = require("./routes/logger")
 const update = require("./routes/update")
 
 //using routes/middleware
-app.use(epxress.json())
+app.use(epxress.json({limit: '50mb'}))
 
 app.use("/queue", queue)
 app.use("/logger", logger)

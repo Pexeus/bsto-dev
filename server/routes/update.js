@@ -14,6 +14,7 @@ router.post("/show", async (req, res) => {
 
     const show = req.body
     const metadata = await grabber.metaWeb(show.title)
+    console.log(metadata);
 
     //updating episodes
     const episodeStatus = await updater.show(req.body)
@@ -29,6 +30,13 @@ router.post("/show", async (req, res) => {
     if (episodeStatus.status == true && metaStatus.status == true && queueForwarded == true) {
         completed = true
     }
+
+    console.log({
+        completed: completed,
+        episodeStatus: episodeStatus,
+        metaStatus: metaStatus,
+        queueStatus: queueForwarded
+    });
 
     res.json({
         completed: completed,

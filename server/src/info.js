@@ -27,7 +27,14 @@ module.exports = {
             const activities = []
 
             watchlist.forEach(episode => {
-                const tDiff = Math.round((Date.now() - episode.TIMESTAMP) / 1000 / 60 / 60 / 24)
+                let tDiff
+
+                if (Math.round((Date.now() - episode.TIMESTAMP) / 1000 / 60 / 60) < 24) {
+                    tDiff = Math.round((Date.now() - episode.TIMESTAMP) / 1000 / 60 / 60) + " Hours"
+                }
+                else{
+                    tDiff = Math.round((Date.now() - episode.TIMESTAMP) / 1000 / 60 / 60 / 24) + " Days"
+                }
 
                 const activity = {
                     user: users[episode.UID],

@@ -1,9 +1,7 @@
 const cheerio = require("cheerio")
 const axios = require("axios")
-const fs = require("fs")
 
 const knex = require("../db/connection")
-const { resolve } = require("path")
 const db = knex.getDB()
 
 
@@ -204,7 +202,7 @@ const getShowEpisodes = (url) => {
         let out = []
 
         for(season of seasons) {
-            let outSeason = []
+            let episodes = []
             let seasonUrl = `https://bs.to/${season.children[0].attribs.href}`
             let markup = await fetchHTML(seasonUrl)
 
@@ -215,13 +213,16 @@ const getShowEpisodes = (url) => {
             for(elem of tr) {
                 let epUrl = "https://bs.to/" + elem.children[1].children[0].attribs.href
                 let epTitle = elem.children[1].children[0].attribs.title
-                outSeason.push({
-                    url: epUrl,
+                episodes.push({
+                    href: epUrl,
                     title: epTitle
                 })
             }
-            out.push(outSeason)
+            out.push({
+                episodes
+            })
         }
+
         resolve(out)
     })
 }
@@ -294,6 +295,25 @@ function statusRemote(title) {
     })
 }
 
+function fetchMetaWeb(url) {
+    return new Promise(async resolve => {
+        let response = await axios.get(url)
+        let $ = cheerio.load(response)
+
+        resolve($)
+    })
+}
+
+function cleanText(str) {
+    for (var i = 0, n = str.length; i < n; i++) {
+        if (str.charCodeAt( i ) > 255) {
+            str = str.replace(str[i], "")
+        }
+    }
+
+    return str
+}
+
 module.exports = {
     compare: () => {
         return new Promise(async resolve => {
@@ -320,6 +340,281 @@ module.exports = {
                 resolve(false)
             }
 
+            resolve(true)
+        })
+    },
+    episdesWeb(title) {
+        return new Promise(async resolve => {
+            const url = await getShowUrl(title)
+            const episodes = await getShowEpisodes(url)
+
+            resolve(episodes)
+        })
+    },
+    metaWeb(showTitle) {
+        return new Promise(async resolve => {
+            let all = await getAllShowsWeb()
+            all.forEach(async show => {
+                if(show.title == showTitle) {
+                    show.href = "https://bs.to/" + show.href
+                    let html = await fetchHTML(show.href)
+                    let $ = cheerio.load(html)
+
+                    let out = {}
+
+                    let spleft = $("#sp_left").get([0])
+                    let spright = $("#sp_right").get([0])
+                    
+                    let children = spleft.children
+                    
+                    for(child of children) {
+                        if(child.name == "p") {
+                           out.desc = cleanText(child.children[0].data)
+                        }
+                    }
+
+                    let rightchildren = spright.children
+                    
+                    for(rightchild of rightchildren) {
+                        if(rightchild.name == "img") {
+                            out.cover = "https://bs.to"+rightchild.attribs.src
+                        }
+                    }
+
+                    let infos = $(".infos").get([0])
+                    let i=0
+                    for(elem of infos.children) {
+                        if(elem.name !== undefined) {
+                            if(i==0) {
+                                // genres
+                                let genres = []
+                                let ch = elem.children
+
+                                for(innerElem of ch) {
+                                    if(innerElem.name == "p") {
+                                        let values = innerElem.children
+                                        let values_fixed = []
+                                        
+                                        for(y of values) {
+                                            if(y.name !== undefined) {
+                                                values_fixed.push(y)
+                                            }
+                                        }
+                                        for(z of values_fixed) {
+                                            genres.push(z.children[0].data)
+                                        }
+                                    }
+                                }
+                                out.genres = genres.join(";") + ";"
+                            }
+                            else if(i==1) {
+                                // from + to year
+                                let ch = elem.children
+
+                                for(innerElem of ch) {
+                                    if(innerElem.name == "p") {
+                                        let values = innerElem.children
+                                        let values_fixed = []
+                                        
+                                        for(y of values) {
+                                            if(y.name !== undefined) {
+                                                values_fixed.push(y)
+                                            }
+                                        }
+                                        for(z of values_fixed) {
+                                            if(values_fixed.length == 1) {
+                                                if(values_fixed[0].children[0].data != undefined) {
+                                                    let dates = values_fixed[0].children[0].data.split(" - ")
+                                                    out.fromYear = parseInt(dates[0])
+                                                    out.toYear = parseInt(dates[1]) || 0
+                                                }
+                                                else {
+                                                    out.toYear = undefined
+                                                    out.fromYear = undefined
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            }
+                            else if(i == 2) {
+                                // actors
+                                let ch = elem.children
+
+                                for(innerElem of ch) {
+                                    if(innerElem.name !== undefined) {
+                                        if(innerElem.name == "p") {
+                                            let values = innerElem.children
+                                            let actsStr = ""
+                                            for(x of values) {
+                                                if(x.name !== undefined) {
+                                                    if(x.name == "span") {
+                                                        let acts = x.children
+                                                        for(y of acts) {
+                                                            actsStr += y.data
+                                                        }
+                                                        
+                                                    }
+                                                }
+                                            }
+                                            if(actsStr.split(",").join(";") == "undefined") {
+                                                out.actors = "undefined"
+                                            }
+                                            else {
+                                                out.actors = cleanText(actsStr.split(",").join(";") + ";")
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else if(i==3) {
+                                // producers
+                                let ch = elem.children
+
+                                for(innerElem of ch) {
+                                    if(innerElem.name !== undefined) {
+                                        if(innerElem.name == "p") {
+                                            let values = innerElem.children
+                                            let prodStr = ""
+                                            for(x of values) {
+                                                if(x.name !== undefined) {
+                                                    if(x.name == "span") {
+                                                        let prod = x.children
+                                                        for(y of prod) {
+                                                            prodStr += y.data
+                                                        }
+                                                        
+                                                    }
+                                                }
+                                            }
+                                            
+                                            if(prodStr.split(",").join(";") == "undefined") {
+                                                out.producers = undefined
+                                            }
+                                            else {
+                                                out.producers = cleanText(prodStr.split(",").join(";") + ";")
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else if(i==4) {
+                                // directors
+                                let ch = elem.children
+
+                                for(innerElem of ch) {
+                                    if(innerElem.name !== undefined) {
+                                        if(innerElem.name == "p") {
+                                            let values = innerElem.children
+                                            let dirStr = ""
+                                            for(x of values) {
+                                                if(x.name !== undefined) {
+                                                    if(x.name == "span") {
+                                                        let dir = x.children
+                                                        for(y of dir) {
+                                                            dirStr += y.data
+                                                        }
+                                                        
+                                                    }
+                                                }
+                                            }
+                                            
+                                            if(dirStr.split(",").join(";") == "undefined") {
+                                                out.directors = undefined
+                                            }
+                                            else {
+                                                out.directors = cleanText(dirStr.split(",").join(";") + ";")
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else if(i==5) {
+                                // authors
+                                let ch = elem.children
+
+                                for(innerElem of ch) {
+                                    if(innerElem.name !== undefined) {
+                                        if(innerElem.name == "p") {
+                                            let values = innerElem.children
+                                            let authStr = ""
+                                            for(x of values) {
+                                                if(x.name !== undefined) {
+                                                    if(x.name == "span") {
+                                                        let auth = x.children
+                                                        for(y of auth) {
+                                                            authStr += y.data
+                                                        }
+                                                        
+                                                    }
+                                                }
+                                            }
+                                            
+                                            if(authStr.split(",").join(";") == "undefined") {
+                                                out.authors = "unknown"
+                                            }
+                                            else {
+                                                out.authors = cleanText(authStr.split(",").join(";") + ";")
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            i+=1
+                        }
+                    }
+
+                    resolve(out)
+                    
+                }
+            })
+        })
+    },
+    metaLocal(showTitle) {
+        return new Promise(async resolve => {
+            let show = await db("shows").where({title:showTitle})
+            if(show.length == 0) {
+                resolve({status:false,message:"show not found"})
+            }
+
+            let meta = await db("metadata").where({SID:show[0].ID})
+            let out = {status:true,id:meta[0].SID}
+
+            delete meta[0].ID
+            delete meta[0].SID
+
+            out.data = meta[0]
+
+            resolve(out)
+        })
+    },
+    compareMeta(showTitle, index) {
+        return new Promise(async resolve => {
+            let web = await this.metaWeb(showTitle)
+            let local = await this.metaLocal(showTitle)
+            if(web != local.data) {
+                console.log(`${logs.magenta}[${index}]${logs.reset} ${logs.red}'${showTitle}'${logs.reset} ...`)
+                resolve(false)
+            }
+            else {
+                console.log(`${logs.magenta}[${index}]${logs.reset} ${logs.green}'${showTitle}'${logs.reset} ...`)
+                resolve(true)
+            }
+            resolve(true)
+        })
+    },
+    updateLocalMeta() {
+        return new Promise(async resolve => {
+            let localShows = await db("shows")
+
+            for(show of localShows) {
+                let compare = await this.compareMeta(show.title, show.ID)
+
+                if(!compare) {
+                    // show meta needs to be updated
+                }
+            }
             resolve(true)
         })
     }

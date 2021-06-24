@@ -15,8 +15,14 @@ module.exports = {
     },
     FileToText: async function(file) {
         return new Promise (async (resolve) => {
-
-            const data = await parseSpeech(file)
+            let data 
+            try {
+                data = await parseSpeech(file)
+            }
+            catch {
+                console.log("[wit] parsing failed");
+                data = false
+            }
             resolve(data)
         })
     } 

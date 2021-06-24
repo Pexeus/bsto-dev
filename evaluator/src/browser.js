@@ -7,10 +7,10 @@ const session = {
 module.exports = {
     init: async () => {
         return new Promise(async resolve => {
-            await profileManager.init()
+            //await profileManager.init()
 
             browser = await puppeteer.launch({
-                headless: false,
+                headless: true,
                 defaultViewport: null,
                 userDataDir: "./browserData/browserProfile",
                 args: [

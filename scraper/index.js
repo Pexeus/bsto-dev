@@ -2,14 +2,48 @@ const remote = require("./src/remote")
 const scraper = require("./src/scraper")
 const VPN = require("./src/vpn")
 const storage = require("./src/localStorage")
+const request = require("./src/request")
+const fs = require("fs")
+const timer = ms => new Promise(res => setTimeout(res, ms))
+
 
 async function init() {
-    await VPN.reconnect()
+    console.clear()
+    await VPN.disconnect()
     await scraper.init()
 
-    const job = await remote.job()
-    
-    const scraped = await scrapeShow(job)
+    scrapeContinuously()
+}
+
+async function scrapeContinuously() {
+    const status = await doJob()
+
+    if (status.completed == true) {
+        console.log(status);
+        scrapeContinuously()
+    }
+    else {
+        console.log("Stopped Scraping, ERROR:");
+        console.log(status);
+    }
+}
+
+async function doJob() {
+    return new Promise(async resolve => {
+        //request show
+        const job = await remote.job()
+        
+        //scrape show
+        const scraped = await scrapeShow(job)
+
+        //cache show
+        fs.writeFileSync("./show.json", JSON.stringify(scraped))
+
+        //dispatch scraped show
+        const updateStatus = await remote.update(scraped)
+
+        resolve(updateStatus)
+    })
 }
 
 async function scrapeShow(show) {
@@ -25,7 +59,21 @@ async function scrapeShow(show) {
                 currentEpisodeIndex += 1
 
                 const localEpisode = storage.get(episode.href)
-                if (localEpisode == false) {
+                let episodeValid = false    
+
+                if (localEpisode != false && localEpisode != "error: notAvailable") {
+                    //if the episode is unavailable, dont try to scrape again
+                    if (localEpisode.vivo.includes("notAvailable")) {
+                        episodeValid = true
+                    }
+                    else {
+                        episodeValid = await request.check(localEpisode.vivo)
+                    }
+                }
+
+
+
+                if (episodeValid == false) {
                     let redo = true
 
                     remote.log(`Show: ${show.title} -> Scraping season ${currentSeasonIndex} of ${show.seasons.length}, episode ${currentEpisodeIndex} of ${season.episodes.length}`)
@@ -36,7 +84,7 @@ async function scrapeShow(show) {
                     while(redo) {
                         let link = await scrapeEpisode(episode.href)
 
-                        if (link != "error: blockedIP" && link != "error: timeout") {
+                        if (link != "Scrape aborted: ip" && link != "error: timeout") {
                             redo = false
                             episode.vivo = link
                         }
@@ -63,19 +111,14 @@ async function scrapeEpisode(episode) {
     return new Promise(async (resolve) => {
         let result = await scraper.scrape(episode)
 
-        if (result == "error: blockedIP") {
+        if (result == "Scrape aborted: ip") {
             remote.log("[!] getting new IP...")
-            await VPN.reconnect()
-            remote.log("[!] rebooting scraper...")
-            await scraper.reboot()
 
-            resolve(result)
-        }
-        else if (result == "error: timeout") {
-            remote.log("[!] getting new IP...")
+            await scraper.close()
+
             await VPN.reconnect()
-            remote.log("[!] rebooting scraper...")
-            await scraper.reboot()
+            
+            await scraper.init()
 
             resolve(result)
         }

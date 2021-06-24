@@ -40,7 +40,9 @@ module.exports = {
       await bash.rm("-rf", "./browserData/browserProfile")
       await bash.cp("-rf", "./browserData/browserProfileClean", "./browserData/browserProfile");
 
-      resolve(true)
+      setTimeout(() => {
+        resolve(true)
+      }, 3000);
     })
   }
 }

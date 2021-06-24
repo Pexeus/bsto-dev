@@ -43,11 +43,19 @@ function updateSeasons(showID, newSeasons) {
 
         //represents the index of the most current season that is already in the DB
         let lastSavedSeason = 0
+        //counts the number of corruptions during the update process
+        let corruptions = 0
 
         for (season of currentSeasons) {
             //updating current season
             console.log("Updating Season " + (lastSavedSeason + 1));
-            await updateSeason(season, newSeasons[lastSavedSeason].episodes)
+            if (newSeasons[lastSavedSeason] != undefined) {
+                corruptions += await updateSeason(season, newSeasons[lastSavedSeason].episodes)
+            }
+            else {
+                console.log("Season got removed from bs.to, keeping episodes");
+                corruptions += 1
+            }
             
             //updating season index
             lastSavedSeason = lastSavedSeason + 1
@@ -59,10 +67,9 @@ function updateSeasons(showID, newSeasons) {
         for(i = lastSavedSeason; i < newSeasons.length; i++) {
             const newSeason = newSeasons[i]
             await insertSeason(showID, newSeason)
-
         }
 
-        resolve(true)
+        resolve(corruptions)
     })
 }
 
@@ -79,6 +86,8 @@ function updateSeason(season, newEpisodes) {
 
         //represents the index of the most current episode that is already in the DB
         let episodeIndex = 0
+        //counts the number of corruptions dedected during the update process
+        let corruptions = 0
 
         for (const episode of seasonEpisodes) {
             const newEpisode = newEpisodes[episodeIndex]
@@ -109,6 +118,7 @@ function updateSeason(season, newEpisodes) {
                     }
                     else {
                         console.log("[!] Possible Data corruption: Episode Titles do not match");
+                        corruptions++
                     }
                 }
 
@@ -117,6 +127,7 @@ function updateSeason(season, newEpisodes) {
             }
             else {
                 console.log("[!] Possible Data corruption: Updated Season is shorter than before");
+                corruptions++
             }
 
             //updating index
@@ -141,7 +152,7 @@ function updateSeason(season, newEpisodes) {
             }
         }
 
-        resolve(true)
+        resolve(corruptions)
     })
 }
 
@@ -252,6 +263,8 @@ module.exports = {
     },
     show: async newData => {
         return new Promise(async resolve => {
+            const maxCorruptions = 2
+            let corruptions
             let showID
 
             showID = await getShowID(newData.title)
@@ -260,13 +273,21 @@ module.exports = {
                 showID = await registerShow(newData)
             }
 
-            const seasonStatus = await updateSeasons(showID, newData.seasons)
+            corruptions = await updateSeasons(showID, newData.seasons)
 
-            console.log(seasonStatus);
+            //if corruptions are above maximum, delete and register as new show
+            if (corruptions > maxCorruptions) {
+                console.log(`[!] Too many corruptions [${corruptions}/${maxCorruptions}] -> registering as new show...`);
+                await removeShow(newData.title)
+                showID = await registerShow(newData)
+
+                corruptions = await updateSeasons(showID, newData.seasons)
+            }
 
             resolve({
                 showID: showID,
-                status: seasonStatus
+                status: true,
+                corruptions: corruptions
             })
         })
     },

@@ -33,6 +33,7 @@
       "parser": "babel-eslint"
     },
     "rules": {
+      "no-async-promise-executor-functions": "off",
       "no-unused-vars": "off"
     }
   },

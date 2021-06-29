@@ -4,10 +4,9 @@ const cp = require("child_process")
 
 const scraper = require("./src/scraper")
 const request = require("./src/request")
-const { resolve } = require("path")
 
 const app = express()
-const port = 87
+const port = 80
 const sources = {}
 
 app.get("/:code", async (req, res) => {
@@ -15,8 +14,6 @@ app.get("/:code", async (req, res) => {
         const code = req.params.code
         let source = sources[code]
         let range = req.headers.range
-
-        await scraper.init()
 
         console.log("Proxying " + code);
 
@@ -37,8 +34,6 @@ app.get("/:code", async (req, res) => {
             range = "bytes=0-0"
         }
 
-        console.log("Piping from: " + source);
-
         axios.get(source, {
             responseType: 'stream',
             headers: {
@@ -56,6 +51,13 @@ app.get("/:code", async (req, res) => {
         res.end(String(err))
     }
 })
+
+async function init() {
+    app.listen(port, async () => {
+        await scraper.init()
+        console.log("listening on " + port);
+    })
+}
 
 function execute(cmd) {
     return new Promise(resolve => {
@@ -83,12 +85,6 @@ function execute(cmd) {
         process.on("close", code => {
             console.log(`child process exited with code ${code}`);
         });
-    })
-}
-
-async function init() {
-    app.listen(port, async () => {
-        console.log("listening on " + port);
     })
 }
 

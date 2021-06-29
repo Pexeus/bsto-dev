@@ -5,7 +5,7 @@ module.exports = {
     init: async () => {
         return new Promise(async resolve => {
             session.browser = await puppeteer.launch({
-                headless: true,
+                headless: false,
                 defaultViewport: null,
                 args: [
                     '--no-sandbox',

@@ -18,7 +18,8 @@ import { reactive } from "vue"
 export default {
   name: 'Header',
   props: {
-    pageActive: Number
+    pageActive: Number,
+    dialog: Boolean
   },
   setup(props, context) {
       let elems = document.getElementsByTagName("p")
@@ -38,11 +39,7 @@ export default {
       }
 
       const logout = () => {
-        let logoutDialog = confirm("are you sure?")
-        if(logoutDialog) {
-          localStorage.removeItem("jwt")
-          context.emit("loggedOut")
-        }
+        context.emit("showDialog")
       }
 
       setTimeout(() => {

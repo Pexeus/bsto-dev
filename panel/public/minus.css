@@ -22,7 +22,6 @@ img {
 input[type="text"] {
     border: 0;
     padding: 4px;
-    margin-bottom: 8px;
     outline: none;
     box-shadow: 0px 0px 2px var(--shadow);
 }

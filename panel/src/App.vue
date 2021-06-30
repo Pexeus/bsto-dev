@@ -12,6 +12,8 @@ import Dialog from "./components/Dialog"
 import Login from "./components/Login"
 import Header from './components/Header.vue'
 import Shows from './components/Shows.vue'
+import Show from './components/Show'
+import {reactive} from "vue"
 
 export default {
   name: 'App',
@@ -32,7 +34,12 @@ export default {
       data.pageActive = id
     }
 
-    const decodeToken = (token) => {
+    function openShow(id) {
+      console.log(id);
+      data.show = id
+    }
+
+    function decodeToken(token) {
           let payload = token.replace(/-/g, '+').replace(/_/g, '/').split('.')[1]
           payload = JSON.parse(Buffer.from(payload, 'base64').toString())
           return payload

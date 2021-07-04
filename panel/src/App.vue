@@ -13,7 +13,6 @@ import Login from "./components/Login"
 import Header from './components/Header.vue'
 import Shows from './components/Shows.vue'
 import Show from './components/Show'
-import {reactive} from "vue"
 
 export default {
   name: 'App',

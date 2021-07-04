@@ -14,6 +14,9 @@ const grabber = require("./routes/grabber")
 app.use(epxress.json({limit: '50mb'}))
 app.use(cors())
 
+
+app.use(express.static("../panel/dist"))
+
 app.use("/queue", queue)
 app.use("/logger", logger)
 app.use("/update", update)

@@ -6,7 +6,7 @@ const scraper = require("./src/scraper")
 const request = require("./src/request")
 
 const app = express()
-const port = 87
+const port = 80
 const sources = {}
 
 app.use("/", express.static("./client"))
@@ -91,8 +91,6 @@ app.get("/pipe", async (req, res) => {
             range = "bytes=0-0"
         }
 
-        console.log("Piping from: " + source);
-
         axios.get(source, {
             responseType: 'stream',
             headers: {
@@ -113,6 +111,13 @@ app.get("/pipe", async (req, res) => {
         res.end(String(err))
     }
 })
+
+async function init() {
+    app.listen(port, async () => {
+        await scraper.init()
+        console.log("listening on " + port);
+    })
+}
 
 function execute(cmd) {
     return new Promise(resolve => {

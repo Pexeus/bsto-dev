@@ -12,7 +12,6 @@ import Dialog from "./components/Dialog"
 import Login from "./components/Login"
 import Header from './components/Header.vue'
 import Shows from './components/Shows.vue'
-import Show from './components/Show'
 
 export default {
   name: 'App',
@@ -107,5 +106,12 @@ export default {
 </script>
 
 <style>
+*::-webkit-scrollbar {
+  display: none;
+}
 
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; 
+}
 </style>

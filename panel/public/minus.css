@@ -132,6 +132,20 @@ button.-green {
     border-top-right-radius: 8px;
 }
 
+.-status {
+    padding: 3px;
+    color: var(--white);
+    display: inline-block;
+    border-radius: 3px;
+}
+  
+.-status.-green {
+    background-color: var(--green);
+}
+.-status.-red {
+    background-color: var(--red);
+}
+
 button, input[type=submit], input[type=file] {
     border: 0;
     background-color: var(--white);

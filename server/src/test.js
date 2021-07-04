@@ -6,7 +6,7 @@ let info = require("./info")
 let grab = require("./grabber")
 
 const init = async () => {
-    let meta = await grab.metaWeb("Welpenakademie")
+    let meta = await grab.metaWeb("Power Rangers R.P.M.")
     console.log(meta);
 }
 

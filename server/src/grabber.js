@@ -502,7 +502,7 @@ module.exports = {
                                                 }
                                             }
                                             if(actsStr.split(",").join(";") == "undefined") {
-                                                out.actors = "undefined"
+                                                out.actors = undefined
                                             }
                                             else {
                                                 out.actors = cleanText(actsStr.split(",").join(";") + ";")
@@ -595,7 +595,7 @@ module.exports = {
                                             }
                                             
                                             if(authStr.split(",").join(";") == "undefined") {
-                                                out.authors = "unknown"
+                                                out.authors = undefined
                                             }
                                             else {
                                                 out.authors = cleanText(authStr.split(",").join(";") + ";")

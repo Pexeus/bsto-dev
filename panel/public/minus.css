@@ -1,0 +1,158 @@
+/* minus.css v1.0.0 */
+* {
+    margin: 0;
+    padding: 0;
+    color: #212529;
+    transition: all ease-in-out .3s;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: white;
+}
+
+h1, h2, h3 {
+    color: #293241;
+}
+
+img {
+    object-fit: cover;
+}
+
+input[type="text"] {
+    border: 0;
+    padding: 4px;
+    outline: none;
+    box-shadow: 0px 0px 2px var(--shadow);
+}
+
+input[type="text"]:focus {
+    box-shadow: 0px 0px 3px var(--shadow);
+}
+
+:root {
+    --white:#F9F9FA;
+    --shadow: #adb5bd;
+    --green: #28b393;
+    --red: #ce3636;
+    --blue: #00868f;
+    --lblue:#00868f7b;
+    --text: #212529;
+    --ltext: #212529ba;
+    --lgray: #adb5bd5c;
+}
+
+.-green {
+    color: #28b393
+}
+
+.-red {
+    color: #ce3636
+}
+
+.-blue {
+    color: #00868f;
+}
+
+.-bold {
+    font-weight: bold;
+}
+
+button.-red {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+button.-green {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+.-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--white);
+    box-shadow: 0px 0px 3px var(--shadow);
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.-header-right, .-header-left {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.-header-right * {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.-header-right p {
+    cursor: pointer;
+    font-weight: bold;
+    opacity: .8;
+    padding: 6px;
+}
+
+.-header-right p:hover {
+    opacity: .6;
+}
+
+.-content {
+    margin-top: 71px;
+}
+
+.-box {
+    display: inline-block;
+    position: relative;
+    background-color: var(--white);
+    padding: 8px;
+    box-shadow: 0px 0px 3px var(--shadow);
+    margin: 10px;
+    vertical-align: top;
+    z-index: 10;
+}
+
+.-box img {
+    margin: -8px;
+    margin-bottom: 8px
+}
+
+.-round {
+    border-radius: 8px;
+}
+
+.-round img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+button, input[type=submit], input[type=file] {
+    border: 0;
+    background-color: var(--white);
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 3px var(--shadow);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.-button-blue {
+    background-color: var(--blue);
+    color: var(--white)
+}
+
+button:hover {
+    box-shadow: 0px 0px 6px var(--shadow);
+}
+
+textarea {
+    border: 0;
+    box-shadow: 0px 0px 3px var(--shadow);
+    resize: none;
+}

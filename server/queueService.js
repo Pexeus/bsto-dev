@@ -19,7 +19,8 @@ async function updateQueue(cache) {
         }
         
         for (show of shows) {
-            const updateRequired = await grabber.compareShow(show)
+            const updateInfo = await grabber.compareShow(show)
+            const updateRequired = updateInfo.status
             
             if (updateRequired) {
                 queue.add({

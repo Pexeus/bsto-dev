@@ -9,27 +9,84 @@ const app = express()
 const port = 80
 const sources = {}
 
-app.get("/:code", async (req, res) => {
+app.use("/", express.static("./client"))
+
+app.get("/source/:code", async (req, res) => {
+    const code = req.params.code
+    let source = sources[code]
+
+    console.log(code);
+
+    if (source != undefined) {
+        const status = await request.check(source)
+        console.log(status);
+    }
+
+    if (source == undefined) {
+        await scraper.init()
+        source = await scraper.getSource(code)
+        
+        await execute("pkill chrome")
+        await execute("pgrep chrome")
+
+        sources[code] = source
+    }
+    
+    console.log(console.log(`Source: ${source}`));
+
+    res.end(source)
+})
+
+app.get("/auto/:code", async (req, res) => {
+    const code = req.params.code
+    let range = req.headers.range
+    let source = sources[code]
+
+    if (source == undefined) {
+        await scraper.init()
+        source = await scraper.getSource(code)
+        
+        await execute("pkill chrome")
+        await execute("pgrep chrome")
+
+        sources[code] = source
+    }
+    
+    console.log(`Source: ${source}`)
+
     try {
-        const code = req.params.code
-        let source = sources[code]
-        let range = req.headers.range
-
-        console.log("Proxying " + code);
-
-        if (source != undefined) {
-            const status = await request.check(source)
-            console.log(status);
+        if (range == undefined) {
+            range = "bytes=0-0"
         }
 
-        if (source == undefined) {
-            source = await scraper.getSource(code)
-            sources[code] = source
-        }
-        else {
-            console.log(`Source cached: ${source}`);
-        }
+        console.log("Piping from: " + source);
 
+        axios.get(source, {
+            responseType: 'stream',
+            headers: {
+                Range: range
+            }
+        })
+        .then((stream) => {
+            console.log("piping now");
+            res.writeHead(stream.status, stream.headers)
+            stream.data.pipe(res)
+        })
+        .catch(err => {
+            res.end(String(err))
+        })
+    }
+    catch(err) {
+        console.log(err)
+        res.end(String(err))
+    }
+})
+
+app.get("/pipe", async (req, res) => {
+    let range = req.headers.range
+    const source = req.query.src
+
+    try {
         if (range == undefined) {
             range = "bytes=0-0"
         }
@@ -44,6 +101,9 @@ app.get("/:code", async (req, res) => {
             console.log("piping now");
             res.writeHead(stream.status, stream.headers)
             stream.data.pipe(res)
+        })
+        .catch(err => {
+            res.end(String(err))
         })
     }
     catch(err) {
@@ -65,26 +125,32 @@ function execute(cmd) {
         const args = cmd.split(" ")
         args.splice(0, 1)
 
-        console.log(command, args);
-
         const process = cp.spawn(command, args)
-        resolve(true)
 
         process.stdout.on("data", data => {
-            console.log(`${cmd}: ${data}`);
+            console.log(`${data}`);
         });
         
         process.stderr.on("data", data => {
-            console.log(`${cmd}: ${data}`);
+            console.log(`error: ${data}`);
         });
         
         process.on('error', (error) => {
-            console.log(`${cmd}: ${error.message}`);
+            console.log(`error: ${error.message}`);
         });
         
         process.on("close", code => {
-            console.log(`child process exited with code ${code}`);
+            resolve(true)
         });
+    })
+}
+
+async function init() {
+    await execute(`sudo fuser -k ${port}/tcp`)
+
+    app.listen(port, async () => {
+        console.clear()
+        console.log("listening on " + port);
     })
 }
 

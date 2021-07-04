@@ -1,0 +1,91 @@
+<template>
+  <Login v-if="!data.isLoggedIn" @loggedIn="storeToken($event)"/>
+  <Header v-if="data.isLoggedIn" @pageChanged="setActivePage($event)" :pageActive="data.pageActive" @loggedOut="logout()"/>
+  <Shows v-if="data.isLoggedIn && data.pageActive == 0"/>
+</template>
+
+<script>
+import { reactive } from "vue"
+
+import Login from "./components/Login"
+import Header from './components/Header.vue'
+import Shows from './components/Shows.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Header,
+    Shows,
+    Login
+  },
+  setup() {
+    const data = reactive({
+      pageActive:0,
+      isLoggedIn: false
+    })
+
+    const setActivePage = (id) => {
+      //console.log("pageActive =>", id)
+      data.pageActive = id
+    }
+
+    function openShow(id) {
+      console.log(id);
+      data.show = id
+    }
+
+    function decodeToken(token) {
+          let payload = token.replace(/-/g, '+').replace(/_/g, '/').split('.')[1]
+          payload = JSON.parse(Buffer.from(payload, 'base64').toString())
+          return payload
+    }
+
+    const checkToken = () => {
+      let token = localStorage.jwt
+      if(token != undefined) {
+          let decoded = decodeToken(token)
+          if(decoded.iat < decoded.exp) {
+            return true
+          }
+          else return false
+      }
+      else return false
+    }
+
+    const storeToken = (e) => {
+      localStorage.setItem("jwt", e)
+      let check = checkToken()
+      if(check) {
+        data.isLoggedIn = true
+      }
+    }
+
+    const logout = () => {
+      let token = checkToken()
+
+      if(!token) {
+        data.isLoggedIn = false
+      }
+    }
+
+    let check = checkToken()
+    if(check) {
+      data.isLoggedIn = true
+    }
+
+
+    return { data, setActivePage, storeToken, logout }
+  }
+}
+</script>
+
+<style>
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; 
+}
+</style>

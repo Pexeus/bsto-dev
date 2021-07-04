@@ -1,4 +1,3 @@
-const { resolve6 } = require('dns');
 const eventsModule = require('events');
 const wit = require("./wit")
 
@@ -7,7 +6,8 @@ const timer = ms => new Promise(res => setTimeout(res, ms))
 
 var browser
 var tab
-var alive
+var activated
+var initiated = false
 
 const status = {
     error: undefined,
@@ -18,17 +18,23 @@ module.exports = {
     initiate: async config => {
         return new Promise(async resolve => {
             browser = config.browser
-            alive = true
+
+            tab = await getCurrentTab()
+            
+            activated = true
 
             browser.on("targetcreated", async () => {
+                console.log("[B] New Tab");
+
                 let newTab = await getCurrentTab()
                 tab = newTab
 
                 initStatus()
             })
 
-            tab = await getCurrentTab()
-            findCaptchas()
+            if (initiated == false) {
+                findCaptchas()
+            }
 
             resolve(events)
         })
@@ -37,16 +43,114 @@ module.exports = {
         return status
     },
     exit: () => {
-        return new Promise(resolve => {
-            alive = false
+        return new Promise(async resolve => {
+            activated = false
+
+            await timer(3000)
+
+            console.log("[B] Buster deactivated");
+            resolve(true)
         })
     }
+}
+
+//continously search for captchas on the current bsto page
+async function findCaptchas() {
+    const bframeURL = "https://www.google.com/recaptcha/api2/bframe"
+    initiated = true
+
+    console.log("[B] Looking for Captchas...");
+    var search = true
+
+   setInterval(async () => {
+    if (activated == true) {
+        if (search == true && tab != undefined) {
+            setStatus("scanning")
+            //console.log("[B] checking tab status");
+            const tabChanged = await checkTabStatus()
+
+            if (tabChanged) {
+                await initStatus()
+            }
+
+            //console.log("[B] getting frames");
+            const frames = await getFrames()
+
+            for (frame of frames) {
+                if (frame._url.includes(bframeURL)) {
+                    let captchaReady = false
+                    
+                    try {
+                        captchaReady = await tab.evaluate(() => {
+                            const bframeURL = "https://www.google.com/recaptcha/api2/bframe"
+                            const frames = document.querySelectorAll("iframe")
+
+                            let result = false
+
+                            try {
+                                frames.forEach(frame => {
+                                    if (frame.src.includes(bframeURL)) {    
+                                        const visibility = frame.parentElement.parentElement.style.visibility
+        
+                                        if (visibility == "visible") {
+                                            result = true
+                                        }
+                                    }
+                                })
+                            }
+                            catch {
+                                result = false
+                            }
+
+                            return result
+                        });
+                    }
+                    catch {
+                        console.log("failed to evlauate in captcha searcher"); 
+                        captchaReady = false
+                    }
+
+                    //console.log("[B] Captcha ready: " + captchaReady);
+
+                    if (captchaReady) {
+                        console.log("[B] captcha Found!");
+                        events.emit("captcha", frame)
+                        search = false
+                    }
+                }
+            }
+        }
+        else {
+            //if the buster is currently solving stuff, keep checking for the tab to change (reload, new url)
+            //if the tab changes/captcha dissapears, go back to searching for captchas
+
+            if (status.current == "solving" || status.current == "error") {
+                //console.log("[B] Checking Tab Status")
+                const tabChanged = await checkTabStatus()
+                if (tabChanged == true) {
+                    if (tabChanged) {
+                        //console.log("[B] initiating tab status");
+                        await initStatus()
+                    }
+                    search = true
+                }
+            }
+            else {
+                search = true
+            }
+        }
+    }
+
+    if (status.current != "solving") {
+        setStatus("waiting")
+    }
+   }, 500);
 }
 
 //solve incoming captchas
 events.on("captcha", async frame => {
     setStatus("solving")
-    console.log("[C] Captcha dedected");
+    console.log("[B] Captcha dedected");
 
     const isWorking = await checkCaptcha(frame)
 
@@ -60,7 +164,7 @@ events.on("captcha", async frame => {
 
             //get challenge solution
             const solution = await getSolution(audioSource)
-            console.log("[C] Captcha Solution: " + solution);
+            console.log("[B] Captcha Solution: " + solution);
 
             await insertSolution(frame, solution)
             const redo = await checkRedo(frame)
@@ -87,7 +191,7 @@ events.on("captcha-redo", async frame => {
 
         //get challenge solution
         const solution = await getSolution(audioSource)
-        console.log("[C] Captcha Solution: " + solution);
+        console.log("[B] Captcha Solution: " + solution);
 
         await insertSolution(frame, solution)
         const redo = await checkRedo(frame)
@@ -131,8 +235,6 @@ async function initStatus() {
 
 async function setStatus(newStatus) {
     status.current = newStatus
-
-    //console.log("setting status to: " + newStatus);
 
     try {
         await tab.evaluate(newStatus => {    
@@ -180,13 +282,14 @@ function getCurrentTab() {
 //in case of a reload or otherwise, prepare the tab
 function getFrames() {
     return new Promise(async resolve => {
-        const tabChanged = await checkTabStatus()
+        let frames = []
 
-        if (tabChanged) {
-            await initStatus()
+        try {
+            frames = await tab.frames()
         }
-
-        const frames = await await tab.frames()
+        catch {
+            console.log("[B] Cant get Frames of Tab");
+        }
 
         resolve(frames)
     })
@@ -210,103 +313,12 @@ function checkTabStatus() {
             })
         }
         catch {
-            await timer(1000)
-            console.log("[B] Cannot check tab status");
+            //console.log("[B] Cant check tab status");
         }
 
         //console.log("[B] Tab Status " + tabStatus);
         resolve(tabStatus)
     })
-}
-
-//continously search for captchas on the current bsto page
-async function findCaptchas() {
-    const bframeURL = "https://www.google.com/recaptcha/api2/bframe"
-
-    console.log("[B] Looking for Captchas...");
-    var search = true
-
-    while (alive) {
-
-        //console.log("[B] Tab Known: " + `${tab != undefined}`);
-        //console.log("[B] Search: " + search);
-        //console.log("[B] Status: " + status.current);
-
-        if (search == true && tab != undefined) {
-            const frames = await getFrames()
-            setStatus("dedecting")
-
-            for (frame of frames) {
-                if (frame._url.includes(bframeURL)) {
-                    let captchaReady = false
-
-                    try {
-                        captchaReady = await tab.evaluate(() => {
-                            const bframeURL = "https://www.google.com/recaptcha/api2/bframe"
-                            const frames = document.querySelectorAll("iframe")
-
-                            let result = false
-
-                            frames.forEach(frame => {
-                                try {
-                                    if (frame.src.includes(bframeURL)) {    
-                                        const visibility = frame.parentElement.parentElement.style.visibility
-                                        console.log(visibility);
-                                        console.log(visibility == "visible");
-        
-                                        if (visibility == "visible") {
-                                            result = true
-                                        }
-                                    }
-                                }
-                                catch(error) {
-                                    console.log("[B] Failed to evaluate in Captcha");
-                                }
-                            })
-
-                            return result
-                        });
-                    }
-                    catch(error) {
-                        console.log("failed to evlauate in captcha searcher"); 
-                        captchaReady = false
-                    }
-
-                    if (captchaReady) {
-                        console.log("[B] captcha Found!");
-                        events.emit("captcha", frame)
-                        search = false
-                    }
-                    else {
-                        setStatus("waiting")
-                    }
-                    
-                }
-            }
-        }
-        else {
-            //if the buster is currently solving stuff, keep checking for the tab to change (reload, new url)
-            //if the tab changes/captcha dissapears, go back to searching for captchas
-            
-            if (status.current == "solving" || status.current == "error") {
-                console.log("[B] Checking Tab Status");
-                const tabChanged = await checkTabStatus()
-                console.log("[B] Checking Tab Status DONE");
-                if (tabChanged == true) {
-                    if (tabChanged) {
-                        console.log("[B] Initiating Status");
-                        await initStatus()
-                    }
-                    search = true
-                }
-            }
-            else {
-                search = true
-            }
-        }
-
-        await timer(500)
-    }
 }
 
 
@@ -316,7 +328,7 @@ async function insertSolution(frame, solution) {
     return new Promise(async (resolve) => {
         try {
             await frame.focus('#audio-response')
-            await tab.keyboard.type(solution)
+            await tab.keyboard.type(String(solution))
 
             await frame.click("#recaptcha-verify-button")
 
@@ -346,46 +358,55 @@ async function getSolution(src) {
 async function checkRedo(frame) {
     console.log("[B] Checking Redo...");
     return new Promise(async resolve => {
+        await timer(3000)
+
+        const errorMessages = ["please solve more", "Bitte weitere Aufgaben lösen"]
+
         let result = false
-        let isOpen = false
-        await timer(2000)
+        let isOpen = true
+        let errorMessage
+        let errorElement
 
         try {
-            isOpen = await tab.evaluate(() => {
-                const arrowElement = document.querySelector('.g-recaptcha-bubble-arrow');
-    
-                if (arrowElement != null) {
-                    const captchaElement = arrowElement.parentElement
-    
-                    if (captchaElement.style.visibility == "visible") {
-                        return true
-                    }
-                }
-    
-                return false
-            });
+            await frame.$(".rc-audiochallenge-error-message")
         }
         catch {
-            console.log("[C] Cannot call Captcha for redo check1");
+            console.log("[B] Cannot call Captcha for redo check");
+            isOpen = false
         }
 
         if (isOpen == true) {
-            const errorElement = await frame.$('.rc-audiochallenge-error-message')
-            const inner = await errorElement.getProperty('innerHTML');
-            const errorMessage = await inner.jsonValue();
-
-            if (errorMessage == "Multiple correct solutions required - please solve more.") {
-                console.log("[C] Multiple solutions required")
-
-                result = true
-            }
-        }
-
-        if (!result) {
-            setStatus("dedecting")
-            console.log("[C] Captcha solved!")
+            errorElement = await frame.$(".rc-audiochallenge-error-message")
+            const prop = await errorElement.getProperty('innerHTML');
+            errorMessage = await prop.jsonValue();
+            
+            errorMessages.forEach(msg => {
+                if(errorMessage.includes(msg)) {
+                    console.log(errorMessage.includes(msg));
+                    result = true
+                }
+            })
         }
         
+        if (false) {
+            console.log("-----------------");
+            console.log("errorElement Length", String(errorElement).length);
+            console.log("isOpen:", isOpen);
+            console.log("message:", errorMessage);
+            console.log("result:", result);
+            console.log("-----------------");
+        }
+
+        if (result == false) {
+            setStatus("waiting")
+            console.log("[B] Captcha solved!")
+        }
+        
+        if (result == true) {
+            console.log("[B] Multiple solutions required")
+        }
+        
+
         resolve(result)
     })
 }
@@ -465,8 +486,9 @@ async function checkBlindBlock(frame) {
                 const errorMessage = await inner.jsonValue();
                         
                 if (errorMessage.includes("Your computer or network may be sending automated queries.")) {
-                    console.log("[C] need new IP")
+                    console.log("[B] need new IP")
                     
+                    setStatus("error")
                     events.emit("error", "ip")
                     resolve(true)
                 }

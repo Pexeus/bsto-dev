@@ -1,9 +1,7 @@
 const cheerio = require("cheerio")
 const axios = require("axios")
-const fs = require("fs")
 
 const knex = require("../db/connection")
-const { resolve } = require("path")
 const db = knex.getDB()
 
 
@@ -425,9 +423,15 @@ module.exports = {
                                         }
                                         for(z of values_fixed) {
                                             if(values_fixed.length == 1) {
-                                                let dates = values_fixed[0].children[0].data.split(" - ")
-                                                out.fromYear = parseInt(dates[0])
-                                                out.toYear = parseInt(dates[1]) || 0
+                                                if(values_fixed[0].children[0].data != undefined) {
+                                                    let dates = values_fixed[0].children[0].data.split(" - ")
+                                                    out.fromYear = parseInt(dates[0])
+                                                    out.toYear = parseInt(dates[1]) || 0
+                                                }
+                                                else {
+                                                    out.toYear = undefined
+                                                    out.fromYear = undefined
+                                                }
                                             }
                                         }
                                     }
@@ -548,7 +552,7 @@ module.exports = {
                                             }
                                             
                                             if(authStr.split(",").join(";") == "undefined") {
-                                                out.authors = undefined
+                                                out.authors = "unknown"
                                             }
                                             else {
                                                 out.authors = cleanText(authStr.split(",").join(";") + ";")

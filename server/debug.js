@@ -1,8 +1,20 @@
 const fs = require("fs")
-const detectCharacterEncoding = require('detect-character-encoding');
 
 const updater = require("./src/updater")
 const grabber = require("./src/grabber")
+const info = require("./src/info")
+
+async function userActivity() {
+    const activities = await info.userActivity()
+    let i = 0
+    activities.forEach(activity => {
+        const uInfo = `${activity.user}: ${activity.episode} [${activity.relative} Ago]`
+        console.log(uInfo);
+        i++
+    })
+
+    console.log(i);
+}
 
 async function testShowUpdater() {
     const show = JSON.parse(fs.readFileSync("./show.json"))
@@ -69,4 +81,9 @@ function scatterShow(show) {
     return show
 }
 
-metaTester()
+async function deleteShow(title) {
+    await updater.delete(title)
+    console.log("show deleted");
+}
+
+deleteShow("Welpenakademie")

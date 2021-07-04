@@ -1,12 +1,14 @@
 <template>
   <Login v-if="!data.isLoggedIn" @loggedIn="storeToken($event)"/>
-  <Header v-if="data.isLoggedIn" @pageChanged="setActivePage($event)" :pageActive="data.pageActive" @loggedOut="logout()"/>
+  <Header @showDialog="showDialog()" v-if="data.isLoggedIn" @pageChanged="setActivePage($event)" :pageActive="data.pageActive"/>
   <Shows v-if="data.isLoggedIn && data.pageActive == 0"/>
+  <Dialog @dialogSubmit="submitDialog($event)" />
 </template>
 
 <script>
 import { reactive } from "vue"
 
+import Dialog from "./components/Dialog"
 import Login from "./components/Login"
 import Header from './components/Header.vue'
 import Shows from './components/Shows.vue'
@@ -16,12 +18,13 @@ export default {
   components: {
     Header,
     Shows,
-    Login
+    Login,
+    Dialog
   },
   setup() {
     const data = reactive({
       pageActive:0,
-      isLoggedIn: false
+      isLoggedIn: false,
     })
 
     const setActivePage = (id) => {
@@ -38,6 +41,17 @@ export default {
           let payload = token.replace(/-/g, '+').replace(/_/g, '/').split('.')[1]
           payload = JSON.parse(Buffer.from(payload, 'base64').toString())
           return payload
+    }
+
+    const submitDialog = (e) => {
+        if(e) {
+          // disable dialog + logout
+          hideDialog()
+          logout()
+        }
+        else { 
+          hideDialog()
+        }
     }
 
     const checkToken = () => {
@@ -60,7 +74,19 @@ export default {
       }
     }
 
+    const showDialog = () => {
+      let dialog = document.getElementById("dialog")
+      dialog.style.visibility = "visible"
+    }
+
+    const hideDialog = () => {
+      let dialog = document.getElementById("dialog")
+      dialog.style.visibility = "hidden"
+    }
+
     const logout = () => {
+      localStorage.removeItem("jwt")
+
       let token = checkToken()
 
       if(!token) {
@@ -74,7 +100,7 @@ export default {
     }
 
 
-    return { data, setActivePage, storeToken, logout }
+    return { data, setActivePage, storeToken, logout, submitDialog, showDialog }
   }
 }
 </script>

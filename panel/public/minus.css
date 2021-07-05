@@ -35,6 +35,7 @@ input[type="text"]:focus {
     --shadow: #adb5bd;
     --green: #28b393;
     --red: #ce3636;
+    --orange: orange;
     --blue: #00868f;
     --lblue:#00868f7b;
     --text: #212529;
@@ -144,6 +145,9 @@ button.-green {
 }
 .-status.-red {
     background-color: var(--red);
+}
+.-status.-orange {
+    background-color: var(--orange);
 }
 
 button, input[type=submit], input[type=file] {

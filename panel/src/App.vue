@@ -2,6 +2,7 @@
   <Login v-if="!data.isLoggedIn" @loggedIn="storeToken($event)"/>
   <Header @showDialog="showDialog()" v-if="data.isLoggedIn" @pageChanged="setActivePage($event)" :pageActive="data.pageActive"/>
   <Shows v-if="data.isLoggedIn && data.pageActive == 0"/>
+  <Queue v-if="data.isLoggedIn && data.pageActive == 1"/>
   <Dialog @dialogSubmit="submitDialog($event)" />
 </template>
 
@@ -12,6 +13,7 @@ import Dialog from "./components/Dialog"
 import Login from "./components/Login"
 import Header from './components/Header.vue'
 import Shows from './components/Shows.vue'
+import Queue from "./components/Queue.vue"
 
 export default {
   name: 'App',
@@ -19,11 +21,12 @@ export default {
     Header,
     Shows,
     Login,
-    Dialog
+    Dialog,
+    Queue,
   },
   setup() {
     const data = reactive({
-      pageActive:0,
+      pageActive:1,
       isLoggedIn: false,
     })
 
@@ -75,6 +78,7 @@ export default {
     }
 
     const showDialog = () => {
+      console.log("visible dialog");
       let dialog = document.getElementById("dialog")
       dialog.style.visibility = "visible"
     }

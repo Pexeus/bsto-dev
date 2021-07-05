@@ -314,6 +314,20 @@ function cleanText(str) {
     return str
 }
 
+function getShowID(title) {
+    return new Promise(async resolve => {
+        const isRegistered = await db("shows")
+            .where({title: title})
+            .first()
+
+        if (isRegistered != undefined) {
+            resolve(isRegistered.ID)
+        }
+
+        resolve(false)
+    })
+}
+
 module.exports = {
     compare: () => {
         return new Promise(async resolve => {
@@ -335,12 +349,17 @@ module.exports = {
 
             const local = await statusLocal(show.title)
             const remote = await statusRemote(show.title)
+            let status = false
             
             if (local.episodes == remote.episodes) {
-                resolve(false)
+                status = true
             }
 
-            resolve(true)
+            resolve({
+                local: local,
+                remote: remote,
+                status: status
+            })
         })
     },
     episdesWeb(title) {
@@ -351,7 +370,31 @@ module.exports = {
             resolve(episodes)
         })
     },
-    metaWeb(showTitle) {
+    episdesLocal: title => {
+        console.clear()
+        return new Promise(async resolve => {
+            const show = []
+
+            const showID = await getShowID(title)
+            const seasons = await db("seasons")
+                .where({ID_show: showID})
+
+            for (const season of seasons) {
+                const result = []
+                const episodes = await db("episodes")
+                    .where({ID_show: showID, ID_season: season.ID_season})
+
+                
+                show.push({
+                    episodes: episodes
+                })
+            }
+
+            resolve(show)
+        })
+        
+    },
+    metaWeb: (showTitle) => {
         return new Promise(async resolve => {
             let all = await getAllShowsWeb()
             all.forEach(async show => {
@@ -459,7 +502,7 @@ module.exports = {
                                                 }
                                             }
                                             if(actsStr.split(",").join(";") == "undefined") {
-                                                out.actors = undefined
+                                                out.actors = "undefined"
                                             }
                                             else {
                                                 out.actors = cleanText(actsStr.split(",").join(";") + ";")
@@ -490,7 +533,7 @@ module.exports = {
                                             }
                                             
                                             if(prodStr.split(",").join(";") == "undefined") {
-                                                out.producers = undefined
+                                                out.producers = "undefined"
                                             }
                                             else {
                                                 out.producers = cleanText(prodStr.split(",").join(";") + ";")
@@ -521,7 +564,7 @@ module.exports = {
                                             }
                                             
                                             if(dirStr.split(",").join(";") == "undefined") {
-                                                out.directors = undefined
+                                                out.directors = "undefined"
                                             }
                                             else {
                                                 out.directors = cleanText(dirStr.split(",").join(";") + ";")
@@ -552,7 +595,7 @@ module.exports = {
                                             }
                                             
                                             if(authStr.split(",").join(";") == "undefined") {
-                                                out.authors = undefined
+                                                out.authors = "undefined"
                                             }
                                             else {
                                                 out.authors = cleanText(authStr.split(",").join(";") + ";")

@@ -86,4 +86,8 @@ async function deleteShow(title) {
     console.log("show deleted");
 }
 
-deleteShow("Welpenakademie")
+async function testChecker() {
+    const localEpisodes = await grabber.episdesLocal("Endlings")
+}
+
+testChecker()

@@ -4,7 +4,8 @@
   "description": "Install puppeteer Firefox: PUPPETEER_PRODUCT=firefox npm i puppeteer",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "cd ./server/ && npm i && cd .. && cd ./panel/ && npm run build &&  pm2 restart neoflix-dev"
   },
   "repository": {
     "type": "git",

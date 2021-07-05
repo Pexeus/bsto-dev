@@ -22,7 +22,7 @@ async function updateQueue(cache) {
             const updateInfo = await grabber.compareShow(show)
             const updateRequired = updateInfo.status
             
-            if (updateRequired) {
+            if (!updateRequired) {
                 queue.add({
                     title: show.title,
                     href: show.href,

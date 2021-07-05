@@ -412,7 +412,12 @@ module.exports = {
                     
                     for(child of children) {
                         if(child.name == "p") {
-                           out.desc = cleanText(child.children[0].data)
+                            if (child.children[0] != undefined) {
+                                out.desc = cleanText(child.children[0].data)
+                            }
+                            else {
+                                out.desc = "No Description found"
+                            }
                         }
                     }
 
@@ -472,8 +477,8 @@ module.exports = {
                                                     out.toYear = parseInt(dates[1]) || 0
                                                 }
                                                 else {
-                                                    out.toYear = undefined
-                                                    out.fromYear = undefined
+                                                    out.toYear = "unknown"
+                                                    out.fromYear = "unknown"
                                                 }
                                             }
                                         }

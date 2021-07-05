@@ -35,11 +35,6 @@ export default {
     async function init() {
       console.log(api.app + "/shows/all");
       data.shows = await get(api.app + "/shows/all")
-
-      //DEBUG:
-      setTimeout(() => {
-        document.getElementById("Adventure Inc.").click()
-      }, 100);
     }
 
     function openShow() {

@@ -1,7 +1,18 @@
 <template>
     <div class="queue">
         <div class="status" v-if="data.status != undefined">
-            <p v-if="data.status[0].pm2_env.status != ``" class="-status -red">{{data.status[0].pm2_env.status}}</p>
+            <div class="statusBlock">
+                <p>Queue Service: </p>
+                <p v-if="data.status[0].pm2_env.status == `stopped`" class="-status -red">{{data.status[0].pm2_env.status}}</p>
+            </div>
+            <div class="statusBlock">
+                <p v-if="data.scraper.lastJobRequest == 0" class="-status -red">Scraper Offline</p>
+                <p v-if="data.scraper.lastJobRequest != 0" class="-status -green">Scraper Online</p>
+                <p>Requested a Job {{data.scraper.lastJobRelative}} ago</p>
+            </div>
+            <div class="statusBlock">
+                <p>Shows in Queue: {{data.queue.length}}</p>
+            </div>
         </div>
         <div class="list">
             <div class="queueItem" v-for="show in data.queue" :key="show">
@@ -26,8 +37,27 @@ export default {
         async function init() {
             const queue = await get(api.dev + "/queue/status")
             console.log(queue);
+            console.log(queue.scraper.lastJobRequest);
+            queue.scraper.lastJobRelative = getTimeRelative(queue.scraper.lastJobRequest)
+
             Object.assign(data, queue)
-            console.log(data);
+        }
+
+        function getTimeRelative(time) {
+            if (time == 0) {
+                return false
+            }
+
+            let tDiff
+
+            if (Math.round((Date.now() - time) / 1000 / 60) < 60) {
+                tDiff = Math.round((Date.now() - time) / 1000 / 60) + " Minutes"
+            }
+            else{
+                tDiff = Math.round((Date.now() - time) / 1000 / 60 / 60) + " Hours"
+            }
+
+            return tDiff
         }
 
         init()
@@ -39,7 +69,7 @@ export default {
 
 <style scoped>
     .queue {
-        margin-top: 80px;
+        margin-top: 90px;
     }
 
     .status {
@@ -53,6 +83,15 @@ export default {
         box-shadow: 0px 0px 2px var(--shadow);
         background-color: var(--white);
         border-radius: 8px;
+    }
+
+    .statusBlock {
+        padding: 15px;
+    }
+
+    .statusBlock p {
+        display: inline-block;
+        margin-right: 10px;
     }
 
     .queueItem {

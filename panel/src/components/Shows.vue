@@ -4,6 +4,10 @@
       <p>{{show.ID}}</p>
       <p>{{show.title}}</p>
       <div class="buttonSection">
+        <button v-if="show.queueProcessing == undefined" class="-green" :id="show.title" @click="queueShow(show)">Queue</button>
+        <div v-if="show.queueProcessing == true"><i class="gg-spinner-alt"></i></div>
+        <div v-if="show.queueProcessing == `done`"><i class="gg-check-o"></i></div>
+        <div v-if="show.queueProcessing == `failed`"><i class="gg-close-o"></i></div>
         <button :id="show.ID" class="-green" @click="openShow()">Inspect</button>
         <button :id="show.title" class="-green" @click="openCheck()">Check</button>
       </div>
@@ -18,7 +22,7 @@
 
 <script>
 import {api} from "../config"
-import {get} from "../fetch"
+import {get, post} from "../fetch"
 import {reactive} from "vue"
 import Show from "./Show"
 import Check from "./Check"
@@ -62,9 +66,21 @@ export default {
       }, 100);
     }
 
+    async function queueShow(show) {
+      show.queueProcessing = true
+      const result = await post(api.dev + `/queue/add/${show.title}`)
+      
+      if (result.status == true) {
+        show.queueProcessing = "done"
+      }
+      else {
+        show.queueProcessing = "failed"
+      }
+    }
+
     init()
 
-    return {data, search, openShow, openCheck}
+    return {data, search, openShow, openCheck, queueShow}
   }
 }
 </script>
@@ -83,8 +99,31 @@ export default {
     box-shadow: 0px 0px 2px var(--shadow);
   }
 
+  .buttonSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .buttonSection button {
     margin-left: 20px;
+  }
+
+  .buttonSection div   {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    margin-left: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 3px var(--shadow);
+    background-color: var(--green)
+  }
+
+  .buttonSection div i {
+    filter: invert(1);
   }
 
   .search {

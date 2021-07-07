@@ -1,6 +1,10 @@
 <template>
   <div class="check" id="checkPanel">
-    <i class="gg-close" @click="closeShow()"></i>
+    <i v-if="data.set != undefined" class="gg-close" @click="closeShow()"></i>
+
+    <div v-if="data.set == undefined" class="loader">
+      <i class="gg-loadbar-alt"></i>
+    </div>
 
     <div v-if="data.set != undefined">
       <h1>{{data.title}}</h1>
@@ -78,7 +82,9 @@ export default {
     const debug = false
 
     async function init(title) {
+      console.log(data.set);
       console.log("Loading", title);
+      document.getElementById("checkPanel").classList.add("active")
       var dataset
 
       data.title = title
@@ -92,8 +98,6 @@ export default {
       console.log(analysis);
 
       data.analysis = analysis
-
-      document.getElementById("checkPanel").classList.add("active")
     }
 
     function checkLinkMatch(l1, l2) {
@@ -105,7 +109,6 @@ export default {
     }
 
     function analyze(set) {
-      console.log(set);
       const seasons = []
       var episodesMissing = false
 
@@ -187,6 +190,8 @@ export default {
     }
 
     function closeShow() {
+      data.set = undefined
+      data.analysis = undefined
       document.getElementById("checkPanel").classList.remove("active")
     }
 
@@ -213,6 +218,19 @@ export default {
     z-index: 200;
     padding: 15px;
     opacity: 0;
+  }
+
+  .loader {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loader i {
+    transform: scale(6);
   }
 
   h1 {

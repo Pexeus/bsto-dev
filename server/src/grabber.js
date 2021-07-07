@@ -345,9 +345,11 @@ module.exports = {
     },
     compareShow: show => {
         return new Promise(async resolve => {
-            console.log(`[ Checking ] ${show.title}`);
-
             const local = await statusLocal(show.title)
+            local.id = await getShowID(show.title)
+            
+            console.log(`[ Checking ${local.id} ] ${show.title}`);
+
             const remote = await statusRemote(show.title)
             let status = false
             
@@ -360,6 +362,13 @@ module.exports = {
                 remote: remote,
                 status: status
             })
+        })
+    },
+    getShowUrl: title => {
+        return new Promise(async resolve => {
+            const url = await getShowUrl(title)
+
+            resolve(url)
         })
     },
     episdesWeb(title) {
@@ -477,8 +486,8 @@ module.exports = {
                                                     out.toYear = parseInt(dates[1]) || 0
                                                 }
                                                 else {
-                                                    out.toYear = "unknown"
-                                                    out.fromYear = "unknown"
+                                                    out.toYear = 0
+                                                    out.fromYear = 0
                                                 }
                                             }
                                         }
@@ -612,9 +621,7 @@ module.exports = {
                             i+=1
                         }
                     }
-
                     resolve(out)
-                    
                 }
             })
         })

@@ -5,9 +5,8 @@ const queue = require("./src/queue")
 
 async function updateQueue(cache) {
     return new Promise(async resolve => {
-        console.log(cache);
-
         var shows
+        let i = 0
 
         if (cache == true) {
             shows = JSON.parse(fs.readFileSync("./json/shows.json"))
@@ -21,8 +20,11 @@ async function updateQueue(cache) {
         for (show of shows) {
             const updateInfo = await grabber.compareShow(show)
             const updateRequired = updateInfo.status
+
+            console.log(`${i} / ${shows.length}`);
+            i++
             
-            if (!updateRequired) {
+            if (!updateRequired) {  
                 queue.add({
                     title: show.title,
                     href: show.href,
@@ -32,6 +34,7 @@ async function updateQueue(cache) {
             }
         }
 
+        console.log(shows.length);
         resolve(true)
     })
 }

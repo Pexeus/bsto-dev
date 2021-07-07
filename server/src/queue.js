@@ -81,14 +81,25 @@ module.exports = {
 
         fs.writeFileSync(qFile, JSON.stringify([]))
     },
-    add: show => {
+    add: (show, priority) => {
         if (checkShow(show)) {
             console.log(`[ Adding ] ${show.title}`);
 
             const queue = get()
 
-            queue.push(show)
+            if (priority == true) {
+                queue.splice(2, 0, show);
+            }
+            else {
+                queue.push(show)
+            }
+
             set(queue)
+
+            return true
+        }
+        else {
+            return false
         }
     },
     job:() => {

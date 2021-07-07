@@ -26,7 +26,7 @@ export default {
   },
   setup() {
     const data = reactive({
-      pageActive:1,
+      pageActive: 1,
       isLoggedIn: false,
     })
 

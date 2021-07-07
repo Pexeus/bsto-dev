@@ -1,6 +1,11 @@
 <template>
   <div class="show" id="showPanel">
-    <i class="gg-close" @click="closeShow()"></i>
+    <i v-if="data.show != undefined" class="gg-close" @click="closeShow()"></i>
+
+    <div v-if="data.show == undefined" class="loader">
+      <i class="gg-loadbar-alt"></i>
+    </div>
+
     <div class="info"  v-if="data.show != undefined">
         <h2>{{data.show.info.title}}</h2>
         <div class="textimg">
@@ -49,11 +54,10 @@ export default {
     const globalUser = 3
 
     async function init(id) {
-        const show = await get(`${api.app}/episodes/${id}?UID=${globalUser}`)
-        console.log(show);
-        data.show = show
-
-        document.getElementById("showPanel").classList.add("active")
+      document.getElementById("showPanel").classList.add("active")
+      const show = await get(`${api.app}/episodes/${id}?UID=${globalUser}`)
+      console.log(show);
+      data.show = show
     }
 
     function closeShow() {
@@ -97,6 +101,19 @@ export default {
 
   .gg-close:hover {
     opacity: 1;
+  }
+
+  .loader {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loader i {
+    transform: scale(6);
   }
 
   .active {

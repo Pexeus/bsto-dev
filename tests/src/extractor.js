@@ -19,7 +19,9 @@ async function extractEpisodes() {
         }
     })
 
-    fs.writeFileSync("./json/episodes.json", JSON.stringify(out))
+    fs.writeFile("./json/episodes.json", JSON.stringify(out), err => {
+        console.log(err);
+    })
     console.log(out.length);
 }
 

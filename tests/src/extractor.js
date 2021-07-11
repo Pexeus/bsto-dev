@@ -19,8 +19,15 @@ async function extractEpisodes() {
         }
     })
 
-    fs.writeFile("./json/episodes.json", JSON.stringify(out), err => {
-        console.log(err);
+    fs.writeFile("./json/episodes.json", JSON.stringify(out), async err => {
+        if (!err) {
+            const check = fs.readFileSync("./json/episodes.json", "utf-8")
+            const obj = JSON.parse(check)
+            console.log(obj.length);
+        }
+        else {
+            console.log(err);
+        }
     })
     console.log(out.length);
 }

@@ -175,6 +175,7 @@ const checkLocal = (title) => {
 }
 
 const getShowEpisodes = (url) => {
+    console.log(url);
     return new Promise(async resolve => {
         let markup = await fetchHTML(url)
         let $ = cheerio.load(markup)
@@ -374,6 +375,7 @@ module.exports = {
     episdesWeb(title) {
         return new Promise(async resolve => {
             const url = await getShowUrl(title)
+            console.log(title, url);
             const episodes = await getShowEpisodes(url)
 
             resolve(episodes)

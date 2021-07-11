@@ -14,7 +14,7 @@ async function extractEpisodes() {
             out.push({
                 href: episode.bs_link,
                 title: episode.title,
-                vivo: episode.vivo
+                vivo: episode.vivo_link
             })
         }
     })
